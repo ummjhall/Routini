@@ -8,7 +8,7 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(100), nullable=False)
-    imageable_type = db.Column(db.ENUM('avatar', 'equipment', name='imageable_types'), nullable=False)
+    imageable_type = db.Column(db.Enum('avatar', 'equipment', name='imageable_types'), nullable=False)
     imageable_id = db.Column(db.Integer, nullable=False)
 
     avatar = db.relationship('Avatar', primaryjoin='and_(Image.imageable_type=="avatar", foreign(Image.imageable_id)==Avatar.id)', uselist=False)

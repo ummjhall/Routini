@@ -8,7 +8,7 @@ class Equipment(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.ENUM('head', 'main', 'armor', name='types'), nullable=False)
+    type = db.Column(db.Enum('head', 'main', 'armor', name='types'), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(255), nullable=False)
     cost = db.Column(db.Integer, nullable=False)
@@ -17,7 +17,6 @@ class Equipment(db.Model):
     image = db.relationship(
         'Image',
         primaryjoin='and_(Image.imageable_type=="equipment", foreign(Image.imageable_id)==Equipment.id)',
-        lazy='dynamic',
         cascade='all, delete-orphan',
         uselist=False
     )
