@@ -15,9 +15,9 @@ def seed_equipment():
 
 
 def undo_equipment():
-    if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.equipment RESTART IDENTITY CASCADE;")
+    if environment == 'production':
+        db.session.execute(f'TRUNCATE table {SCHEMA}.equipment RESTART IDENTITY CASCADE;')
     else:
-        db.session.execute(text("DELETE FROM equipment"))
+        db.session.execute(text('DELETE FROM equipment'))
 
     db.session.commit()
