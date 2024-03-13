@@ -8,6 +8,10 @@ Create Date: 2024-03-13 04:15:12.720275
 from alembic import op
 import sqlalchemy as sa
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
 
 # revision identifiers, used by Alembic.
 revision = '1a15f6733e83'
@@ -26,6 +30,9 @@ def upgrade():
     sa.Column('cost', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE equipment SET SCHEMA {SCHEMA};")
+
     op.create_table('images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('url', sa.String(length=100), nullable=False),
@@ -33,6 +40,9 @@ def upgrade():
     sa.Column('imageable_id', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE images SET SCHEMA {SCHEMA};")
+
     op.create_table('avatars',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -50,6 +60,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('user_id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE avatars SET SCHEMA {SCHEMA};")
+
     op.create_table('rewards',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -60,6 +73,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE rewards SET SCHEMA {SCHEMA};")
+
     op.create_table('tasks',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -73,6 +89,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE tasks SET SCHEMA {SCHEMA};")
+
     op.create_table('avatars_equipment',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('avatar_id', sa.Integer(), nullable=False),
@@ -82,6 +101,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['equipment_id'], ['equipment.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE avatars_equipment SET SCHEMA {SCHEMA};")
+
     with op.batch_alter_table('users', schema=None) as batch_op:
         batch_op.add_column(sa.Column('first_name', sa.String(length=30), nullable=True))
         batch_op.add_column(sa.Column('last_name', sa.String(length=50), nullable=True))
