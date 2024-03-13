@@ -102,9 +102,9 @@ def test():
         ).first()
         print(avatarEquip)
         print("AvatarEquipment.equipment_id: ", avatarEquip)
-        print('equipment.id: ', equipment.id)
-        print('equipment: ', equipment)
-        print('***************************')
+        print("equipment.id: ", equipment.id)
+        print("equipment: ", equipment)
+        print("***************************")
     return "test"
 
 
