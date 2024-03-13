@@ -1,5 +1,4 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from .avatar_equipment import AvatarEquipment
 
 
 class Avatar(db.Model):
@@ -22,7 +21,7 @@ class Avatar(db.Model):
     equip_armor_id = db.Column(db.Integer)
 
     user = db.relationship('User', back_populates='avatar')
-    equipment = db.relationship('Equipment', secondary=AvatarEquipment, back_populates='avatars')
+    equipment = db.relationship('Equipment', secondary=add_prefix_for_prod('avatars_equipment'), back_populates='avatars')
     image = db.relationship(
         'Image',
         primaryjoin='and_(Image.imageable_type=="avatar", foreign(Image.imageable_id)==Avatar.id)',
