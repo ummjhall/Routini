@@ -9,7 +9,7 @@ class Reward(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    type = db.Column(db.Enum('custom', 'item', name='types'), nullable=False)
+    type = db.Column(db.String(9), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(255))
     cost = db.Column(db.Integer, nullable=False)
