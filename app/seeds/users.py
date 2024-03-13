@@ -4,16 +4,15 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    demo = User(first_name='Demo', last_name='User', email='demo@aa.io', username='Demo', password='password')
+    ramon = User(first_name='Ramon', last_name='Barros', email='ramon@aa.io', username='Ramon', password='password')
+    nikola = User(first_name='Nikola', last_name='Milinovich', email='nikola@aa.io', username='Nikola', password='password')
+    justin = User(first_name='Justin', last_name='Hall', email='justin@aa.io', username='Justin', password='password')
 
     db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(ramon)
+    db.session.add(nikola)
+    db.session.add(justin)
     db.session.commit()
 
 
@@ -24,9 +23,9 @@ def seed_users():
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
 def undo_users():
-    if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+    if environment == 'production':
+        db.session.execute(f'TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;')
     else:
-        db.session.execute(text("DELETE FROM users"))
-        
+        db.session.execute(text('DELETE FROM users'))
+
     db.session.commit()
