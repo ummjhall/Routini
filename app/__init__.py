@@ -4,9 +4,10 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from .models import db, User, Avatar, AvatarEquipment
+from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.inventory_routes import inventory_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -28,6 +29,7 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix="/api/users")
 app.register_blueprint(auth_routes, url_prefix="/api/auth")
+app.register_blueprint(inventory_routes, url_prefix="/api/equipment")
 db.init_app(app)
 Migrate(app, db)
 
@@ -89,30 +91,6 @@ def react_root(path):
     if path == "favicon.ico":
         return app.send_from_directory("public", "favicon.ico")
     return app.send_static_file("index.html")
-
-
-# @app.route("/test")
-# def test():
-#     testAvatar = Avatar.query.first()
-
-#     if testAvatar:
-#         equipments = testAvatar.equipment
-
-#         for equipment in equipments:
-#             avatarEquip = AvatarEquipment.query.filter(
-#                 AvatarEquipment.equipment_id == equipment.id
-#             ).first()
-#             if avatarEquip:
-#                 equipment_nickname = avatarEquip.equipment_nickname
-#                 print("Nickname:", equipment_nickname)
-#                 print("AvatarEquipment.equipment_id:", avatarEquip.equipment_id)
-#                 print("equipment.id:", equipment.id)
-#                 print("equipment:", equipment)
-#                 print("***************************")
-#             else:
-#                 print("nope")
-
-#     return "test"
 
 
 @app.errorhandler(404)
