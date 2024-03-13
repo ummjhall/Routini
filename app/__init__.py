@@ -93,25 +93,27 @@ def react_root(path):
 
 @app.route("/test")
 def test():
+        testAvatar = Avatar.query.first()
 
-    testAvatar = Avatar.query.first()
-    if testAvatar:
-        equipments = testAvatar.equipment
+        if testAvatar:
+            equipments = testAvatar.equipment
 
-        for equipment in equipments:
-            avatarEquip = AvatarEquipment.query.filter(
-                AvatarEquipment.equipment_id == equipment.id
-            ).first()
-            print(avatarEquip)
-            print("AvatarEquipment.equipment_id: ", avatarEquip.equipment_id)
-            print("equipment.id: ", equipment.id)
-            print("equipment: ", equipment)
-            print("***************************")
+            for equipment in equipments:
+                avatarEquip = AvatarEquipment.query.filter(
+                    AvatarEquipment.equipment_id == equipment.id
+                ).first()
+                if avatarEquip:
+                    nickname = avatarEquip.nickname
+                    print("Nickname:", nickname)
+                    print("AvatarEquipment.equipment_id:", avatarEquip.equipment_id)
+                    print("equipment.id:", equipment.id)
+                    print("equipment:", equipment)
+                    print("***************************")
+                else:
+                    print("No AvatarEquipment found for equipment:", equipment.id)
         else:
             print("No avatars found in the database.")
             return "No avatars found in the database."
-
-
 
     return "test"
 
