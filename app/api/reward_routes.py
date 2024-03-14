@@ -38,7 +38,7 @@ def create_reward():
     db.session.add(new_reward)
     db.session.commit()
 
-    return jsonify(new_reward.to_dict()), 201
+    return new_reward.to_dict(), 201
 
 
 @reward_routes.route("/<reward_id>", methods=["PUT"])
@@ -61,7 +61,7 @@ def update_reward(reward_id):
 
     db.session.commit()
 
-    return jsonify(reward.to_dict()), 200
+    return reward.to_dict(), 200
 
 
 @reward_routes.route("/<reward_id>", methods=["DELETE"])
