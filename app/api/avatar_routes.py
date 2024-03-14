@@ -31,11 +31,22 @@ def create_avatar():
     if not avatar_data:
         abort(400, message="Bad Request")
 
-    new_avatar = Avatar(
-        user_id=current_user.id,
-        name=avatar_data.get("name"),
-        bio=avatar_data.get("bio"),
-    )
+    current_avatar = current_user.avatar
+
+    if not current_avatar:
+        new_avatar = Avatar(
+            user_id=current_user.id,
+            name=avatar_data.get("name"),
+            bio=avatar_data.get("bio"),
+            level=avatar_data.get("level", 0),
+            health=avatar_data.get("health", 50),
+            exp=avatar_data.get("exp", 0),
+            gold=avatar_data.get("gold", 0),
+            gems=avatar_data.get("gems", 0),
+            equip_head_id=avatar_data.get("equip_head_id", 1),
+            equip_main_id=avatar_data.get("equip_main_id", 1),
+            equip_armor_id=avatar_data.get("equip_armor_id", 1),
+        )
 
     db.session.add(new_avatar)
     db.session.commit()
