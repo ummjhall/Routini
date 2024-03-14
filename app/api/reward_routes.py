@@ -25,7 +25,7 @@ def create_reward():
     reward_data = request.json
 
     if not reward_data:
-        abort(400, "Invalid request data")
+        abort(400, message="Bad Request")
 
     new_reward = Reward(
         user_id=current_user.id,
@@ -47,7 +47,7 @@ def update_reward(reward_id):
     reward_data = request.json
 
     if not reward_data:
-        abort(400, "Invalid request data")
+        abort(400, message="Bad Request")
 
     reward = Reward.query.get(reward_id)
 
@@ -70,7 +70,7 @@ def delete_reward(reward_id):
     reward = Reward.query.get(reward_id)
 
     if not reward:
-        abort(404, "Reward couldn't be found")
+        abort(404, message="Reward couldn't be found")
 
     db.session.delete(reward)
     db.session.commit()
