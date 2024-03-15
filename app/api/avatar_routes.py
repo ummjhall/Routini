@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, abort
+from flask import Blueprint, request
 from app.models import Avatar, db
 from flask_login import current_user, login_required
 
@@ -9,16 +9,21 @@ avatar_routes = Blueprint("avatars", __name__, url_prefix="/api/avatars")
 @avatar_routes.route("/current", methods=["GET"])
 @login_required
 def get_users_avatar():
-    if current_user:
-        current_avatar = current_user.avatar
+    formatted_avatar = {}
 
-        if not current_avatar:
-            abort(404, "Avatar couldn't be found")
+    current_avatar = current_user.avatar
 
-        if current_avatar:
-            avatar_image = current_avatar.image.to_dict()["url"]
-            formatted_avatar = current_avatar.to_dict()
-            formatted_avatar["image_url"] = avatar_image
+    if not current_avatar:
+        return {"message": "Avatar couldn't be found"}, 404
+
+    if current_avatar.image:
+        avatar_image = current_avatar.image.to_dict()["url"]
+        formatted_avatar["image_url"] = avatar_image
+    else:
+        static_avatar_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        formatted_avatar["image_url"] = static_avatar_url
+
+    formatted_avatar.update(current_avatar.to_dict())
 
     return formatted_avatar, 200
 
@@ -29,7 +34,7 @@ def create_avatar():
     avatar_data = request.json
 
     if not avatar_data:
-        abort(400, message="Bad Request")
+        return {"message": "Bad Request"}, 400
 
     current_avatar = current_user.avatar
 
@@ -43,49 +48,67 @@ def create_avatar():
             exp=avatar_data.get("exp", 0),
             gold=avatar_data.get("gold", 0),
             gems=avatar_data.get("gems", 0),
-            equip_head_id=avatar_data.get("equip_head_id", 1),
-            equip_main_id=avatar_data.get("equip_main_id", 1),
-            equip_armor_id=avatar_data.get("equip_armor_id", 1),
+            equip_head_id=avatar_data.get("equip_head_id", None),
+            equip_main_id=avatar_data.get("equip_main_id", None),
+            equip_armor_id=avatar_data.get("equip_armor_id", None),
         )
+        new_avatar.image_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        db.session.add(new_avatar)
+        db.session.commit()
 
-    db.session.add(new_avatar)
+        return {**new_avatar.to_dict(), "image_url": new_avatar.image_url}, 201
+    else:
+        return {"message": "Bad Request"}, 400
+
+
+@avatar_routes.route("/current", methods=["PUT", "PATCH"])
+@login_required
+def update_avatar():
+    avatar_data = request.json
+
+    if not avatar_data:
+        return {"message": "Bad Request"}, 400
+
+    current_avatar = current_user.avatar
+
+    if not current_avatar:
+        return {"message": "Reward not found"}, 404
+
+    current_avatar.name = avatar_data.get("name", current_avatar.name)
+    current_avatar.bio = avatar_data.get("bio", current_avatar.bio)
+    current_avatar.level = avatar_data.get("level", current_avatar.level)
+    current_avatar.health = avatar_data.get("health", current_avatar.health)
+    current_avatar.exp = avatar_data.get("exp", current_avatar.exp)
+    current_avatar.gold = avatar_data.get("gold", current_avatar.gold)
+    current_avatar.gems = avatar_data.get("gems", current_avatar.gems)
+    current_avatar.equip_head_id = avatar_data.get(
+        "equip_head_id", current_avatar.equip_head_id
+    )
+    current_avatar.equip_main_id = avatar_data.get(
+        "equip_main_id", current_avatar.equip_main_id
+    )
+    current_avatar.equip_armor_id = avatar_data.get(
+        "equip_armor_id", current_avatar.equip_armor_id
+    )
+    current_avatar.image_url = avatar_data.get(
+        "image_url",
+        "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg",
+    )
+
     db.session.commit()
 
-    return new_avatar.to_dict(), 201
+    return current_avatar.to_dict(), 200
 
 
-# @reward_routes.route("/<reward_id>", methods=["PUT"])
-# @login_required
-# def update_reward(reward_id):
-#     reward_data = request.json
+@avatar_routes.route("/current", methods=["DELETE"])
+@login_required
+def delete_avatar():
+    current_avatar = current_user.avatar
 
-#     if not reward_data:
-#         abort(400, message="Bad Request")
+    if not current_avatar:
+        return {"message": "Avatar couldn't be found"}, 404
 
-#     reward = Reward.query.get(reward_id)
+    db.session.delete(current_avatar)
+    db.session.commit()
 
-#     if not reward:
-#         abort(404, "Reward not found")
-
-#     reward.type = reward_data.get("type", reward.type)
-#     reward.title = reward_data.get("title", reward.title)
-#     reward.description = reward_data.get("description", reward.description)
-#     reward.cost = reward_data.get("cost", reward.cost)
-
-#     db.session.commit()
-
-#     return jsonify(reward.to_dict()), 200
-
-
-# @reward_routes.route("/<reward_id>", methods=["DELETE"])
-# @login_required
-# def delete_reward(reward_id):
-#     reward = Reward.query.get(reward_id)
-
-#     if not reward:
-#         abort(404, message="Reward couldn't be found")
-
-#     db.session.delete(reward)
-#     db.session.commit()
-
-#     return jsonify({"message": "Successfully deleted"}), 200
+    return {"message": "Successfully deleted"}, 200
