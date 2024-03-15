@@ -14,7 +14,7 @@ def get_users_avatar():
     current_avatar = current_user.avatar
 
     if not current_avatar:
-        return {"message": "Avatar couldn't be found"}, 404
+        return {"message": "Bad Request"}, 400
 
     if current_avatar.image:
         avatar_image = current_avatar.image.to_dict()["url"]
