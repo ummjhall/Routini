@@ -1,9 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint, request, abort
 from app.models import Task, User
 from flask_login import current_user, login_required
+from datetime import datetime
+from app import db
 
 tasks_routes = Blueprint("tasks", __name__, url_prefix="/api/tasks")
-
 
 @tasks_routes.route("/current")
 @login_required
@@ -13,46 +14,58 @@ def get_users_tasks():
     for task in user_tasks:
         task = task.to_dict()
         formatted_res['Tasks'].append(task)
-    print('HELLLO', formatted_res)
     return formatted_res
-    # if current_user:
-    #     formattedJson = {"Tasks": []}
-    #     userAvatar = current_user.avatar
 
-    #     if userAvatar:
-    #         equipments = userAvatar.equipment
-    #         for equipment in equipments:
-    #             equipment_image = equipment.image.to_dict()["url"]
+@tasks_routes.route("/current", methods = ['POST'])
+@login_required
+def create_new_task():
+    format = '%Y-%m-%d %H:%M:%S'
+    req_body = request.json
+    due_date = datetime.strptime(req_body['due_date'], format)
+    start_date = datetime.strptime(req_body['start_date'], format)
+    new_task = Task(
+        user_id=current_user.id,
+        type=req_body['type'],
+        title=req_body['title'],
+        description=req_body['description'],
+        difficulty=req_body['difficulty'],
+        start_date=start_date,
+        repeats_every=req_body['repeats_every'],
+        due_date=due_date
+    )
+    db.session.add(new_task)
+    db.session.commit()
+    return new_task.to_dict(), 201
 
-    #             all_equipment = equipment.to_dict()
-    #             avatarEquip = AvatarEquipment.query.filter(
-    #                 AvatarEquipment.equipment_id == equipment.id
-    #             ).first()
-    #             equipment_nickname = avatarEquip.equipment_nickname
-    #             all_equipment["nickname"] = equipment_nickname
-    #             all_equipment["image_url"] = equipment_image
-    #             all_equipment["user_id"] = current_user.id
-    #             formattedJson["Equipment"].append(all_equipment)
+@tasks_routes.route("/<task_id>", methods = ['PUT'])
+@login_required
+def update_task_by_id(task_id):
+    req_body = request.json
+    if req_body:
+        format = '%Y-%m-%d %H:%M:%S'
+        due_date = datetime.strptime(req_body['due_date'], format)
+        start_date = datetime.strptime(req_body['start_date'], format)
+    task = Task.query.get(task_id)
+    if not task:
+        abort(404, "Task not Found")
+    else:
+        task.type = req_body['type']
+        task.title = req_body['title']
+        task.description = req_body['description']
+        task.difficulty = req_body['difficulty']
+        task.start_date = start_date
+        task.due_date = due_date
 
-    # else:
-    #     print("Login!")
+        db.session.commit()
+        return task.to_dict(), 200
 
-    # return formattedJson
-
-
-# {
-#   "Equipment": [
-#     {
-#       "id": 1,
-#       "user_id": 1,
-#       "type": "main",
-#       "name": "Sword of Destiny",
-#       "nickname": "Slicer",
-#       "description": "The best sword ever.",
-#       "cost": 100,
-#       "image_url": "image url",
-#       "created_at": "2021-11-19 20:39:36",
-#       "updated_at": "2021-11-19 20:39:36"
-#     }
-#   ]
-# }
+@tasks_routes.route("/<task_id>", methods = ['PUT'])
+@login_required
+def delete_task_by_id(task_id):
+    task = Task.query.get(task_id)
+    if not task:
+        abort(404, "Task not Found")
+    else:
+        db.session.delete(task)
+        db.session.commit()
+        return "Task deleted", 200
