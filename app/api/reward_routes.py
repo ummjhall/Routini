@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, abort
+from flask import Blueprint, request
 from app.models import Reward, db
 from flask_login import current_user, login_required
 
@@ -16,7 +16,7 @@ def get_user_rewards():
         for reward in rewards:
             formatted_rewards.append(reward.to_dict())
 
-    return jsonify({"Rewards": formatted_rewards}), 200
+    return {"Rewards": formatted_rewards}, 200
 
 
 @reward_routes.route("/current", methods=["POST"])
@@ -25,7 +25,7 @@ def create_reward():
     reward_data = request.json
 
     if not reward_data:
-        abort(400, message="Bad Request")
+        return {"message": "Bad Request"}, 400
 
     new_reward = Reward(
         user_id=current_user.id,
@@ -38,7 +38,7 @@ def create_reward():
     db.session.add(new_reward)
     db.session.commit()
 
-    return jsonify(new_reward.to_dict()), 201
+    return new_reward.to_dict(), 201
 
 
 @reward_routes.route("/<reward_id>", methods=["PUT"])
@@ -47,12 +47,12 @@ def update_reward(reward_id):
     reward_data = request.json
 
     if not reward_data:
-        abort(400, message="Bad Request")
+        return {"message": "Bad Request"}, 400
 
     reward = Reward.query.get(reward_id)
 
     if not reward:
-        abort(404, "Reward not found")
+        return {"message": "Reward couldn't be found"}, 404
 
     reward.type = reward_data.get("type", reward.type)
     reward.title = reward_data.get("title", reward.title)
@@ -61,7 +61,7 @@ def update_reward(reward_id):
 
     db.session.commit()
 
-    return jsonify(reward.to_dict()), 200
+    return reward.to_dict(), 200
 
 
 @reward_routes.route("/<reward_id>", methods=["DELETE"])
@@ -70,9 +70,9 @@ def delete_reward(reward_id):
     reward = Reward.query.get(reward_id)
 
     if not reward:
-        abort(404, message="Reward couldn't be found")
+        return {"message": "Reward couldn't be found"}, 400
 
     db.session.delete(reward)
     db.session.commit()
 
-    return jsonify({"message": "Successfully deleted"}), 200
+    return {"message": "Successfully deleted"}, 200
