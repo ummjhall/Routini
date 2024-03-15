@@ -5,4 +5,8 @@ __pycache__/
 .DS_Store
 .vscode/
 Dockerfile
+<<<<<<< HEAD
+=======
+instance/
+>>>>>>> dev
 dev.db
