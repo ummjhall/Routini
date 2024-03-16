@@ -67,18 +67,28 @@ def create_reward():
     return {"message": "Bad request", "errors": errors}, 400
 
 
-@reward_routes.route("/current/<reward_id>", methods=["PUT"])
+@reward_routes.route("/current/<reward_id>", methods=["PUT", "PATCH"])
 @login_required
 def update_reward(reward_id):
     reward_data = request.json
+    reward = Reward.query.get(reward_id)
+    owned = False
+    owned_rewards = current_user.rewards
+    print("owned_rewards***********", owned_rewards)
 
     if not reward_data:
-        return {"message": "Bad Request"}, 400
-
-    reward = Reward.query.get(reward_id)
+        return reward.to_dict(), 200
 
     if not reward:
         return {"message": "Reward couldn't be found"}, 404
+
+    for reward in owned_rewards:
+        if reward.to_dict()["id"] == int(reward_id):
+            owned = True
+            break
+
+    if not owned:
+        return {"message": "Forbidden"}, 403
 
     reward.type = reward_data.get("type", reward.type)
     reward.title = reward_data.get("title", reward.title)
