@@ -67,7 +67,7 @@ def create_reward():
     return {"message": "Bad request", "errors": errors}, 400
 
 
-@reward_routes.route("/<reward_id>", methods=["PUT"])
+@reward_routes.route("/current/<reward_id>", methods=["PUT"])
 @login_required
 def update_reward(reward_id):
     reward_data = request.json
