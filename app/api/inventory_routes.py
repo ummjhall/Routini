@@ -17,7 +17,7 @@ def get_shop_equipment():
     for shop_item in all_equipment:
         item = shop_item.to_dict()
 
-        item['imgae_url'] = shop_item.image.to_dict()['url']
+        item['image_url'] = shop_item.image.to_dict()['url']
 
         shop_equipment.append(item)
 
@@ -55,16 +55,21 @@ def collect_equipment(equipment_id):
     Buy or collect a piece of Equipment for the Current User
     """
 
+    #User doesn't currently have an avatar
+    if not current_user.avatar:
+        return {'message': "Avatar couldn't be found"}, 404
+
     # Couldn't find Equipment with the specified id
     found = Equipment.query.filter(Equipment.id == equipment_id).one_or_none()
     if not found:
         return {'message': "Equipment couldn't be found"}, 404
 
     # User already owns specified Equipment
-    owned_equipment = current_user.avatar.equipment
-    for item in owned_equipment:
-        if item.to_dict()['id'] == int(equipment_id):
-            return {'message': 'Equipment already owned'}, 400
+    if current_user.avatar.equipment:
+        owned_equipment = current_user.avatar.equipment
+        for item in owned_equipment:
+            if item.to_dict()['id'] == int(equipment_id):
+                return {'message': 'Equipment already owned'}, 400
 
     # SUCCESS
     new_equipment = AvatarEquipment(
