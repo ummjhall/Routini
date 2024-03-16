@@ -1,6 +1,7 @@
 # Routini
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ummjhall)
 > Our team is developing a web application inspired by Habitica.com, focused on fostering positive routines and healthy habits. Users can create personalized avatars, manage their tasks (habits, dailies, todos) through creation, editing, and deletion. Additionally, a reward system allows users to earn and manage rewards, further enhancing their motivational journey. The application also features an inventory system for earned items, with the ability to equip and manage them. Bonus features include drag-and-drop functionality and a leveling system with a shop, encouraging user engagement and progress visualization.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://routini.onrender.com/).
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -17,11 +18,7 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- Routini is aimed at helping users build and maintain positive habits by gamifying their routine activities. It offers a fun and interactive platform where users can track their progress, earn rewards, and level up their avatars.
 
 
 ## Technologies Used
@@ -29,14 +26,17 @@
 - Flask
 - Javascript
 - React.js
-- Sqlite
+- SQLAlchemy
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Personalized avatars creation
+- Task management (habits, dailies, todos)
+- Reward system
+- Inventory management
+- Drag-and-drop functionality
+- Leveling system with a shop
+
 
 
 ## Screenshots
@@ -45,16 +45,49 @@ List the ready features here:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+1. Clone this repository from [GitHub](https://github.com/ummjhall/Routini)
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+2. Navigate to the project directory.
+
+3. Install the dependencies:
+
+   ```bash
+   pipenv install -r requirements.txt
+   ```
+
+4. Get into your pipenv:
+   ```bash
+   pipenv shell
+   ```
+
+5. Migrate your database:
+   ```bash
+   flask db upgrade
+   ```
+
+6. Seed your database:
+   ```bash
+   flask seed all
+   ```
+
+7. Run your Flask app:
+   ```bash
+   flask run
+   ```
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+Routini can be used for various purposes such as:
 
-`write-your-code-here`
+- Creating and managing daily habits
+- Setting and tracking tasks
+- Earning rewards and managing inventory
+
+Example code snippet:
+
+```python
+# Your code here
+```
 
 
 ## Project Status
@@ -62,26 +95,31 @@ Project is: _in progress_
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
+Areas for improvement:
 
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Enhance user interface for better user experience
+- Integrate with third-party APIs for additional features
+- Optimize performance for scalability
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+
+- Implement social sharing features
+- Introduce a community forum for user interaction
+
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This project was inspired by [Habitica](https://habitica.com/) and was based on various online tutorials and resources. Many thanks to the contributors and supporters that made this possible.
+
 
 
 ## Contact
-Created by [@ummjhall](https://github.com/ummjhall), [nmilinovich](https://github.com/nmilinovich), and [@ramonpbarros](https://github.com/ramonpbarros) - feel free to contact us!
+Created by:
+#### [Justin Hall](https://github.com/ummjhall)
+#### [Nikola Milinovich](https://github.com/nmilinovich)
+#### [Ramon Barros](https://github.com/ramonpbarros)
+
+Feel free to contact us!
 
 
 <!-- Optional -->
