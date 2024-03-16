@@ -87,14 +87,16 @@ def log_in():
 
     # SUCCESS
     if form.validate_on_submit():
-        user = User.query.filter(User.email == form.data['email']).first()
+        user = User.query.filter(User.username == form.data['credential']).first()
+        if not user:
+            user = User.query.filter(User.email == form.data['credential']).first()
         login_user(user)
         return user.to_dict()
 
     # Body validation errors
     errors = {}
-    if 'email' in form.errors and 'This field is required.' in form.errors['email']:
-        errors['email'] = 'Email is required'
+    if 'credential' in form.errors and 'This field is required.' in form.errors['credential']:
+        errors['credential'] = 'Username or email is required'
     if 'password' in form.errors and 'This field is required.' in form.errors['password']:
         errors['password'] = 'Password is required'
     if errors:
