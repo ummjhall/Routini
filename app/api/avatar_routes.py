@@ -32,9 +32,13 @@ def get_users_avatar():
 @login_required
 def create_avatar():
     avatar_data = request.json
+    name = avatar_data.get("name")
 
     if not avatar_data:
         return {"message": "Bad Request"}, 400
+
+    if not name:
+        return {"message": "Bad Request", "errors": {"name": "Name is required"}}, 400
 
     current_avatar = current_user.avatar
 
@@ -58,7 +62,7 @@ def create_avatar():
 
         return {**new_avatar.to_dict(), "image_url": new_avatar.image_url}, 201
     else:
-        return {"message": "Bad Request"}, 400
+        return {"message": "Bad Request", "errors": {"name": "Name is required"}}, 400
 
 
 @avatar_routes.route("/current", methods=["PUT", "PATCH"])
