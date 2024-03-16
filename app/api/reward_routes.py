@@ -74,7 +74,6 @@ def update_reward(reward_id):
     reward = Reward.query.get(reward_id)
     owned = False
     owned_rewards = current_user.rewards
-    print("owned_rewards***********", owned_rewards)
 
     if not reward_data:
         return reward.to_dict(), 200
@@ -100,13 +99,23 @@ def update_reward(reward_id):
     return reward.to_dict(), 200
 
 
-@reward_routes.route("/<reward_id>", methods=["DELETE"])
+@reward_routes.route("/current/<reward_id>", methods=["DELETE"])
 @login_required
 def delete_reward(reward_id):
     reward = Reward.query.get(reward_id)
+    owned = False
+    owned_rewards = current_user.rewards
 
     if not reward:
-        return {"message": "Reward couldn't be found"}, 400
+        return {"message": "Reward couldn't be found"}, 404
+
+    for reward in owned_rewards:
+        if reward.to_dict()["id"] == int(reward_id):
+            owned = True
+            break
+
+    if not owned:
+        return {"message": "Forbidden"}, 403
 
     db.session.delete(reward)
     db.session.commit()
