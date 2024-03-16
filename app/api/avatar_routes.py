@@ -71,9 +71,6 @@ def update_avatar():
     avatar_data = request.json
     current_avatar = current_user.avatar
 
-    if not avatar_data:
-        return {"message": "Bad Request"}, 400
-
     if not current_avatar:
         return {"message": "Avatar not found"}, 404
 
