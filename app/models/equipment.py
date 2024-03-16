@@ -17,6 +17,8 @@ class Equipment(db.Model):
     image = db.relationship(
         'Image',
         primaryjoin='and_(Image.imageable_type=="equipment", foreign(Image.imageable_id)==Equipment.id)',
+        back_populates='equipment',
+        overlaps='image',
         cascade='all, delete-orphan',
         uselist=False
     )

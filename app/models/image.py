@@ -11,8 +11,20 @@ class Image(db.Model):
     imageable_type = db.Column(db.String(9), nullable=False)
     imageable_id = db.Column(db.Integer, nullable=False)
 
-    avatar = db.relationship('Avatar', primaryjoin='and_(Image.imageable_type=="avatar", foreign(Image.imageable_id)==Avatar.id)', uselist=False)
-    equipment = db.relationship('Equipment', primaryjoin='and_(Image.imageable_type=="equipment", foreign(Image.imageable_id)==Equipment.id)', uselist=False)
+    avatar = db.relationship(
+        'Avatar',
+        primaryjoin='and_(Image.imageable_type=="avatar", foreign(Image.imageable_id)==Avatar.id)',
+        back_populates='image',
+        overlaps='equipment, image',
+        uselist=False
+    )
+    equipment = db.relationship(
+        'Equipment',
+        primaryjoin='and_(Image.imageable_type=="equipment", foreign(Image.imageable_id)==Equipment.id)',
+        back_populates='image',
+        overlaps='avatar, image',
+        uselist=False
+    )
 
     def parent(self):
         if self.imageable_type == 'avatar':
