@@ -32,9 +32,13 @@ def get_users_avatar():
 @login_required
 def create_avatar():
     avatar_data = request.json
+    name = avatar_data.get("name")
 
     if not avatar_data:
         return {"message": "Bad Request"}, 400
+
+    if not name:
+        return {"message": "Bad Request", "errors": {"name": "Name is required"}}, 400
 
     current_avatar = current_user.avatar
 
@@ -58,21 +62,17 @@ def create_avatar():
 
         return {**new_avatar.to_dict(), "image_url": new_avatar.image_url}, 201
     else:
-        return {"message": "Bad Request"}, 400
+        return {"message": "Bad Request", "errors": {"name": "Name is required"}}, 400
 
 
 @avatar_routes.route("/current", methods=["PUT", "PATCH"])
 @login_required
 def update_avatar():
     avatar_data = request.json
-
-    if not avatar_data:
-        return {"message": "Bad Request"}, 400
-
     current_avatar = current_user.avatar
 
     if not current_avatar:
-        return {"message": "Reward not found"}, 404
+        return {"message": "Avatar not found"}, 404
 
     current_avatar.name = avatar_data.get("name", current_avatar.name)
     current_avatar.bio = avatar_data.get("bio", current_avatar.bio)
@@ -90,14 +90,19 @@ def update_avatar():
     current_avatar.equip_armor_id = avatar_data.get(
         "equip_armor_id", current_avatar.equip_armor_id
     )
-    current_avatar.image_url = avatar_data.get(
-        "image_url",
-        "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg",
-    )
 
     db.session.commit()
 
-    return current_avatar.to_dict(), 200
+    formatted_avatar = current_avatar.to_dict()
+
+    if current_avatar.image:
+        avatar_image = current_avatar.image.to_dict()["url"]
+        formatted_avatar["image_url"] = avatar_image
+    else:
+        static_avatar_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        formatted_avatar["image_url"] = static_avatar_url
+
+    return formatted_avatar, 200
 
 
 @avatar_routes.route("/current", methods=["DELETE"])
