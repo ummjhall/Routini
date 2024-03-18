@@ -25,6 +25,8 @@ class Avatar(db.Model):
     image = db.relationship(
         'Image',
         primaryjoin='and_(Image.imageable_type=="avatar", foreign(Image.imageable_id)==Avatar.id)',
+        back_populates='avatar',
+        overlaps='image',
         cascade='all, delete-orphan',
         uselist=False
     )

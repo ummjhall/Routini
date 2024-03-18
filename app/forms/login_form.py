@@ -5,24 +5,28 @@ from app.models import User
 
 
 def user_exists(form, field):
-    # Checking if user exists
-    email = field.data
-    user = User.query.filter(User.email == email).first()
+    # Check if user exists
+    credential = field.data
+
+    user = User.query.filter(User.username == credential).first()
     if not user:
-        raise ValidationError('Email provided not found.')
+        user = User.query.filter(User.email == credential).first()
+    if not user:
+        raise ValidationError('Invalid credentials')
 
 
 def password_matches(form, field):
-    # Checking if password matches
+    # Check if password matches
     password = field.data
-    email = form.data['email']
-    user = User.query.filter(User.email == email).first()
+    credential = form.data['credential']
+
+    user = User.query.filter(User.username == credential).first()
     if not user:
-        raise ValidationError('No such user exists.')
-    if not user.check_password(password):
-        raise ValidationError('Password was incorrect.')
+        user = User.query.filter(User.email == credential).first()
+    if not user or not user.check_password(password):
+        raise ValidationError('Invalid credentials')
 
 
 class LoginForm(FlaskForm):
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    credential = StringField('credential', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired(), password_matches])
