@@ -56,13 +56,13 @@ def create_reward():
     if "title" in form.errors and "This field is required." in form.errors["title"]:
         errors["title"] = "Title is required"
 
-    if (
-        "description" in form.errors
-        and "This field is required." in form.errors["description"]
-    ):
-        errors["description"] = "description is required"
+    # if (
+    #     "description" in form.errors
+    #     and "This field is required." in form.errors["description"]
+    # ):
+    #     errors["description"] = "description is required"
     if "cost" in form.errors and "This field is required." in form.errors["cost"]:
-        errors["cost"] = "cost is required"
+        errors["cost"] = "Cost is required"
 
     return {"message": "Bad request", "errors": errors}, 400
 
