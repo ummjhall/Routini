@@ -34,13 +34,13 @@ def create_avatar():
     avatar_data = request.json
     name = avatar_data.get("name")
 
-    if not avatar_data:
-        return {"message": "Bad Request"}, 400
-
-    if not name:
+    if not name or not avatar_data:
         return {"message": "Bad Request", "errors": {"name": "Name is required"}}, 400
 
     current_avatar = current_user.avatar
+
+    if current_avatar:
+        return {"message": "User already has an Avatar"}, 400
 
     if not current_avatar:
         new_avatar = Avatar(
