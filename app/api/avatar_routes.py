@@ -56,7 +56,7 @@ def create_avatar():
             equip_main_id=avatar_data.get("equip_main_id", None),
             equip_armor_id=avatar_data.get("equip_armor_id", None),
         )
-        new_avatar.image_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        new_avatar.image_url = "https://res.cloudinary.com/drv1e8rjp/image/upload/v1710734997/avatar_1_lfbzjt.png"
         db.session.add(new_avatar)
         db.session.commit()
 
