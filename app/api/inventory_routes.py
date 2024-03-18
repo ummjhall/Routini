@@ -37,12 +37,11 @@ def get_user_equipment():
     owned_equipment = []
     for owned_item in avatar.equipment:
         item = owned_item.to_dict()
-
         item['user_id'] = current_user.id
         item['image_url'] = owned_item.image.to_dict()['url']
         item['nickname'] = AvatarEquipment.query.filter(
-                AvatarEquipment.equipment_id == owned_item.id).first().equipment_nickname
-
+                AvatarEquipment.equipment_id == owned_item.id and
+                AvatarEquipment.avatar_id == avatar.id).one().equipment_nickname
         owned_equipment.append(item)
 
     return {'Equipment': owned_equipment}
@@ -60,15 +59,17 @@ def collect_equipment(equipment_id):
         return {'message': "Avatar couldn't be found"}, 404
 
     # Couldn't find Equipment with the specified id
-    found = Equipment.query.filter(Equipment.id == equipment_id).one_or_none()
+    found = Equipment.query.get(equipment_id)
     if not found:
         return {'message': "Equipment couldn't be found"}, 404
 
     # User already owns specified Equipment
-    owned_equipment = current_user.avatar.equipment
-    for item in owned_equipment:
-        if item.to_dict()['id'] == int(equipment_id):
-            return {'message': 'Equipment already owned'}, 400
+    avatar_id = current_user.avatar.id
+    owned = AvatarEquipment.query.filter(
+        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
+        ).one_or_none()
+    if owned:
+        return {'message': 'Equipment already owned'}, 400
 
     # SUCCESS
     new_equipment = AvatarEquipment(
@@ -93,32 +94,26 @@ def rename_equipment(equipment_id):
         return {'message': "Avatar couldn't be found"}, 404
 
     # Couldn't find Equipment with the specified id
-    found = Equipment.query.filter(Equipment.id == equipment_id).one_or_none()
+    found = Equipment.query.get(equipment_id)
     if not found:
         return {'message': "Equipment couldn't be found"}, 404
 
     # User doesn't own specified Equipment
-    owned = False
-    owned_equipment = current_user.avatar.equipment
-    for item in owned_equipment:
-        if item.to_dict()['id'] == int(equipment_id):
-            owned = True
+    avatar_id = current_user.avatar.id
+    owned = AvatarEquipment.query.filter(
+        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
+        ).one_or_none()
     if not owned:
         return {'message': 'Equipment unowned'}, 400
 
     # SUCCESS
-    avatar_id = current_user.avatar.id
-    equipment = AvatarEquipment.query.filter(
-        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
-        ).one()
-
     nickname = request.json.get('nickname', None)
     if nickname:
-        equipment.equipment_nickname = nickname
-        db.session.add(equipment)
+        owned.equipment_nickname = nickname
+        db.session.add(owned)
         db.session.commit()
 
-    return equipment.to_dict()
+    return owned.to_dict()
 
 
 @inventory_routes.route('/current/<equipment_id>', methods=['DELETE'])
@@ -133,25 +128,20 @@ def delete_owned_equipment(equipment_id):
         return {'message': "Avatar couldn't be found"}, 404
 
     # Couldn't find Equipment with the specified id
-    found = Equipment.query.filter(Equipment.id == equipment_id).one_or_none()
+    found = Equipment.query.get(equipment_id)
     if not found:
         return {'message': "Equipment couldn't be found"}, 404
 
     # User doesn't own specified Equipment
-    owned = False
-    owned_equipment = current_user.avatar.equipment
-    for item in owned_equipment:
-        if item.to_dict()['id'] == int(equipment_id):
-            owned = True
+    avatar_id = current_user.avatar.id
+    owned = AvatarEquipment.query.filter(
+        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
+        ).one_or_none()
     if not owned:
         return {'message': 'Equipment unowned'}, 400
 
     # SUCCESS
-    avatar_id = current_user.avatar.id
-    equipment = AvatarEquipment.query.filter(
-        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
-        ).one()
-    db.session.delete(equipment)
+    db.session.delete(owned)
     db.session.commit()
 
     return {'message': 'Successfully deleted'}
