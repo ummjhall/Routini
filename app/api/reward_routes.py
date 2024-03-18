@@ -56,11 +56,6 @@ def create_reward():
     if "title" in form.errors and "This field is required." in form.errors["title"]:
         errors["title"] = "Title is required"
 
-    # if (
-    #     "description" in form.errors
-    #     and "This field is required." in form.errors["description"]
-    # ):
-    #     errors["description"] = "description is required"
     if "cost" in form.errors and "This field is required." in form.errors["cost"]:
         errors["cost"] = "Cost is required"
 
@@ -72,22 +67,21 @@ def create_reward():
 def update_reward(reward_id):
     reward_data = request.json
     reward = Reward.query.get(reward_id)
-    owned = False
-    owned_rewards = current_user.rewards
 
-    if not reward_data:
-        return reward.to_dict(), 200
+    if not reward_data and not reward:
+        return {"message": "Reward couldn't be found"}, 404
 
     if not reward:
         return {"message": "Reward couldn't be found"}, 404
 
-    for reward in owned_rewards:
-        if reward.to_dict()["id"] == int(reward_id):
-            owned = True
-            break
+    owned_rewards = current_user.rewards
+    owned = any(reward.to_dict()["id"] == int(reward_id) for reward in owned_rewards)
 
     if not owned:
         return {"message": "Forbidden"}, 403
+
+    if not reward_data:
+        return reward.to_dict(), 200
 
     reward.type = reward_data.get("type", reward.type)
     reward.title = reward_data.get("title", reward.title)
