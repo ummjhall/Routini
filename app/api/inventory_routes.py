@@ -72,8 +72,9 @@ def handle_equipment(equipment_id):
     # Check if user owns specified equipment
     avatar_id = current_user.avatar.id
     owned = AvatarEquipment.query.filter(
-        AvatarEquipment.equipment_id == equipment_id and AvatarEquipment.avatar_id == avatar_id
+        AvatarEquipment.equipment_id == equipment_id, AvatarEquipment.avatar_id == avatar_id
         ).one_or_none()
+
     if owned and request.method == 'POST':
         return {'message': 'Equipment already owned'}, 400
     if not owned and request.method in ['PUT', 'PATCH', 'DELETE']:
@@ -82,7 +83,7 @@ def handle_equipment(equipment_id):
     # POST: BUY OR COLLECT A PIECE OF EQUIPMENT
     if request.method == 'POST':
         new_equipment = AvatarEquipment(
-            avatar_id=current_user.avatar.to_dict()['id'],
+            avatar_id=avatar_id,
             equipment_id=equipment_id
         )
         db.session.add(new_equipment)
