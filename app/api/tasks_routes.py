@@ -51,9 +51,12 @@ def update_task_by_id(task_id):
     format = '%Y-%m-%d %H:%M:%S'
     task = Task.query.get(task_id)
     if not task:
-        return {"errors": {"message": "Task not found"}}, 404
+        return {"errors": {"message": "Task couldn't be found"}}, 404
+    elif task and task.user_id != current_user.id:
+        return { "errors": {
+  "message": "Forbidden"
+        }}
     else:
-
         task.type = req_body['type']
         task.title = req_body['title']
         task.description = req_body['description']
