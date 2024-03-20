@@ -24,6 +24,10 @@ def create_new_task():
     start_date_obj = None
     due_date_obj = None
     repeats_every_val = 1
+    if 'type' not in req_body:
+        return { "errors": {"message": "Type is required"}}, 400
+    else:
+        type_string = req_body['type']
     if 'repeats_every' in req_body:
         repeats_every_val = req_body['repeats_every']
     if 'start_date' in req_body:
@@ -44,7 +48,7 @@ def create_new_task():
     db.session.commit()
     return new_task.to_dict(), 201
 
-@tasks_routes.route("/<task_id>", methods = ['PUT'])
+@tasks_routes.route("/current/<task_id>", methods = ['PUT'])
 @login_required
 def update_task_by_id(task_id):
     req_body = request.json
@@ -55,7 +59,7 @@ def update_task_by_id(task_id):
     elif task and task.user_id != current_user.id:
         return { "errors": {
   "message": "Forbidden"
-        }}
+        }}, 403
     else:
         task.type = req_body['type']
         task.title = req_body['title']
@@ -76,7 +80,7 @@ def update_task_by_id(task_id):
         db.session.commit()
         return task.to_dict(), 200
 
-@tasks_routes.route("/<task_id>", methods = ['PUT'])
+@tasks_routes.route("/<task_id>", methods = ['DELETE'])
 @login_required
 def delete_task_by_id(task_id):
     task = Task.query.get(task_id)
@@ -84,7 +88,11 @@ def delete_task_by_id(task_id):
         return {"errors": {
             "message": "Task not found"
                 }}, 404
+    elif task.user_id != current_user.id:
+        return { "errors": {
+  "message": "Forbidden"
+        }}, 403
     else:
         db.session.delete(task)
         db.session.commit()
-        return "Task deleted", 200
+        return {"message": "Task deleted"}, 200
