@@ -50,7 +50,6 @@ def create_reward():
             cost=reward_data.get("cost", 0),
         )
 
-        # Add the new reward to the database
         db.session.add(new_reward)
         db.session.commit()
 
@@ -137,7 +136,6 @@ def delete_reward(reward_id):
     if not owned:
         return {"message": "Forbidden"}, 403
 
-    # Delete the reward from the database
     db.session.delete(reward)
     db.session.commit()
 
