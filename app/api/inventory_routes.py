@@ -16,13 +16,18 @@ def get_shop_equipment():
     if not current_user.avatar:
         return {'message': "Avatar couldn't be found"}, 404
 
+    owned_equipment_ids = []
+    for item in current_user.avatar.equipment:
+        owned_equipment_ids.append(item.id)
+
     all_equipment = Equipment.query.all()
 
     shop_equipment = []
     for shop_item in all_equipment:
-        item = shop_item.to_dict()
-        item['image_url'] = shop_item.image.to_dict()['url']
-        shop_equipment.append(item)
+        if shop_item.id not in owned_equipment_ids:
+            item = shop_item.to_dict()
+            item['image_url'] = shop_item.image.to_dict()['url']
+            shop_equipment.append(item)
 
     return {'Equipment': shop_equipment}
 
@@ -44,7 +49,7 @@ def get_user_equipment():
         item['user_id'] = current_user.id
         item['image_url'] = owned_item.image.to_dict()['url']
         item['nickname'] = AvatarEquipment.query.filter(
-                AvatarEquipment.equipment_id == owned_item.id and
+                AvatarEquipment.equipment_id == owned_item.id,
                 AvatarEquipment.avatar_id == current_user.avatar.id).one().equipment_nickname
         owned_equipment.append(item)
 
