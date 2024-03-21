@@ -1,6 +1,6 @@
 # Routini
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ummjhall)
-> Our team is developing a web application inspired by Habitica.com, focused on fostering positive routines and healthy habits. Users can create personalized avatars, manage their tasks (habits, dailies, todos) through creation, editing, and deletion. Additionally, a reward system allows users to earn and manage rewards, further enhancing their motivational journey. The application also features an inventory system for earned items, with the ability to equip and manage them. Bonus features include drag-and-drop functionality and a leveling system with a shop, encouraging user engagement and progress visualization.
+<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ummjhall) -->
+> Our team is developing a web application focused on fostering positive routines and healthy habits. Users can create personalized avatars, manage their tasks (habits, dailies, todos) through creation, editing, and deletion. Additionally, a reward system allows users to earn and manage rewards, further enhancing their motivational journey. The application also features an inventory system for earned items, with the ability to equip and manage them. Bonus features include drag-and-drop functionality and a leveling system with a shop, encouraging user engagement and progress visualization.
 > Live demo [_here_](https://routini.onrender.com/).
 
 ## Table of Contents
@@ -22,10 +22,10 @@
 
 
 ## Technologies Used
-- Python
-- Flask
 - Javascript
 - React.js
+- Python
+- Flask
 - SQLAlchemy
 
 
@@ -92,6 +92,7 @@ Example code snippet:
 
 ## Project Status
 Project is: _in progress_
+> Currently, we are actively developing and refining Routini to ensure a seamless user experience and robust functionality.
 
 
 ## Room for Improvement
@@ -109,7 +110,7 @@ To do:
 
 
 ## Acknowledgements
-- This project was inspired by [Habitica](https://habitica.com/) and was based on various online tutorials and resources. Many thanks to the contributors and supporters that made this possible.
+- We extend our heartfelt gratitude to the dedicated instructors and supportive community members who have contributed to our journey. Together, we strive to create a positive and impactful application aimed at fostering personal growth and habit formation.
 
 
 
