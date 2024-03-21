@@ -1,3 +1,5 @@
+import { csrfFetch } from './csrf';
+
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
@@ -59,8 +61,13 @@ export const thunkSignup = (user) => async (dispatch) => {
 };
 
 export const thunkLogout = () => async (dispatch) => {
-  await fetch("/api/auth/logout");
+  // await fetch("/api/auth/logout");
+  // dispatch(removeUser());
+  const response = await csrfFetch('/api/auth/logout', {
+    method: 'DELETE',
+  });
   dispatch(removeUser());
+  return response;
 };
 
 const initialState = { user: null };
