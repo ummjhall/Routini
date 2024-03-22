@@ -10,7 +10,6 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        tasksfrontend
         path: "/",
         element: <TaskLandingPage />,
       },

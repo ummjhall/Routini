@@ -12,7 +12,7 @@ import taskReducer from "./tasks";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  tasks: taskReducer
+  tasks: taskReducer,
   equipment: equipmentReducer
 });
 
