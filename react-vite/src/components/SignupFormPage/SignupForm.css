@@ -274,8 +274,8 @@ input:-webkit-autofill:active {
 
   .section_features .cards {
     display: flex;
-    flex-direction: column; /* Set flex direction to column */
-    align-items: center; /* Align cards in the center horizontally */
+    flex-direction: column;
+    align-items: center;
   }
 
   .section_features .cards .card {

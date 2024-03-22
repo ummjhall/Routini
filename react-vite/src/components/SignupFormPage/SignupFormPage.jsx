@@ -59,7 +59,7 @@ function SignupFormPage() {
               <img
                 className="banner_img"
                 src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711057340/landpage_t0vcr5.png"
-                alt="landpage"
+                alt="landpage_backgroud_image"
               />
               <h1>Embark on your epic journey of self-improvement!</h1>
               <p>
