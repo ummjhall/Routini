@@ -7,7 +7,7 @@ function TaskItemTile({user, task}) {
             itemText={task.title}
             // onItemClick={closeMenu}
             modalComponent={<EditTaskModal user={user} task={task} />}
-            customClass={'deleteUserSpotButton'}
+            // customClass={'deleteUserSpotButton'}
           />
         </>
 );

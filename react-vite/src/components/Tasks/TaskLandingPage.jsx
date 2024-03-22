@@ -48,41 +48,6 @@ function TaskLandingPage() {
         </div>
     </div>
   )
-//   return (
-//     <div>
-//       <h1>Equipment</h1>
-//       <div>
-//         <span>Main-Hand Item{' '}</span>
-//         <span>{mainEquipment.length}</span>
-//         <div>
-//           {user && mainEquipment && mainEquipment.map(item => (
-//             <p key={item.id}>{item.name}</p>
-//           ))}
-//           {!mainEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-//         </div>
-//       </div>
-//       <div>
-//         <span>Headgear{' '}</span>
-//         <span>{headEquipment.length}</span>
-//         <div>
-//           {user && headEquipment && headEquipment.map(item => (
-//             <p key={item.id}>{item.name}</p>
-//           ))}
-//           {!headEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-//         </div>
-//       </div>
-//       <div>
-//         <span>Armor{' '}</span>
-//         <span>{armorEquipment.length}</span>
-//         <div>
-//           {user && armorEquipment && armorEquipment.map(item => (
-//             <p key={item.id}>{item.name}</p>
-//           ))}
-//           {!armorEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-//         </div>
-//       </div>
-//     </div>
-//   );
 }
 
 export default TaskLandingPage;
