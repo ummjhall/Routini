@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: -1em;
 }
 
 .banner {
@@ -17,8 +18,8 @@
   flex-direction: column;
   width: 50%;
   height: 100vh;
-  /* justify-content: center; */
-  margin-top: 3em;
+  justify-content: center;
+  /* margin-top: 3em; */
 }
 
 .banner_img {
@@ -117,12 +118,12 @@ input:-webkit-autofill:active {
 }
 
 .btn-signup:hover {
-  background-color: rgba(110, 20, 20, 0.9);
+  background-color: rgba(96, 17, 17, 0.9);
   font-size: var(--font-size-small);
 }
 
 .waves_banner {
-  background-color: #040B08;
+  background-color: #040b08;
   z-index: 1;
   height: fit-content;
   padding: 0;
@@ -167,7 +168,7 @@ input:-webkit-autofill:active {
 }
 
 .section_features {
-  height: 100vh;
+  height: 95vh;
   width: 100%;
   background-color: #123812;
 }
@@ -193,7 +194,7 @@ input:-webkit-autofill:active {
 }
 
 .section_improvements {
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   background-color: #132512;
 }
@@ -240,7 +241,7 @@ input:-webkit-autofill:active {
 
 @media only screen and (max-width: 1024px) {
   .landpage .container {
-    flex-direction: column;
+    flex-direction: row;
   }
   .banner,
   .signup {
@@ -265,6 +266,46 @@ input:-webkit-autofill:active {
 
   .banner_img {
     width: 80%;
+  }
+
+  .section_features {
+    height: fit-content;
+  }
+
+  .section_features .cards {
+    display: flex;
+    flex-direction: column; /* Set flex direction to column */
+    align-items: center; /* Align cards in the center horizontally */
+  }
+
+  .section_features .cards .card {
+    width: 90%;
+    margin: 1em auto;
+  }
+
+  .section_features .cards .card img {
+    width: 60%;
+    margin-bottom: 1em;
+  }
+
+  .section_improvements {
+    height: fit-content;
+  }
+
+  .section_improvements .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section_improvements .cards .card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .section_improvements .cards .card img {
+    width: 60%;
+    margin-bottom: 1em;
   }
 }
 
