@@ -7,6 +7,8 @@ import {
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
 
+import taskReducer from "./tasks";
+
 const rootReducer = combineReducers({
   session: sessionReducer,
 

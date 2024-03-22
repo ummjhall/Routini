@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
-import TaskLandingPage form '../components/Tasks'
+import TaskLandingPage from '../components/Tasks'
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: < />,
+        element: <TaskLandingPage />,
       },
       {
         path: "login",

@@ -8,7 +8,7 @@ const loadTasks = (payload) => ({
 });
 
 export const getTasks = () => async dispatch => {
-  const response = await fetch("/api/tasks/current", {
+  const response = await csrfFetch("/api/tasks/current", {
     method: "GET",
   });
 
@@ -23,41 +23,14 @@ export const getTasks = () => async dispatch => {
   }
 };
 
-export const thunkSignup = (user) => async (dispatch) => {
-  const response = await fetch("/api/auth/signup", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user)
-  });
-
-  if(response.ok) {
-    const data = await response.json();
-    dispatch(setUser(data));
-  } else if (response.status < 500) {
-    const errorMessages = await response.json();
-    return errorMessages
-  } else {
-    return { server: "Something went wrong. Please try again" }
-  }
-};
-
-export const thunkLogout = () => async (dispatch) => {
-  // await fetch("/api/auth/logout");
-  // dispatch(removeUser());
-  const response = await csrfFetch('/api/auth/logout', {
-    method: 'DELETE',
-  });
-  dispatch(removeUser());
-  return response;
-};
 
 
-function taskReducer(state = {dailies: null, habits: null, todo: null}, action) {
+
+function taskReducer(state = {tasks: null}, action) {
   switch (action.type) {
-    case SET_USER:
-      return { ...state, user: action.payload };
-    case REMOVE_USER:
-      return { ...state, user: null };
+    case LOAD_TASKS:
+        console.log(action.payload)
+      return { ...state, tasks: action.payload };
     default:
       return state;
   }

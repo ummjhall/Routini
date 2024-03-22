@@ -1,3 +1,3 @@
-// import SignupFormPage from './SignupFormPage';
+import TaskLandingPage from './TaskLandingPage';
 
-// export default SignupFormPage;
+export default TaskLandingPage;
