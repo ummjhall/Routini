@@ -1,8 +1,12 @@
-function EquipmentItem() {
-
+function EquipmentItem({item}) {
 
   return (
-    <p>Equipment Item</p>
+    <div>
+      <img
+        src={item.image_url}
+        style={{maxWidth: '120px'}}
+      />
+    </div>
   );
 }
 
