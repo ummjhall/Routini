@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { getTasks } from "../../redux/tasks";
+import TaskItemTile from "./TaskItemTile";
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
@@ -29,19 +30,21 @@ function TaskLandingPage() {
     <div>
         <h1>Tasks</h1>
         <div className="task-container">
-            {user && dailies.length && dailies.map(task => (
-            <p key={task.id}>{task.title}</p>
-            ))}
-        </div>
-        <div>
-            {user && habits.length && habits.map(task => (
-            <p key={task.id}>{task.title}</p>
-            ))}
-        </div>
-        <div>
-            {user && todos.length && todos.map(task => (
-            <p key={task.id}>{task.title}</p>
-            ))}
+            <div className="daily-container">
+                {user && dailies.length && dailies.map(task => (
+                    <TaskItemTile key={task.id} task={task} user={user}/>
+                ))}
+            </div>
+            <div className="habit-container">
+                {user && habits.length && habits.map(task => (
+                    <TaskItemTile key={task.id} task={task} user={user}/>
+                ))}
+            </div>
+            <div className="todo-container">
+                {user && todos.length && todos.map(task => (
+                    <TaskItemTile key={task.id} task={task} user={user}/>
+                ))}
+            </div>
         </div>
     </div>
   )

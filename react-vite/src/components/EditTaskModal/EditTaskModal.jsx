@@ -1,61 +1,76 @@
 import { useState } from 'react';
-import { thunkLogin } from '../../redux/session';
-import { useDispatch } from 'react-redux';
+import { updateTask } from '../../redux/tasks';
+import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import './LoginForm.css';
 
-function LoginFormModal() {
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({});
-  const { closeModal } = useModal();
+// import './EditTaskModal.css';
+
+function EditTaskModal({user, task}) {
+    const dispatch = useDispatch();
+    console.log(task)
+    const userId = user.id
+    const tasktype = task.type
+    const [title, setTitle] = useState(task?.title);
+    const [description, setDescription] = useState(task?.description);
+    const [difficulty, setDifficulty] = useState(task?.difficulty);
+    const [startdate, setStartdate] = useState(task?.start_date);
+    const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every);
+    const [duedate, setDuedate] = useState(task?.due_date);
+    const [errors, setErrors] = useState({});
+    const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // if (Object.values(errors).length === 0) {
+        return dispatch(
+            updateTask({
+              user_id: userId,
+              type: tasktype,
+              title,
+              description,
+              difficulty,
+              start_date: startdate,
+              repeats_every: repeatsevery,
+              due_date: duedate
+            })
+        );
 
-    const serverResponse = await dispatch(
-      thunkLogin({
-        credential: email,
-        password,
-      })
-    );
-
-    if (serverResponse) {
-      setErrors(serverResponse);
-    } else {
-      closeModal();
-    }
+    // }
+    // if (serverResponse) {
+    //   setErrors(serverResponse);
+    // } else {
+    //   closeModal();
+    // }
   };
 
   return (
     <>
-      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Email
+          Title
+          <input
+            placeholder={title || 'title'}
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </label>
+        {errors.title && <p>{errors.title}</p>}
+        <label>
+          Description
           <input
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={description || 'description'}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        {errors.description && <p>{errors.description}</p>}
+        <button type="submit">Save</button>
       </form>
     </>
   );
 }
 
-export default LoginFormModal;
+export default EditTaskModal;
