@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import TaskLandingPage from '../components/Tasks'
+import Equipment from '../components/Inventory';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -9,16 +10,21 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        tasksfrontend
         path: "/",
         element: <TaskLandingPage />,
       },
       {
-        path: "login",
+        path: 'login',
         element: <LoginFormPage />,
       },
       {
-        path: "signup",
+        path: 'signup',
         element: <SignupFormPage />,
+      },
+      {
+        path: "equipment",
+        element: <Equipment />,
       },
     ],
   },

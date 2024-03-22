@@ -6,14 +6,14 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import equipmentReducer from "./equipment";
 
 import taskReducer from "./tasks";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-
-
   tasks: taskReducer
+  equipment: equipmentReducer
 });
 
 let enhancer;
