@@ -1,0 +1,8 @@
+.equipment-section_heading {
+  width: 200px;
+  margin: 5px 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+}
