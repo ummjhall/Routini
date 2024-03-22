@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkSignup } from '../../redux/session';
 import './SignupForm.css';
+import MouseScroll from '../MouseScroll/MouseScroll';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -121,15 +122,8 @@ function SignupFormPage() {
                 </button>
               </form>
             </div>
+            <MouseScroll />
           </div>
-        </div>
-      </div>
-
-      <div className="waves_banner">
-        <div className="waves">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"></path>
-          </svg>
         </div>
       </div>
 
@@ -144,7 +138,6 @@ function SignupFormPage() {
             ticket to overcoming obstacles and unlocking your true potential for
             health, productivity, and joy.
           </p>
-
           <div className="cards">
             <div className="card">
               <img
@@ -231,10 +224,10 @@ function SignupFormPage() {
               />
               <h3>Endless Adventures Await!</h3>
               <p>
-                Endless Adventures Await! With Routini&#39;s versatile quest
-                log, the possibilities are as vast as the realms of the
-                imagination! Craft epic sagas, prioritize self-care quests, or
-                embark on any other quest you desire — the choice is yours!
+                With Routini&#39;s versatile quest log, the possibilities are as
+                vast as the realms of the imagination! Craft epic sagas,
+                prioritize self-care quests, or embark on any other quest you
+                desire — the choice is yours!
               </p>
             </div>
           </div>

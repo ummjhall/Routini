@@ -121,7 +121,7 @@ input:-webkit-autofill:active {
   background-color: rgba(96, 17, 17, 0.9);
   font-size: var(--font-size-small);
 }
-
+/*
 .waves_banner {
   background-color: #040b08;
   z-index: 1;
@@ -143,7 +143,7 @@ input:-webkit-autofill:active {
   stroke: none;
   fill: #123812;
   z-index: 10;
-}
+} */
 
 .waves_banner_two {
   background-color: #123812;
@@ -168,19 +168,20 @@ input:-webkit-autofill:active {
 }
 
 .section_features {
-  height: 95vh;
+  height: 110vh;
   width: 100%;
   background-color: #123812;
 }
 
-.section_features h1 {
-  margin: 0 0 1em 0;
+.section_features h1,
+.section_features h3 {
+  margin: 1em 0 1em 0;
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.section_features h3,
+
 .section_features p {
   margin: 0 0 1em 0;
   color: var(--neutral-white-color);
@@ -199,14 +200,15 @@ input:-webkit-autofill:active {
   background-color: #132512;
 }
 
-.section_improvements h1 {
+.section_improvements h1,
+.section_improvements h3 {
   margin: 0 0 1em 0;
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.section_improvements h3,
+
 .section_improvements p {
   margin: 0 0 1em 0;
   color: var(--neutral-white-color);
