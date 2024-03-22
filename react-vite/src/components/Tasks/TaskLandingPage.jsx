@@ -14,11 +14,11 @@ function TaskLandingPage() {
   const todos = [];
   for (const task of Object.values(userTasks)) {
     console.log('HELLO: ', userTasks)
-    if (task.type == 'dailies') dailies.push(task);
-    if (task.type == 'habits') habits.push(task);
+    if (task.type == 'daily') dailies.push(task);
+    if (task.type == 'habit') habits.push(task);
     if (task.type == 'to-do') todos.push(task);
   }
-
+  console.log(dailies)
   useEffect(() => {
     dispatch(getTasks());
   }, [dispatch]);
@@ -28,8 +28,18 @@ function TaskLandingPage() {
   return (
     <div>
         <h1>Tasks</h1>
+        <div className="task-container">
+            {user && dailies.length && dailies.map(task => (
+            <p key={task.id}>{task.title}</p>
+            ))}
+        </div>
         <div>
-            {user && dailies && dailies.map(task => (
+            {user && habits.length && habits.map(task => (
+            <p key={task.id}>{task.title}</p>
+            ))}
+        </div>
+        <div>
+            {user && todos.length && todos.map(task => (
             <p key={task.id}>{task.title}</p>
             ))}
         </div>

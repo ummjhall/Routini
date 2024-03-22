@@ -11,7 +11,6 @@ export const getTasks = () => async dispatch => {
   const response = await csrfFetch("/api/tasks/current", {
     method: "GET",
   });
-
   if(response.ok) {
     const data = await response.json();
     dispatch(loadTasks(data));
@@ -26,11 +25,14 @@ export const getTasks = () => async dispatch => {
 
 
 
-function taskReducer(state = {tasks: null}, action) {
+function taskReducer(state = {}, action) {
+    const newState = {...state}
   switch (action.type) {
     case LOAD_TASKS:
-        console.log(action.payload)
-      return { ...state, tasks: action.payload };
+        action.payload.Tasks.forEach((task) => {
+            newState[task.id] = task
+        })
+      return newState
     default:
       return state;
   }
