@@ -9,6 +9,9 @@ import sessionReducer from "./session";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+
+
+  tasks: taskReducer
 });
 
 let enhancer;
