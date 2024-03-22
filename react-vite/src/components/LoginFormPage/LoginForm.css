@@ -112,12 +112,12 @@ input:-webkit-autofill:active {
 
 .btn-login:hover {
   background-color: rgba(96, 17, 17, 0.9);
-  font-size: var(--font-size-small);
 }
 
 .link {
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
+  text-decoration: none;
 }
 
 .link:hover {

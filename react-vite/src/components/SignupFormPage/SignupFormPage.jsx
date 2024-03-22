@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { thunkSignup } from '../../redux/session';
 import './SignupForm.css';
 import MouseScroll from '../MouseScroll/MouseScroll';
+import Footer from '../Footer/Footer';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -178,8 +179,8 @@ function SignupFormPage() {
         </div>
       </div>
 
-      <div className="waves_banner_two">
-        <div className="waves_two">
+      <div className="waves_banner">
+        <div className="waves">
           <svg viewBox="0 0 500 150" preserveAspectRatio="none">
             <path d="M-0.84,51.81 C145.31,-37.97 322.51,85.38 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
           </svg>
@@ -233,6 +234,15 @@ function SignupFormPage() {
           </div>
         </div>
       </div>
+
+      <div className="waves_banner_two">
+        <div className="waves_two">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M-1.13,26.16 C156.32,123.85 358.92,-4.43 501.13,35.04 L500.00,0.00 L0.00,0.00 Z"></path>
+          </svg>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

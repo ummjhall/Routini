@@ -56,7 +56,7 @@
   left: 0;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   z-index: 0;
 }
@@ -119,14 +119,12 @@ input:-webkit-autofill:active {
 
 .btn-signup:hover {
   background-color: rgba(96, 17, 17, 0.9);
-  font-size: var(--font-size-small);
 }
-/*
+
 .waves_banner {
-  background-color: #040b08;
+  background-color: #123812;
   z-index: 1;
   height: fit-content;
-  padding: 0;
 }
 
 .waves {
@@ -141,19 +139,21 @@ input:-webkit-autofill:active {
 
 .waves path {
   stroke: none;
-  fill: #123812;
+  fill: #132512;
   z-index: 10;
-} */
+}
 
 .waves_banner_two {
-  background-color: #123812;
+  position: relative;
   z-index: 1;
-  height: fit-content;
 }
 
 .waves_two {
   height: 150px;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 .waves_two svg {
@@ -164,7 +164,6 @@ input:-webkit-autofill:active {
 .waves_two path {
   stroke: none;
   fill: #132512;
-  z-index: 10;
 }
 
 .section_features {
