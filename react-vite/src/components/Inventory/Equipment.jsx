@@ -2,21 +2,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { getUserEquipmentThunk } from "../../redux/equipment";
-// import EquipmentItem from "./EquipmentItem";
+import EquipmentSection from "./EquipmentSection";
 
 function Equipment() {
   const user = useSelector(state => state.session.user);
   const userEquipment = useSelector(state => state.equipment);
   const dispatch = useDispatch();
 
-  const mainEquipment = [];
-  const headEquipment = [];
-  const armorEquipment = [];
-  for (const item of Object.values(userEquipment)) {
-    if (item.type == 'main') mainEquipment.push(item);
-    if (item.type == 'head') headEquipment.push(item);
-    if (item.type == 'armor') armorEquipment.push(item);
-  }
+  const mainEquipment = Object.values(userEquipment).filter(item => item.type == 'main');
+  const headEquipment = Object.values(userEquipment).filter(item => item.type == 'head');
+  const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
 
   useEffect(() => {
     dispatch(getUserEquipmentThunk());
@@ -28,34 +23,13 @@ function Equipment() {
     <div>
       <h1>Equipment</h1>
       <div>
-        <span>Main-Hand Item{' '}</span>
-        <span>{mainEquipment.length}</span>
-        <div>
-          {user && mainEquipment && mainEquipment.map(item => (
-            <p key={item.id}>{item.name}</p>
-          ))}
-          {!mainEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-        </div>
+        <EquipmentSection heading='Main-Hand Item' array={mainEquipment} />
       </div>
       <div>
-        <span>Headgear{' '}</span>
-        <span>{headEquipment.length}</span>
-        <div>
-          {user && headEquipment && headEquipment.map(item => (
-            <p key={item.id}>{item.name}</p>
-          ))}
-          {!headEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-        </div>
+        <EquipmentSection heading='Headgear' array={headEquipment} />
       </div>
       <div>
-        <span>Armor{' '}</span>
-        <span>{armorEquipment.length}</span>
-        <div>
-          {user && armorEquipment && armorEquipment.map(item => (
-            <p key={item.id}>{item.name}</p>
-          ))}
-          {!armorEquipment.length && (<p>You don&apos;t own any of these.</p>)}
-        </div>
+        <EquipmentSection heading='Armor' array={armorEquipment} />
       </div>
     </div>
   );
