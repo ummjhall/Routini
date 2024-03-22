@@ -2,7 +2,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
-import ConditionalLandingPage from '../components/ConditionalLandingPage/ConditionalLandingPage';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +9,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <ConditionalLandingPage />,
+        element: <h1>TaskPage</h1>,
       },
       {
         path: 'login',
