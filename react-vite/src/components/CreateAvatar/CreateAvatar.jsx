@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './CreateAvatar.css';
 import { useEffect, useState } from 'react';
 import { useModal } from '../../context/Modal';
@@ -9,12 +9,13 @@ function CreateAvatar() {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [errors, setErrors] = useState({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const { closeModal } = useModal();
 
   useEffect(() => {
     const newErrors = {};
 
-    if (!name.trim()) newErrors.name = 'Name is required';
+    if (!name.trim()) newErrors.name = '* Name is required';
 
     setErrors(newErrors);
   }, [name]);
@@ -22,18 +23,20 @@ function CreateAvatar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serverResponse = await dispatch(
+    setFormSubmitted(true);
+
+    const res = await dispatch(
       createUserAvatar({
         name,
         bio,
       })
     );
 
-    if (serverResponse) {
+    if (res) {
+      setFormSubmitted(false);
       closeModal();
     } else {
-      console.log("***************")
-      setErrors(serverResponse);
+      setErrors(res);
     }
   };
 
@@ -44,28 +47,46 @@ function CreateAvatar() {
           <div className="avatar">
             <h3>Welcome to</h3>
             <h1>Routini</h1>
-            <p>
-              Greetings, traveler! Welcome to our realm. It appears that
-              you&#39;re new to these lands, and it&#39;s time for you to forge
-              your avatar. But before we embark on this journey, let us first
-              determine the name of your avatar.
-            </p>
-            <p>
-              Below, you&#39;ll see a display name and a biography. Once
-              you&#39;ve chosen a name that resonates with you, feel free to
-              craft your character&#39;s biography right here and now. The
-              choice is yours!
-            </p>
+            <div className="desktop-text">
+              <p>
+                Greetings, traveler! Welcome to our realm. It appears that
+                you&#39;re new to these lands, and it&#39;s time for you to
+                forge your avatar. But before we embark on this journey, let us
+                first determine the name of your avatar.
+              </p>
+              <p>
+                Below, you&#39;ll see a display name and a biography. Once
+                you&#39;ve chosen a name that resonates with you, feel free to
+                craft your character&#39;s biography right here and now. The
+                choice is yours!
+              </p>
+            </div>
+            <div className="mobile-text">
+              <p>
+                Welcome traveler! As a newcomer, it&#39;s
+                time to forge your avatar. Before our journey begins, choose
+                your avatar&#39;s name. Once chosen, craft your character&#39;s
+                biography. The choice is yours!
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                value={name}
-                placeholder="Name"
-                onChange={(e) => setName(e.target.value)}
-                // required
-              />
-              {errors.name && <p className="error">{errors.name}</p>}
+              {formSubmitted && errors.name ? (
+                <input
+                  type="text"
+                  value={name}
+                  className={errors.name ? 'error' : ''}
+                  placeholder={errors.name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="text"
+                  value={name}
+                  placeholder="Name"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              )}
               <textarea
                 type="text"
                 value={bio}

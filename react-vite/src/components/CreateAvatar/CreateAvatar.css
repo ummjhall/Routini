@@ -5,7 +5,8 @@
 
 .avatar {
   max-width: 600px;
-  height: 80vh;
+  min-width: 100px;
+  height: fit-content;
 }
 
 .avatar h1 {
@@ -68,6 +69,11 @@
   font-family: var(--font-family-secondary);
 }
 
+.avatar input.error::placeholder {
+  color: var(--accent-light-red);
+
+}
+
 .avatar textarea {
   color: var(--neutral-white-color);
   font-family: var(--font-family-form);
@@ -78,6 +84,7 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.3) !important;
+  resize: none;
 }
 
 .avatar textarea:hover,
@@ -109,4 +116,19 @@
 
 .btn-start:hover {
   background-color: rgba(96, 17, 17, 0.9);
+}
+
+.mobile-text {
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .desktop-text {
+    display: none;
+  }
+
+  .mobile-text {
+    display: block;
+  }
 }

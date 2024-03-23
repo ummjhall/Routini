@@ -84,7 +84,7 @@
 
 .signup input:hover,
 .signup input:focus {
-  border-color: var(--neutral-light-color);
+  border-color: var(--neutral-gray-color);
   background-color: rgba(0, 0, 0, 0.5) !important;
   outline: none;
 }

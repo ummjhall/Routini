@@ -5,25 +5,28 @@
 
 :root {
   /* Primary Color (Dark Green) */
-  --primary-color: #0B1410;
+  --primary-color: #0b1410;
 
   /* Secondary Color (Dark Green II) */
   --secondary-color: #132512;
 
   /* Accent Color (Dark Red) */
-  --accent-color-red: #6e1414;
+  --accent-color-red: #a11d1d;
 
   /* Accent Color (Dark Blue) */
   --accent-color-blue: #0e2b3a;
 
   /* Accent Color (Dark Gold) */
-  --accent-color-gold: #B8860B;
+  --accent-color-gold: #b8860b;
 
-  /* Neutral Color (Light Gray) */
-  --neutral-light-color: #c0c0c0;
+  /* Accent Color (Light red) */
+  --accent-light-red: #d31616;
 
   /* Neutral Color (Dark Gray) */
-  --neutral-dark-color: #333333;
+  --neutral-dark-gray: #333333;
+
+  /* Neutral Color (Light Gray) */
+  --neutral-gray-color: #c0c0c0;
 
   /* Neutral Color (White) */
   --neutral-white-color: #ffffff;

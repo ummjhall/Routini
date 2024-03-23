@@ -38,7 +38,7 @@
 }
 
 .footer p {
-  color: var(--neutral-light-color);
+  color: var(--neutral-gray-color);
   font-family: var(--font-family-primary);
   display: flex;
   align-items: center;
