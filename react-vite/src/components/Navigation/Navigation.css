@@ -1,3 +1,49 @@
+.nav-wrapper {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkslategray;
+}
+
+.nav-wrapper_left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_app-name {
+  margin: 15px 25px 15px 7px;
+  font-family: 'Cinzel Decorative', serif;
+  color: gold;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nav_link {
+  margin: 20px;
+  font-family: 'Cinzel Decorative', serif;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.icon {
+  margin: 4px 0 0 4px;
+}
+
+.profile-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
 .profile-dropdown {
-  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  padding: 15px;
+  position: fixed;
+  top: 42px;
+  right: 18px;
+  z-index: 1;
 }
