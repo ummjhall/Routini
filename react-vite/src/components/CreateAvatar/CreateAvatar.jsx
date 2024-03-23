@@ -1,16 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './CreateAvatar.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useModal } from '../../context/Modal';
 import { createUserAvatar } from '../../redux/avatars';
 
-function CreateAvatarModal() {
+function CreateAvatar() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    const newErrors = {};
+
+    if (!name.trim()) newErrors.name = 'Name is required';
+
+    setErrors(newErrors);
+  }, [name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,9 +30,10 @@ function CreateAvatarModal() {
     );
 
     if (serverResponse) {
-      setErrors(serverResponse);
-    } else {
       closeModal();
+    } else {
+      console.log("***************")
+      setErrors(serverResponse);
     }
   };
 
@@ -55,9 +63,9 @@ function CreateAvatarModal() {
                 value={name}
                 placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
-                required
+                // required
               />
-              {errors.name && <p>{errors.name}</p>}
+              {errors.name && <p className="error">{errors.name}</p>}
               <textarea
                 type="text"
                 value={bio}
@@ -66,7 +74,6 @@ function CreateAvatarModal() {
                 cols="30"
                 rows="5"
               ></textarea>
-              {errors.bio && <p>{errors.bio}</p>}
               <button className="btn-start" type="submit">
                 Get Started
               </button>
@@ -83,4 +90,4 @@ function CreateAvatarModal() {
   );
 }
 
-export default CreateAvatarModal;
+export default CreateAvatar;

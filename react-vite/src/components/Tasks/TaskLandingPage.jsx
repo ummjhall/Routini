@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { getTasks } from '../../redux/tasks';
 import TaskItemTile from './TaskItemTile';
 import { getUserAvatar } from '../../redux/avatars';
-import CreateAvatarModal from '../CreateAvatar/CreateAvatar';
+import CreateAvatar from '../CreateAvatar';
 import { useModal } from '../../context/Modal';
 
 // import EquipmentItem from "./EquipmentItem";
@@ -29,11 +29,13 @@ function TaskLandingPage() {
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
+  }, [dispatch]);
 
+  useEffect(() => {
     if (!userAvatar.avatar) {
-      setModalContent(<CreateAvatarModal />);
+      setModalContent(<CreateAvatar />);
     }
-  }, [dispatch, userAvatar.avatar, setModalContent]);
+  }, [setModalContent, userAvatar]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 

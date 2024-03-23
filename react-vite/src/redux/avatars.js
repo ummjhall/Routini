@@ -24,34 +24,13 @@ export const getUserAvatar = () => async (dispatch) => {
 };
 
 export const createUserAvatar =
-  ({
-    user_id,
-    name,
-    bio,
-    level,
-    health,
-    exp,
-    gold,
-    gems,
-    equip_head_id,
-    equip_main_id,
-    equip_armor_id,
-  }) =>
+  ({ name, bio }) =>
   async (dispatch) => {
     const res = await csrfFetch('/api/avatars/current', {
       method: 'POST',
       body: JSON.stringify({
-        user_id,
         name,
         bio,
-        level,
-        health,
-        exp,
-        gold,
-        gems,
-        equip_head_id,
-        equip_main_id,
-        equip_armor_id,
       }),
     });
 
@@ -59,6 +38,9 @@ export const createUserAvatar =
       const avatar = await res.json();
       dispatch(createAvatar(avatar));
       return avatar;
+    } else {
+      const data = await res.json();
+      return data.errors;
     }
   };
 
