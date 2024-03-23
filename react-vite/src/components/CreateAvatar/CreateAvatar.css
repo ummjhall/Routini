@@ -1,0 +1,112 @@
+.border {
+  margin: 1em;
+  border: 5px groove var(--accent-color-gold);
+}
+
+.avatar {
+  max-width: 600px;
+  height: 80vh;
+}
+
+.avatar h1 {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-primary);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.avatar h3 {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-primary);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 1em 0;
+}
+
+.avatar p {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-secondary);
+  text-align: center;
+}
+
+.avatar small {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-secondary);
+  text-align: start;
+}
+
+.avatar form {
+  display: flex;
+  flex-direction: column;
+  color: var(--neutral-white-color);
+  text-align: center;
+}
+
+.avatar input {
+  margin-bottom: 1em;
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-form);
+  font-weight: var(--font-weight-bold);
+  width: 95%;
+  padding: 10px;
+  border: 1px solid var(--accent-color-gold);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.avatar input:hover,
+.avatar input:focus {
+  border-color: #7c5a03;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  outline: none;
+}
+
+.avatar input::placeholder {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-secondary);
+}
+
+.avatar textarea {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-form);
+  font-weight: var(--font-weight-bold);
+  width: 95%;
+  padding: 10px;
+  border: 1px solid var(--accent-color-gold);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.avatar textarea:hover,
+.avatar textarea:focus {
+  border-color: #7c5a03;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  outline: none;
+}
+
+.avatar textarea::placeholder {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-secondary);
+}
+
+.btn-start {
+  color: var(--neutral-white-color);
+  background-color: var(--accent-color-red);
+  font-family: var(--font-family-primary);
+  margin: 2em auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease, font-size 0.3s ease;
+}
+
+.btn-start:hover {
+  background-color: rgba(96, 17, 17, 0.9);
+}

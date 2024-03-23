@@ -79,7 +79,7 @@
 
 .login input::placeholder {
   color: var(--neutral-white-color);
-  font-family: var(--font-family-form);
+  font-family: var(--font-family-secondary);
 }
 
 input:-webkit-autofill,
@@ -93,6 +93,7 @@ input:-webkit-autofill:active {
 .login label {
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-login {

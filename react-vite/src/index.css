@@ -6,35 +6,30 @@
 :root {
   /* Primary Color (Dark Green) */
   --primary-color: #0B1410;
-  --primary-color-rgb: 0, 23, 0;
 
-  /* Secondary Color (Dark Brown) */
-  --secondary-color: #2b1a0e;
-  --secondary-color-rgb: 43, 26, 14;
+  /* Secondary Color (Dark Green II) */
+  --secondary-color: #132512;
 
   /* Accent Color (Dark Red) */
   --accent-color-red: #6e1414;
-  --accent-color-red-rgb: 110, 20, 20;
 
   /* Accent Color (Dark Blue) */
   --accent-color-blue: #0e2b3a;
-  --accent-color-blue-rgb: 14, 43, 58;
+
+  /* Accent Color (Dark Gold) */
+  --accent-color-gold: #B8860B;
 
   /* Neutral Color (Light Gray) */
   --neutral-light-color: #c0c0c0;
-  --neutral-light-color-rgb: 192, 192, 192;
 
   /* Neutral Color (Dark Gray) */
   --neutral-dark-color: #333333;
-  --neutral-dark-color-rgb: 51, 51, 51;
 
   /* Neutral Color (White) */
   --neutral-white-color: #ffffff;
-  --neutral-white-color-rgb: 255, 255, 255;
 
   /* Neutral Color (Black) */
   --neutral-black-color: #000000;
-  --neutral-black-color-rgb: 0, 0, 0;
 
   /* Font Sizes */
   --font-size-small: 14px;

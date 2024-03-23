@@ -9,15 +9,12 @@ import Footer from '../Footer/Footer';
 function SignupFormPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const emailInputRef = useRef(null);
-
-  // if (sessionUser) return <Navigate to="/" replace={true} />;
 
   useEffect(() => {
     const emailInput = emailInputRef.current;
