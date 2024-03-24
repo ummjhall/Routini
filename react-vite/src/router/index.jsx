@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import TaskLandingPage from '../components/Tasks'
 import Equipment from '../components/Inventory';
+import Shop from '../components/Shop';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -11,20 +12,24 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <TaskLandingPage />,
+        element: <TaskLandingPage />
       },
       {
         path: 'signup',
-        element: <SignupFormPage />,
+        element: <SignupFormPage />
       },
       {
         path: 'equipment',
-        element: <Equipment />,
+        element: <Equipment />
       },
-    ],
+      {
+        path: 'shop',
+        element: <Shop />
+      }
+    ]
   },
   {
     path: 'login',
-    element: <LoginFormPage />,
-  },
+    element: <LoginFormPage />
+  }
 ]);

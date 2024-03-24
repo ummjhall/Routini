@@ -21,7 +21,7 @@ function Navigation() {
         <div className='nav_link' onClick={() => navigate('/equipment')}>
           <div className='nav_link_text'>Inventory</div>
         </div>
-        <div className='nav_link' onClick={() => navigate('/equipment')}>
+        <div className='nav_link' onClick={() => navigate('/shop')}>
           <div className='nav_link_text'>Shop</div>
         </div>
       </div>
