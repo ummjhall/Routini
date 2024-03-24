@@ -1,7 +1,12 @@
+import ViewAvatar from "../ViewAvatar/ViewAvatar";
+
 function Shop() {
 
   return (
-    <h1>Shop</h1>
+    <>
+      <ViewAvatar />
+      <h1>Shop</h1>
+    </>
   );
 }
 

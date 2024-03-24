@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { getUserEquipmentThunk } from "../../redux/equipment";
+import ViewAvatar from "../ViewAvatar/ViewAvatar";
 import EquipmentSection from "./EquipmentSection";
 
 function Equipment() {
@@ -20,18 +21,21 @@ function Equipment() {
   if (!user) return <Navigate to='/signup' replace={true} />;
 
   return (
-    <div>
-      <h1>Equipment</h1>
-      <div>
-        <EquipmentSection heading='Main-Hand Item' array={mainEquipment} />
+    <>
+      <ViewAvatar />
+      <div className='equipment-wrapper'>
+        <h1>Equipment</h1>
+        <div>
+          <EquipmentSection heading='Main-Hand Item' array={mainEquipment} />
+        </div>
+        <div>
+          <EquipmentSection heading='Headgear' array={headEquipment} />
+        </div>
+        <div>
+          <EquipmentSection heading='Armor' array={armorEquipment} />
+        </div>
       </div>
-      <div>
-        <EquipmentSection heading='Headgear' array={headEquipment} />
-      </div>
-      <div>
-        <EquipmentSection heading='Armor' array={armorEquipment} />
-      </div>
-    </div>
+    </>
   );
 }
 

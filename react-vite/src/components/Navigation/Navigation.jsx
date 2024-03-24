@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
-import icon from '../../../dist/assets/imgs/al-icon.jpg';
+import icon from '../../../dist/assets/imgs/questlog-icon3.jpg';
 import './Navigation.css';
 
 function Navigation() {
@@ -13,8 +13,8 @@ function Navigation() {
   return (
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
-        <img className='icon' src={icon} alt='icon' style={{width: '50px'}} />
-        <div className='nav_app-name'>AdventureLog</div>
+        <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
+        <div className='nav_app-name'>QuestLog</div>
         <div className='nav_link' onClick={() => navigate('/')}>
           <div className='nav_link_text'>Tasks</div>
         </div>

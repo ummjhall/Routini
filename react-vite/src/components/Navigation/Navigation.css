@@ -1,13 +1,15 @@
 .nav-wrapper {
   /* border: 1px solid red; */
+  margin: -8px -8px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: darkslategray;
+  /* background-color: var(--accent-color-blue); */
 }
 
 .icon {
-  margin-left: 4px;
+  margin: 4px 0 0 4px;
 }
 
 .nav-wrapper_left {
@@ -19,12 +21,13 @@
 
 .nav_app-name {
   /* border: 1px solid yellow; */
-  margin: 15px 25px 15px 7px;
+  margin: 15px 25px 15px 15px;
   font-family: 'Cinzel Decorative', serif;
-  color: gold;
+  color: var(--accent-light-gold);
   font-size: 30px;
   font-weight: bold;
   cursor: default;
+  text-shadow: 2px 2px black;
 }
 
 .nav_link {
@@ -44,6 +47,7 @@
   font-family: 'Cinzel Decorative', serif;
   color: white;
   font-size: 24px;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -64,7 +68,7 @@
   /* padding: 3px; */
   position: fixed;
   top: 65px;
-  right: 30px;
+  right: 20px;
   z-index: 1;
 }
 
