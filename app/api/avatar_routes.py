@@ -28,7 +28,7 @@ def get_users_avatar():
         formatted_avatar["image_url"] = avatar_image
     else:
         # Otherwise, use default static avatar image URL
-        static_avatar_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        static_avatar_url = "https://res.cloudinary.com/drv1e8rjp/image/upload/v1710734997/avatar_1_lfbzjt.png"
         formatted_avatar["image_url"] = static_avatar_url
 
     # Update formatted avatar with avatar data

@@ -1,3 +1,3 @@
-import OpenModalCreateAvatar from './OpenModalCreateAvatar';
+// import OpenModalCreateAvatar from './OpenModalCreateAvatar';
 
-export default OpenModalCreateAvatar;
+// export default OpenModalCreateAvatar;

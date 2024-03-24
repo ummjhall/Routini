@@ -15,7 +15,7 @@ function TaskLandingPage() {
   const userTasks = useSelector((state) => state.tasks);
   const userAvatar = useSelector((state) => state.avatar);
   const dispatch = useDispatch();
-  const { setModalContent } = useModal();
+  const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
   const habits = [];
@@ -28,15 +28,17 @@ function TaskLandingPage() {
   }
 
   useEffect(() => {
+    if (user && !userAvatar.avatar) {
+      setModalContent(<CreateAvatar />);
+    } else {
+      closeModal();
+    }
+  }, [setModalContent, userAvatar, user, closeModal]);
+
+  useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (user && !userAvatar.avatar) {
-      setModalContent(<CreateAvatar />);
-    }
-  }, [setModalContent, userAvatar, user]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 
