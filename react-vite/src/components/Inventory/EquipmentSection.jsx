@@ -1,5 +1,5 @@
 import EquipmentItem from "./EquipmentItem";
-import './equipment.css'
+import './Equipment.css'
 
 function EquipmentSection({heading, array}) {
 

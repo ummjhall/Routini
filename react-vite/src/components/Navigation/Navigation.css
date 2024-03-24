@@ -1,3 +1,97 @@
+.nav-wrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkslategray;
+}
+
+.icon {
+  margin-left: 4px;
+}
+
+.nav-wrapper_left {
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_app-name {
+  /* border: 1px solid yellow; */
+  margin: 15px 25px 15px 7px;
+  font-family: 'Cinzel Decorative', serif;
+  color: gold;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.nav_link {
+  /* border: 1px solid yellow; */
+  width: 175px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_link:hover {
+  background-color: darkcyan;
+}
+
+.nav_link_text {
+  font-family: 'Cinzel Decorative', serif;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav_link:hover {
+  cursor: pointer;
+}
+
+.profile-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 .profile-dropdown {
-  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  /* padding: 3px; */
+  position: fixed;
+  top: 65px;
+  right: 30px;
+  z-index: 1;
+}
+
+.profile-dropdown_username {
+  /* border: 1px solid red; */
+  /* margin: 5px 0; */
+  padding: 8px 15px 0;
+}
+
+.profile-dropdown_username,
+.profile-dropdown_email {
+  cursor: default;
+}
+
+.profile-dropdown_email {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 5px 0; */
+  padding: 8px 15px;
+}
+
+.profile-dropdown_logout {
+  /* border: 1px solid red; */
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.profile-dropdown_logout:hover {
+  background-color: darkcyan;
 }
