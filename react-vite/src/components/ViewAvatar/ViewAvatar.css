@@ -1,4 +1,4 @@
-.banner {
+.view-avatar-banner {
   background-color: var(--secondary-color);
   height: 200px;
   width: 100%;
@@ -25,7 +25,7 @@
   display: flex;
 }
 
-.banner .overlay {
+.view-avatar-banner .overlay {
   position: relative;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@
   transition: background-color 0.4s ease;
 }
 
-.banner .overlay:hover {
+.view-avatar-banner .overlay:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 

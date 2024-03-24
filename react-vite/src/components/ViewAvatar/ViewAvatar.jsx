@@ -12,7 +12,7 @@ function ViewAvatar() {
 
   return (
     <>
-      <div className="banner">
+      <div className="view-avatar-banner">
         <div className="tasks-container">
           <div className="frame">
             <div className="overlay">
