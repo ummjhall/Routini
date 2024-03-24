@@ -1,21 +1,29 @@
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import icon from '../../../dist/assets/imgs/al-icon.jpg';
 import './Navigation.css';
 
 function Navigation() {
   const user = useSelector(state => state.session.user);
+  const navigate = useNavigate();
+
   if (!user) return;
 
   return (
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
-        <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
+        <img className='icon' src={icon} alt='icon' style={{width: '50px'}} />
         <div className='nav_app-name'>AdventureLog</div>
-        <NavLink to='/' className={'nav_link'}>Tasks</NavLink>
-        <NavLink to='/equipment' className={'nav_link'}>Inventory</NavLink>
-        <NavLink to='/shop' className={'nav_link'}>Shop</NavLink>
+        <div className='nav_link' onClick={() => navigate('/')}>
+          <div className='nav_link_text'>Tasks</div>
+        </div>
+        <div className='nav_link' onClick={() => navigate('/equipment')}>
+          <div className='nav_link_text'>Inventory</div>
+        </div>
+        <div className='nav_link' onClick={() => navigate('/equipment')}>
+          <div className='nav_link_text'>Shop</div>
+        </div>
       </div>
       <ProfileButton />
     </div>

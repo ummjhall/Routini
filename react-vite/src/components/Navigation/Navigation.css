@@ -1,35 +1,54 @@
 .nav-wrapper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: darkslategray;
 }
 
+.icon {
+  margin-left: 4px;
+}
+
 .nav-wrapper_left {
+  /* border: 1px solid blue; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .nav_app-name {
+  /* border: 1px solid yellow; */
   margin: 15px 25px 15px 7px;
   font-family: 'Cinzel Decorative', serif;
   color: gold;
   font-size: 30px;
   font-weight: bold;
+  cursor: default;
 }
 
 .nav_link {
-  margin: 20px;
+  /* border: 1px solid yellow; */
+  width: 175px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_link:hover {
+  background-color: darkcyan;
+}
+
+.nav_link_text {
   font-family: 'Cinzel Decorative', serif;
   color: white;
   font-size: 24px;
   text-decoration: none;
 }
 
-.icon {
-  margin: 4px 0 0 4px;
+.nav_link:hover {
+  cursor: pointer;
 }
 
 .profile-button {
