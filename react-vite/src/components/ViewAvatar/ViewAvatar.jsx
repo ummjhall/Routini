@@ -29,10 +29,10 @@ function ViewAvatar() {
                 alt="name-icon"
               />
               <div className="name-content">
-                <p>{userAvatar?.avatar.name}</p>
+                <p>{userAvatar?.avatar?.name}</p>
                 <div className="name-small">
                  <small>{user?.username} • </small>
-                <small>Level {userAvatar?.avatar.level} Warrior</small>
+                <small>Level {userAvatar?.avatar?.level} Warrior</small>
                 </div>
               </div>
             </div>
@@ -46,10 +46,10 @@ function ViewAvatar() {
                 <div className="health-bar-border">
                   <div
                     className="health-bar"
-                    style={{ width: `${userAvatar?.avatar.health * 4}px` }}
+                    style={{ width: `${userAvatar?.avatar?.health * 4}px` }}
                   ></div>
                 </div>
-                <small>{userAvatar?.avatar.health} / 50</small>
+                <small>{userAvatar?.avatar?.health} / 50</small>
               </div>
             </div>
             <div className="exp">
@@ -62,10 +62,10 @@ function ViewAvatar() {
                 <div className="exp-bar-border">
                   <div
                     className="exp-bar"
-                    style={{ width: `${userAvatar?.avatar.exp * 2.666}px` }}
+                    style={{ width: `${userAvatar?.avatar?.exp * 2.666}px` }}
                   ></div>
                 </div>
-                <small>{userAvatar?.avatar.exp} / 75</small>
+                <small>{userAvatar?.avatar?.exp} / 75</small>
               </div>
             </div>
           </div>
