@@ -6,6 +6,7 @@ import TaskItemTile from './TaskItemTile';
 import { getUserAvatar } from '../../redux/avatars';
 import CreateAvatar from '../CreateAvatar';
 import { useModal } from '../../context/Modal';
+import ViewAvatar from '../ViewAvatar/ViewAvatar';
 
 // import EquipmentItem from "./EquipmentItem";
 
@@ -32,7 +33,7 @@ function TaskLandingPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (user && !userAvatar.avatar) {
+    if (user && !userAvatar) {
       setModalContent(<CreateAvatar />);
     }
   }, [setModalContent, userAvatar, user]);
@@ -41,6 +42,7 @@ function TaskLandingPage() {
 
   return (
     <div>
+      <ViewAvatar />
       <h1>Tasks</h1>
       <div className="task-container">
         <div className="daily-container">

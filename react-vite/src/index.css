@@ -13,14 +13,17 @@
   /* Accent Color (Dark Red) */
   --accent-color-red: #a11d1d;
 
+  /* Accent Color (Light red) */
+  --accent-light-red: #d31616;
+
   /* Accent Color (Dark Blue) */
   --accent-color-blue: #0e2b3a;
 
   /* Accent Color (Dark Gold) */
   --accent-color-gold: #b8860b;
 
-  /* Accent Color (Light red) */
-  --accent-light-red: #d31616;
+  /* Accent Color (Light Gold) */
+  --accent-light-gold: #FFD700;
 
   /* Neutral Color (Dark Gray) */
   --neutral-dark-gray: #333333;
