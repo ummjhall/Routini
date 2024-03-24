@@ -4,11 +4,6 @@ import './ViewAvatar.css';
 function ViewAvatar() {
   const user = useSelector((state) => state.session.user);
   const userAvatar = useSelector((state) => state.avatar);
-  let url;
-
-  if (userAvatar.avatar) {
-    url = userAvatar.avatar.image_url;
-  }
 
   return (
     <>
@@ -17,7 +12,11 @@ function ViewAvatar() {
           <div className="frame">
             <div className="overlay">
               <div className="avatar">
-                <img src={url} alt="avatar-image" />
+                <img
+                  src={userAvatar?.avatar?.image_url}
+                  alt="avatar-image"
+                  style={{ display: userAvatar?.avatar ? 'block' : 'none' }}
+                />
               </div>
             </div>
           </div>
@@ -31,8 +30,8 @@ function ViewAvatar() {
               <div className="name-content">
                 <p>{userAvatar?.avatar?.name}</p>
                 <div className="name-small">
-                 <small>{user?.username} • </small>
-                <small>Level {userAvatar?.avatar?.level} Warrior</small>
+                  <small>{user?.username} • </small>
+                  <small>Level {userAvatar?.avatar?.level} Warrior</small>
                 </div>
               </div>
             </div>
@@ -46,7 +45,9 @@ function ViewAvatar() {
                 <div className="health-bar-border">
                   <div
                     className="health-bar"
-                    style={{ width: `${userAvatar?.avatar?.health * 4}px` }}
+                    style={{
+                      width: `${(userAvatar?.avatar?.health || 0) * 4}px`,
+                    }}
                   ></div>
                 </div>
                 <small>{userAvatar?.avatar?.health} / 50</small>
@@ -62,7 +63,7 @@ function ViewAvatar() {
                 <div className="exp-bar-border">
                   <div
                     className="exp-bar"
-                    style={{ width: `${userAvatar?.avatar?.exp * 2.666}px` }}
+                    style={{ width: `${(userAvatar?.avatar?.exp || 0) * 2.666}px` }}
                   ></div>
                 </div>
                 <small>{userAvatar?.avatar?.exp} / 75</small>

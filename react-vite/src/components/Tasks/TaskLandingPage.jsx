@@ -33,7 +33,7 @@ function TaskLandingPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (user && !userAvatar) {
+    if (user && !userAvatar.avatar) {
       setModalContent(<CreateAvatar />);
     }
   }, [setModalContent, userAvatar, user]);
