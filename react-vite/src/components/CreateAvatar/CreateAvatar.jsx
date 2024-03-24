@@ -49,10 +49,10 @@ function CreateAvatar() {
             <h1>Routini</h1>
             <div className="desktop-text">
               <p>
-                Greetings, traveler! Welcome to our realm. It appears that
-                you&#39;re new to these lands, and it&#39;s time for you to
-                forge your avatar. But before we embark on this journey, let us
-                first determine the name of your avatar.
+                Greetings, traveler! It appears that you&#39;re new to these
+                lands, and it&#39;s time for you to forge your avatar. But
+                before we embark on this journey, let us first determine the
+                name of your avatar.
               </p>
               <p>
                 Below, you&#39;ll see a display name and a biography. Once
@@ -63,10 +63,9 @@ function CreateAvatar() {
             </div>
             <div className="mobile-text">
               <p>
-                Welcome traveler! As a newcomer, it&#39;s
-                time to forge your avatar. Before our journey begins, choose
-                your avatar&#39;s name. Once chosen, craft your character&#39;s
-                biography. The choice is yours!
+                As a newcomer, it&#39;s time to forge your avatar. Before our
+                journey begins, choose your avatar&#39;s name. Once chosen,
+                craft your character&#39;s biography. The choice is yours!
               </p>
             </div>
 
@@ -93,7 +92,7 @@ function CreateAvatar() {
                 placeholder="Biography"
                 onChange={(e) => setBio(e.target.value)}
                 cols="30"
-                rows="5"
+                rows="4"
               ></textarea>
               <button className="btn-start" type="submit">
                 Get Started

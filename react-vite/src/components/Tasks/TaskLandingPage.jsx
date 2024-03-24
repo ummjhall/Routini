@@ -32,10 +32,10 @@ function TaskLandingPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!userAvatar.avatar) {
+    if (user && !userAvatar.avatar) {
       setModalContent(<CreateAvatar />);
     }
-  }, [setModalContent, userAvatar]);
+  }, [setModalContent, userAvatar, user]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 
