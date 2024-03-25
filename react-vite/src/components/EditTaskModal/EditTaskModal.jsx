@@ -12,9 +12,9 @@ function EditTaskModal({user, task}) {
     const [title, setTitle] = useState(task?.title);
     const [description, setDescription] = useState(task?.description);
     const [difficulty, setDifficulty] = useState(task?.difficulty);
-    const [startdate, setStartdate] = useState(task?.start_date);
-    const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every);
-    const [duedate, setDuedate] = useState(task?.due_date);
+    const [startdate, setStartdate] = useState(task?.start_date || '2024-01-01');
+    const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every || 1);
+    const [duedate, setDuedate] = useState(task?.due_date || '2024-01-01');
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
 
@@ -70,9 +70,7 @@ function EditTaskModal({user, task}) {
         type: tasktype,
         title,
         description,
-        difficulty,
-        start_date: startdate,
-        repeats_every: repeatsevery
+        difficulty
     };
     let errHits = {}
     if (!title) {
@@ -108,8 +106,7 @@ function EditTaskModal({user, task}) {
         title,
         description,
         difficulty,
-        start_date: startdate,
-        repeats_every: repeatsevery
+        due_date: duedate
     };
     let errHits = {}
     if (!title) {

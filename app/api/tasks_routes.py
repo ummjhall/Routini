@@ -26,7 +26,7 @@ def update_task_by_id(task_id):
     Edit a Task belonging to the Current User
     '''
     req_body = request.json
-    format = '%Y-%m-%d %H:%M:%S'
+    format = '%Y-%m-%d'
     task = Task.query.get(task_id)
     if not task:
         return {"errors": {"message": "Task couldn't be found"}}, 404
