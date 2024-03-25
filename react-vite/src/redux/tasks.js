@@ -14,7 +14,7 @@ export const postTask = (task) => ({
 });
 
 export const updateTask = (task) => ({
-    type: UPDATE_SPOT,
+    type: UPDATE_TASK,
     task
 });
 
@@ -29,7 +29,7 @@ export const getTasks = () => async dispatch => {
 };
 
 export const postNewTask = (task) => async (dispatch) => {
-    const resTask = await csrfFetch("/api/spots",
+    const resTask = await csrfFetch("/api/tasks/current",
         {
             headers: {
             'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export const postNewTask = (task) => async (dispatch) => {
 };
 
 export const editTask = (task) => async dispatch => {
-    const resTask = await csrfFetch(`/api/tasks/<task.id>`,
+    const resTask = await csrfFetch(`/api/tasks/current/${task.id}`,
         {
             headers: {
             'Content-Type': 'application/json'
@@ -56,9 +56,10 @@ export const editTask = (task) => async dispatch => {
             body: JSON.stringify(task)
         }
     );
-    if(response.ok) {
-      const updatedTask = await response.json();
+    if(resTask.ok) {
+      const updatedTask = await resTask.json();
       dispatch(updateTask(updatedTask));
+      console.log(updatedTask)
       return updatedTask
     }
     return resTask
@@ -75,6 +76,7 @@ function taskReducer(state = {}, action) {
             return newState
         case CREATE_TASK:
             newState[action.task.id] = {...newState[action.task.id], ...action.task}
+            return newState
         case UPDATE_TASK:
             newState[action.task.id] = {...action.task}
             return newState;

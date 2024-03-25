@@ -19,65 +19,6 @@ def get_users_tasks():
         formatted_res['Tasks'].append(task)
     return formatted_res, 200
 
-@tasks_routes.route("/current", methods = ['POST'])
-@login_required
-def create_new_task():
-    '''
-    Create a Task for the Current User
-    '''
-    format = '%Y-%m-%d %H:%M:%S'
-    req_body = request.json
-    start_date_obj = None
-    due_date_obj = None
-    repeats_every_val = 1
-    if 'type' not in req_body:
-        return { "errors": {"message": "Type is required"}}, 400
-    else:
-        type_string = req_body['type']
-    if type_string == 'daily':
-        new_task = Task(
-            user_id=current_user.id,
-            type=type_string,
-            title=req_body['title'],
-            description=None,
-            difficulty=1,
-            start_date=None,
-            repeats_every=1,
-            due_date=None
-        )
-    if type_string == 'habit':
-        new_task = Task(
-            user_id=current_user.id,
-            type=type_string,
-            title=req_body['title'],
-            description=None,
-            difficulty=1,
-            start_date=None,
-            repeats_every=1,
-            due_date=None
-        )
-    if type_string == 'to-do':
-        new_task = Task(
-            user_id=current_user.id,
-            type=type_string,
-            title=req_body['title'],
-            description=None,
-            difficulty=1,
-            start_date=None,
-            repeats_every=None,
-            due_date=None
-        )
-    # if 'repeats_every' in req_body:
-    #     repeats_every_val = req_body['repeats_every']
-    # if 'start_date' in req_body:
-    #     start_date_obj = datetime.strptime(req_body['start_date'], format)
-    # if 'due_date' in req_body:
-    #     due_date_obj = datetime.strptime(req_body['due_date'], format)
-
-    db.session.add(new_task)
-    db.session.commit()
-    return new_task.to_dict(), 201
-
 @tasks_routes.route("/current/<task_id>", methods = ['PUT'])
 @login_required
 def update_task_by_id(task_id):
@@ -145,6 +86,68 @@ def update_task_by_id(task_id):
             task.due_date = due_date
     db.session.commit()
     return task.to_dict(), 200
+
+@tasks_routes.route("/current", methods = ['POST'])
+@login_required
+def create_new_task():
+    '''
+    Create a Task for the Current User
+    '''
+    format = '%Y-%m-%d %H:%M:%S'
+    req_body = request.json
+    start_date_obj = None
+    due_date_obj = None
+    repeats_every_val = 1
+    print('body', req_body)
+    if 'type' not in req_body:
+        return { "errors": {"message": "Type is required"}}, 400
+    else:
+        type_string = req_body['type']
+    if type_string == 'daily':
+        new_task = Task(
+            user_id=current_user.id,
+            type=type_string,
+            title=req_body['title'],
+            description=None,
+            difficulty=1,
+            start_date=None,
+            repeats_every=1,
+            due_date=None
+        )
+    if type_string == 'habit':
+        new_task = Task(
+            user_id=current_user.id,
+            type=type_string,
+            title=req_body['title'],
+            description=None,
+            difficulty=1,
+            start_date=None,
+            repeats_every=1,
+            due_date=None
+        )
+    if type_string == 'to-do':
+        new_task = Task(
+            user_id=current_user.id,
+            type=type_string,
+            title=req_body['title'],
+            description=None,
+            difficulty=1,
+            start_date=None,
+            repeats_every=None,
+            due_date=None
+        )
+    # if 'repeats_every' in req_body:
+    #     repeats_every_val = req_body['repeats_every']
+    # if 'start_date' in req_body:
+    #     start_date_obj = datetime.strptime(req_body['start_date'], format)
+    # if 'due_date' in req_body:
+    #     due_date_obj = datetime.strptime(req_body['due_date'], format)
+
+    db.session.add(new_task)
+    db.session.commit()
+    return new_task.to_dict(), 201
+
+
 
 @tasks_routes.route("/<task_id>", methods = ['DELETE'])
 @login_required
