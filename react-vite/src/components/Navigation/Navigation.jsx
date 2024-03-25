@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
-import icon from '../../../dist/assets/imgs/questlog-icon3.jpg';
+import icon from '../../../images/questlog-icon3.jpg';
 import './Navigation.css';
 
 function Navigation() {

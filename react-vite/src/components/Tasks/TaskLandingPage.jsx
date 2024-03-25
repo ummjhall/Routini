@@ -4,8 +4,8 @@ import { Navigate } from 'react-router-dom';
 import { getTasks } from '../../redux/tasks';
 import TaskItemTile from './TaskItemTile';
 import { getUserAvatar } from '../../redux/avatars';
-import CreateAvatar from '../CreateAvatar';
-import { useModal } from '../../context/Modal';
+// import CreateAvatar from '../CreateAvatar';
+// import { useModal } from '../../context/Modal';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
@@ -15,9 +15,9 @@ import NewToDoField from './NewToDoField';
 function TaskLandingPage() {
   const user = useSelector((state) => state.session.user);
   const userTasks = useSelector((state) => Object.values(state.tasks));
-  const userAvatar = useSelector((state) => state.avatar);
+  // const userAvatar = useSelector((state) => state.avatar);
   const dispatch = useDispatch();
-  const { setModalContent, closeModal } = useModal();
+  // const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
   const habits = [];
@@ -40,7 +40,7 @@ function TaskLandingPage() {
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
-  }, []);
+  }, [dispatch]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 

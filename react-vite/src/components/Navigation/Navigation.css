@@ -13,12 +13,13 @@
 .nav-wrapper_left {
   /* border: 1px solid blue; */
   display: flex;
+  margin-left: 16px;
   justify-content: space-between;
   align-items: center;
 }
 
 .icon {
-  margin: 4px 0 0 4px;
+  margin-top: 4px;
 }
 
 .nav_app-name {
@@ -62,7 +63,7 @@
 .profile-button {
   width: 40px;
   height: 40px;
-  margin-right: 20px;
+  margin-right: 24px;
   cursor: pointer;
 }
 
@@ -115,13 +116,18 @@
 
 .nav_login {
   background-color: darkcyan;
+  border-radius: 8px;
   width: 80px;
   margin-right: 20px;
   padding: 10px;
   cursor: pointer;
   font-family: 'Cinzel Decorative', serif;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 20px;
-  color: white;
+  color: var(--accent-light-gold);
   text-align: center;
+}
+
+.nav_login:hover {
+  background-color: rgb(75, 215, 215);
 }

@@ -118,7 +118,7 @@ input:-webkit-autofill:active {
 .link {
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .link:hover {

@@ -18,7 +18,7 @@ export function ModalProvider({ children }) {
       setOnModalClose(null);
       onModalClose();
     }
-  }, []);
+  }, [onModalClose]);
 
   const contextValue = {
     modalRef, // reference to modal div
