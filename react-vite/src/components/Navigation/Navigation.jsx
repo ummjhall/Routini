@@ -8,7 +8,7 @@ function Navigation() {
   const user = useSelector(state => state.session.user);
   const navigate = useNavigate();
 
-  return user && (
+  return user ? (
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
         <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
@@ -25,7 +25,17 @@ function Navigation() {
       </div>
       <ProfileButton />
     </div>
-  );
+  ) : (
+    <div className='nav-wrapper nav-wrapper-signup'>
+      <div className='nav-wrapper_left'>
+        <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
+        <div className='nav_app-name'>QuestLog</div>
+      </div>
+      <div className='nav_login' onClick={() => navigate('/login')}>
+        Login
+      </div>
+    </div>
+  )
 }
 
 export default Navigation;

@@ -28,6 +28,16 @@ function LoginFormPage() {
     }
   };
 
+  const handleDemoLogin = async () => {
+    await dispatch(
+      thunkLogin({
+        credential: 'Demo',
+        password: 'password'
+      })
+    )
+    navigate('/');
+  };
+
   return (
     <>
       <div className="section_login">
@@ -43,7 +53,7 @@ function LoginFormPage() {
                   <input
                     type="text"
                     value={email}
-                    placeholder="Email or Username (case-sensitive)"
+                    // placeholder="Email or Username (case-sensitive)"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
@@ -54,7 +64,7 @@ function LoginFormPage() {
                   <input
                     type="password"
                     value={password}
-                    placeholder="Password"
+                    // placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
@@ -66,6 +76,15 @@ function LoginFormPage() {
                 <Link className="link" to="/signup">
                   Don&#39;t have a Routini account?<strong></strong> Sign up.
                 </Link>
+                <div className='login_demo'>
+                  <p>or</p>
+                  <p
+                    className='login_demo_signin'
+                    onClick={handleDemoLogin}
+                  >
+                    Sign in as Demo User
+                  </p>
+                </div>
               </form>
             </div>
           </div>

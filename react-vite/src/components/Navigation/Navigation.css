@@ -1,3 +1,5 @@
+/* ***** NAVBAR ******************************************************************************** */
+
 .nav-wrapper {
   /* border: 1px solid red; */
   /* margin: -8px -8px 0; */
@@ -8,15 +10,15 @@
   /* background-color: var(--accent-color-blue); */
 }
 
-.icon {
-  margin: 4px 0 0 4px;
-}
-
 .nav-wrapper_left {
   /* border: 1px solid blue; */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.icon {
+  margin: 4px 0 0 4px;
 }
 
 .nav_app-name {
@@ -54,6 +56,8 @@
 .nav_link:hover {
   cursor: pointer;
 }
+
+/* ***** PROFILE BUTTON ******************************************************************************** */
 
 .profile-button {
   width: 40px;
@@ -98,4 +102,26 @@
 
 .profile-dropdown_logout:hover {
   background-color: darkcyan;
+}
+
+
+/* ***** SIGNUP NAVBAR ******************************************************************************** */
+
+.nav-wrapper-signup {
+  background-color: var(--primary-color);
+  margin-top: -15px;
+  height: 100px;
+}
+
+.nav_login {
+  background-color: darkcyan;
+  width: 80px;
+  margin-right: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
 }
