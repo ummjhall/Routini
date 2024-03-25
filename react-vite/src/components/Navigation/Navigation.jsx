@@ -8,9 +8,7 @@ function Navigation() {
   const user = useSelector(state => state.session.user);
   const navigate = useNavigate();
 
-  if (!user) return;
-
-  return (
+  return user && (
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
         <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
