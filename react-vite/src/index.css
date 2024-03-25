@@ -3,6 +3,10 @@
   font-family: '';
 }
 
+body {
+  margin: 0;
+}
+
 :root {
   /* Primary Color (Dark Green) */
   --primary-color: #0b1410;
