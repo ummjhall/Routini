@@ -2,19 +2,20 @@ import { useState } from 'react';
 import { editTask } from '../../redux/tasks';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
+import moment from 'moment'
 // import './EditTaskModal.css';
 
 function EditTaskModal({user, task}) {
     const dispatch = useDispatch();
-    console.log(task)
+
     const userId = user.id
     const tasktype = task.type
     const [title, setTitle] = useState(task?.title);
     const [description, setDescription] = useState(task?.description);
     const [difficulty, setDifficulty] = useState(task?.difficulty);
-    const [startdate, setStartdate] = useState(task?.start_date);
-    const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every);
-    const [duedate, setDuedate] = useState(task?.due_date);
+    const [startdate, setStartdate] = useState(moment(task?.start_date).format('YYYY-MM-DD') || '2024-01-01');
+    const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every || 1);
+    const [duedate, setDuedate] = useState(moment(task?.due_date).format('YYYY-MM-DD') || '2024-01-01');
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
 
@@ -50,11 +51,8 @@ function EditTaskModal({user, task}) {
     setErrors(errHits);
     console.log(errors)
     if (!Object.values(errors).length) {
-        console.log(dispatch(
-            editTask(editedDaily)
-        ))
-        // .then(setErrors({}))
-        // .then(closeModal())
+        dispatch(editTask(editedDaily))
+        .then(closeModal())
     }
     else {
         return (setErrors(errHits))
@@ -70,9 +68,7 @@ function EditTaskModal({user, task}) {
         type: tasktype,
         title,
         description,
-        difficulty,
-        start_date: startdate,
-        repeats_every: repeatsevery
+        difficulty
     };
     let errHits = {}
     if (!title) {
@@ -90,7 +86,6 @@ function EditTaskModal({user, task}) {
         dispatch(
             editTask(editedDaily)
         )
-        .then(setErrors({}))
         .then(closeModal())
     }
     else {
@@ -108,8 +103,7 @@ function EditTaskModal({user, task}) {
         title,
         description,
         difficulty,
-        start_date: startdate,
-        repeats_every: repeatsevery
+        due_date: duedate
     };
     let errHits = {}
     if (!title) {
@@ -139,6 +133,7 @@ function EditTaskModal({user, task}) {
   };
 
   if (task.type === 'daily') {
+
     return (
         <>
           <form onSubmit={handleDaily}>
@@ -175,7 +170,7 @@ function EditTaskModal({user, task}) {
             <label>
               Start Date
               <input
-                placeholder={startdate || 'Start Date'}
+                placeholder={startdate || 'YYYY-MM-DD'}
                 type="text"
                 value={startdate}
                 onChange={(e) => setStartdate(e.target.value)}
@@ -279,7 +274,7 @@ function EditTaskModal({user, task}) {
                     <label>
                         Due Date
                         <input
-                        placeholder={duedate || 'Due Date'}
+                        placeholder={duedate || 'YYYY-MM-DD'}
                         type="text"
                         value={duedate}
                         onChange={(e) => setDuedate(e.target.value)}
