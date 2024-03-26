@@ -1,7 +1,7 @@
 function EquipmentItem({item}) {
 
   return (
-    <div>
+    <div className='equipment_item'>
       <img
         src={item.image_url}
         style={{maxWidth: '120px'}}
