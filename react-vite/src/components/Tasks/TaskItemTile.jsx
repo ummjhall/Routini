@@ -1,6 +1,6 @@
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
-import NewDailyField from "./NewDailyField";
+// import NewDailyField from "./NewDailyField";
 // import { useModal } from "../../context/Modal";
 function TaskItemTile({user, task}) {
     // const { closeModal } = useModal()

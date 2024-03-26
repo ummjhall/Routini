@@ -62,6 +62,7 @@ def update_task_by_id(task_id):
             task.difficulty = req_body['difficulty']
         if 'start_date' in req_body:
             start_date = datetime.strptime(req_body['start_date'], format)
+            # start_date = req_body['start_date']
             task.start_date = start_date
         if 'repeats_every' in req_body:
             task.repeats_every = req_body['repeats_every']
@@ -82,7 +83,8 @@ def update_task_by_id(task_id):
         if 'difficulty' in req_body:
             task.difficulty = req_body['difficulty']
         if 'due_date' in req_body:
-            due_date = datetime.strptime(req_body['start_date'], format)
+            due_date = datetime.strptime(req_body['due_date'], format)
+            # due_date = req_body['due_date']
             task.due_date = due_date
     db.session.commit()
     return task.to_dict(), 200

@@ -29,13 +29,13 @@ function TaskLandingPage() {
     if (task.type == 'to-do') todos.push(task);
   }
 
-//   useEffect(() => {
-//     if (user && !userAvatar.avatar) {
-//       setModalContent(<CreateAvatar />);
-//     } else {
-//       closeModal();
-//     }
-//   }, [setModalContent, userAvatar, user, closeModal]);
+  useEffect(() => {
+    if (user && !userAvatar.avatar) {
+      setModalContent(<CreateAvatar />);
+    } else {
+      closeModal();
+    }
+  }, [setModalContent, userAvatar, user, closeModal]);
 
   useEffect(() => {
     dispatch(getTasks());
