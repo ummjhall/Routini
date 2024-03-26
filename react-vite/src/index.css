@@ -1,1 +1,65 @@
 /* TODO: Add sitewide styles */
+* {
+  font-family: '';
+}
+
+body {
+  margin: 0;
+}
+
+:root {
+  /* Primary Color (Dark Green) */
+  --primary-color: #0b1410;
+
+  /* Secondary Color (Dark Green II) */
+  --secondary-color: #132512;
+
+  /* Accent Color (Dark Red) */
+  --accent-color-red: #a11d1d;
+
+  /* Accent Color (Light red) */
+  --accent-light-red: #d31616;
+
+  /* Accent Color (Dark Blue) */
+  --accent-color-blue: #0e2b3a;
+
+  /* Accent Color (Dark Gold) */
+  --accent-color-gold: #b8860b;
+
+  /* Accent Color (Light Gold) */
+  --accent-light-gold: #FFD700;
+
+  /* Neutral Color (Dark Gray) */
+  --neutral-dark-gray: #333333;
+
+  /* Neutral Color (Light Gray) */
+  --neutral-gray-color: #c0c0c0;
+
+  /* Neutral Color (White) */
+  --neutral-white-color: #ffffff;
+
+  /* Neutral Color (Black) */
+  --neutral-black-color: #000000;
+
+  /* Font Sizes */
+  --font-size-small: 14px;
+  --font-size-medium: 18px;
+  --font-size-large: 24px;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
+
+  /* Font Family */
+  --font-family-primary: 'Cinzel Decorative', serif;
+  --font-family-secondary: 'Cinzel', serif;
+  --font-family-form: 'Playfair Display', serif;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}

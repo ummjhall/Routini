@@ -1,3 +1,133 @@
+/* ***** NAVBAR ******************************************************************************** */
+
+.nav-wrapper {
+  /* border: 1px solid red; */
+  /* margin: -8px -8px 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkslategray;
+  /* background-color: var(--accent-color-blue); */
+}
+
+.nav-wrapper_left {
+  /* border: 1px solid blue; */
+  display: flex;
+  margin-left: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  margin-top: 4px;
+}
+
+.nav_app-name {
+  /* border: 1px solid yellow; */
+  margin: 15px 25px 15px 15px;
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--accent-light-gold);
+  font-size: 30px;
+  font-weight: bold;
+  cursor: default;
+  text-shadow: 2px 2px black;
+}
+
+.nav_link {
+  /* border: 1px solid yellow; */
+  width: 175px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_link:hover {
+  background-color: darkcyan;
+}
+
+.nav_link_text {
+  font-family: 'Cinzel Decorative', serif;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav_link:hover {
+  cursor: pointer;
+}
+
+/* ***** PROFILE BUTTON ******************************************************************************** */
+
+.profile-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
 .profile-dropdown {
-  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  /* padding: 3px; */
+  position: fixed;
+  top: 65px;
+  right: 20px;
+  z-index: 1;
+}
+
+.profile-dropdown_username {
+  /* border: 1px solid red; */
+  /* margin: 5px 0; */
+  padding: 8px 15px 0;
+}
+
+.profile-dropdown_username,
+.profile-dropdown_email {
+  cursor: default;
+}
+
+.profile-dropdown_email {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 5px 0; */
+  padding: 8px 15px;
+}
+
+.profile-dropdown_logout {
+  /* border: 1px solid red; */
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.profile-dropdown_logout:hover {
+  background-color: darkcyan;
+}
+
+
+/* ***** SIGNUP NAVBAR ******************************************************************************** */
+
+.nav-wrapper-signup {
+  background-color: var(--primary-color);
+  margin-top: -15px;
+  height: 100px;
+}
+
+.nav_login {
+  background-color: darkcyan;
+  border-radius: 8px;
+  width: 80px;
+  margin-right: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--accent-light-gold);
+  text-align: center;
+}
+
+.nav_login:hover {
+  background-color: rgb(75, 215, 215);
 }
