@@ -4,8 +4,8 @@ import { Navigate } from 'react-router-dom';
 import { getTasks } from '../../redux/tasks';
 import TaskItemTile from './TaskItemTile';
 import { getUserAvatar } from '../../redux/avatars';
-// import CreateAvatar from '../CreateAvatar';
-// import { useModal } from '../../context/Modal';
+import CreateAvatar from '../CreateAvatar';
+import { useModal } from '../../context/Modal';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
@@ -15,9 +15,9 @@ import NewToDoField from './NewToDoField';
 function TaskLandingPage() {
   const user = useSelector((state) => state.session.user);
   const userTasks = useSelector((state) => Object.values(state.tasks));
-  // const userAvatar = useSelector((state) => state.avatar);
+  const userAvatar = useSelector((state) => state?.avatar?.avatar);
   const dispatch = useDispatch();
-  // const { setModalContent, closeModal } = useModal();
+  const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
   const habits = [];
@@ -29,13 +29,13 @@ function TaskLandingPage() {
     if (task.type == 'to-do') todos.push(task);
   }
 
-//   useEffect(() => {
-//     if (user && !userAvatar.avatar) {
-//       setModalContent(<CreateAvatar />);
-//     } else {
-//       closeModal();
-//     }
-//   }, [setModalContent, userAvatar, user, closeModal]);
+  useEffect(() => {
+    if (user && !userAvatar) {
+      setModalContent(<CreateAvatar />);
+    } else {
+      closeModal();
+    }
+  }, [setModalContent, userAvatar, user, closeModal]);
 
   useEffect(() => {
     dispatch(getTasks());
