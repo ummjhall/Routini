@@ -118,10 +118,28 @@ input:-webkit-autofill:active {
 .link {
   color: var(--neutral-white-color);
   font-family: var(--font-family-primary);
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .link:hover {
   color: var(--neutral-gray-color);
   cursor: pointer;
+}
+
+.login_demo {
+  text-align: center;
+}
+
+.login_demo_signin {
+  background-color: darkcyan;
+  margin: 0 auto;
+  width: 60%;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login_demo_signin:hover {
+  background-color: rgb(5, 80, 80);
 }

@@ -1,16 +1,14 @@
 import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
-import icon from '../../../dist/assets/imgs/questlog-icon3.jpg';
+import icon from '../../../images/questlog-icon3.jpg';
 import './Navigation.css';
 
 function Navigation() {
   const user = useSelector(state => state.session.user);
   const navigate = useNavigate();
 
-  if (!user) return;
-
-  return (
+  return user ? (
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
         <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
@@ -27,7 +25,17 @@ function Navigation() {
       </div>
       <ProfileButton />
     </div>
-  );
+  ) : (
+    <div className='nav-wrapper nav-wrapper-signup'>
+      <div className='nav-wrapper_left'>
+        <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
+        <div className='nav_app-name'>QuestLog</div>
+      </div>
+      <div className='nav_login' onClick={() => navigate('/login')}>
+        Login
+      </div>
+    </div>
+  )
 }
 
 export default Navigation;

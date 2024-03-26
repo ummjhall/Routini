@@ -15,7 +15,7 @@ import NewToDoField from './NewToDoField';
 function TaskLandingPage() {
   const user = useSelector((state) => state.session.user);
   const userTasks = useSelector((state) => Object.values(state.tasks));
-  const userAvatar = useSelector((state) => state.avatar);
+  const userAvatar = useSelector((state) => state?.avatar?.avatar);
   const dispatch = useDispatch();
   const { setModalContent, closeModal } = useModal();
 
@@ -30,7 +30,9 @@ function TaskLandingPage() {
   }
 
   useEffect(() => {
-    if (user && !userAvatar.avatar) {
+
+    if (user && !userAvatar) {
+
       setModalContent(<CreateAvatar />);
     } else {
       closeModal();
@@ -40,7 +42,7 @@ function TaskLandingPage() {
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
-  }, []);
+  }, [dispatch]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 

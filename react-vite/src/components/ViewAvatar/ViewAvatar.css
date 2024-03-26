@@ -1,7 +1,7 @@
 .view-avatar-banner {
   background-color: var(--secondary-color);
   height: 200px;
-  margin: 0 -8px;
+  /* margin: 0 -8px; */
   /* width: 100%; */
 }
 
