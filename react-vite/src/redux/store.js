@@ -7,6 +7,7 @@ import {
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import equipmentReducer from './equipment';
+import shopReducer from './shop';
 import avatarReducer from './avatars';
 import taskReducer from './tasks';
 
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   tasks: taskReducer,
   equipment: equipmentReducer,
+  shop: shopReducer,
   avatar: avatarReducer,
 });
 

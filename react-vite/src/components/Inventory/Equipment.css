@@ -1,12 +1,22 @@
-/* .equipment-wrapper {
-  background-color: var(--neutral-gray-color);
-} */
+.equipment-wrapper {
+  margin-left: 16px;
+}
+
+.equipment_heading {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 28px;
+}
 
 .equipment-section_heading {
   width: 200px;
   margin: 5px 0px 15px;
   display: flex;
   justify-content: space-between;
+  /* font-family: 'Cinzel Decorative', serif; */
   font-size: 20px;
   font-weight: bold;
+}
+
+.eq-font {
+  font-family: 'Playfair Display', serif;
 }
