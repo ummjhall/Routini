@@ -10,7 +10,7 @@ import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
-import EditTaskModal from '../EditTaskModal/EditTaskModal';
+// import EditTaskModal from '../EditTaskModal/EditTaskModal';
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
