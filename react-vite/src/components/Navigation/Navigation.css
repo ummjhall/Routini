@@ -104,10 +104,15 @@
   cursor: pointer;
 }
 
+.profile-dropdown_settings {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.profile-dropdown_settings:hover,
 .profile-dropdown_logout:hover {
   background-color: darkcyan;
 }
-
 
 /* ***** SIGNUP NAVBAR ******************************************************************************** */
 

@@ -101,7 +101,7 @@ function ViewAvatar() {
 
           <div className='currency-container'>
             <div className='currency_gems-container'>
-              <div className='currency_gems'>{userAvatar.gems}</div>
+              <div className='currency_gems'>{userAvatar?.gems}</div>
               <img
                 className='currency_gems_img'
                 src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/gem_dvrsry.png'
@@ -109,7 +109,7 @@ function ViewAvatar() {
               />
             </div>
             <div className='currency_gold-container'>
-              <div className='currency_gold'>{userAvatar.gold}</div>
+              <div className='currency_gold'>{userAvatar?.gold}</div>
               <img
                 className='currency_gold_img'
                 src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png'
