@@ -16,7 +16,7 @@ function Shop() {
   const equipment = Object.values(shopEquipment);
 
   useEffect(() => {
-    if (!avatar) dispatch(getUserAvatar());
+    if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getShopEquipmentThunk());
   }, [dispatch]);
 

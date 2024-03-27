@@ -17,6 +17,11 @@
   font-weight: bold;
 }
 
+.equipment_item {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 .eq-font {
   font-family: 'Playfair Display', serif;
 }

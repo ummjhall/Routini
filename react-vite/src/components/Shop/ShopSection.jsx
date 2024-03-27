@@ -5,7 +5,7 @@ function ShopSection({equipment}) {
 
   return (
     <div>
-      <div>
+      <div className='shop-equipment'>
         {equipment && equipment.map(item => (
           <div key={item.id}>
             <EquipmentItem item={item} />
