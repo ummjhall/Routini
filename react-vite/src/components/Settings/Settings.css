@@ -1,7 +1,51 @@
 .settings-wrapper {
   /* border: 1px solid red; */
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
+
+.settings-wrapper h1 {
+  margin: 0;
+}
+
+.settings_account-wrapper {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings_account_row {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 7px 0 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings_account_row:first-child {
+  border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.settings_account_row-middle {
+  position: absolute;
+  left: 550px;
+}
+
+/* .settings_account_edit {
+  margin-left: 300px;
+  text-align: right;
+  text-decoration: none;
+} */
+
+.settings_account_edit-button {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  color: blue;
+}
+
+/* .settings-separator {
+  border-top: 1px solid rgba(0, 0, 0, .2);
+  margin-top: 5px;
+} */
