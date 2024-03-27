@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useModal } from '../../context/Modal';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import { editUserAvatar, removeAvatar } from '../../redux/avatars';
 import './EditAvatar.css';
@@ -36,7 +35,6 @@ function EditAvatar() {
       setIsLoading(true);
       const res = await dispatch(removeAvatar());
       if (res) {
-        // closeModal();
         window.location.reload();
       }
     } catch (error) {
