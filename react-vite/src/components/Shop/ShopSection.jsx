@@ -11,7 +11,7 @@ function ShopSection({equipment}) {
             <EquipmentItem item={item} />
           </div>
         ))}
-        {!equipment.length && (<p>No Equipment available to buy.</p>)}
+        {!equipment.length && (<p className='eq-font'>No Equipment available to buy.</p>)}
       </div>
     </div>
   );
