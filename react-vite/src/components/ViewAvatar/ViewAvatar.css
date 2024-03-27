@@ -156,3 +156,37 @@
   height: 15px;
   background-color: var(--accent-color-gold);
 }
+
+/* ********** CURRENCY ******************************************************************************** */
+
+.currency-container {
+  position: fixed;
+  right: 45px;
+}
+
+.currency_gems-container {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.currency_gold-container {
+  display: flex;
+  align-items: center;
+  color: var(--accent-light-gold);
+}
+
+.currency_gems,
+.currency_gold {
+  margin-right: 10px;
+  width: 100px;
+  text-align: right;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+}
+
+.currency_gems_img,
+.currency_gold_img {
+  width: 50px;
+}

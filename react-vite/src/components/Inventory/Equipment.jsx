@@ -19,7 +19,7 @@ function Equipment() {
   useEffect(() => {
     if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getUserEquipmentThunk());
-  }, [dispatch]);
+  }, [user, avatar, dispatch]);
 
   if (!user) return <Navigate to='/signup' replace={true} />;
 

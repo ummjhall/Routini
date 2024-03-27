@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import './ViewAvatar.css';
-import EditAvatar from '../EditAvatar';
 import { useModal } from '../../context/Modal';
+import EditAvatar from '../EditAvatar';
+import './ViewAvatar.css';
 
 function ViewAvatar() {
   const user = useSelector((state) => state.session.user);
@@ -98,6 +98,26 @@ function ViewAvatar() {
               </div>
             </div>
           </div>
+
+          <div className='currency-container'>
+            <div className='currency_gems-container'>
+              <div className='currency_gems'>{userAvatar.gems}</div>
+              <img
+                className='currency_gems_img'
+                src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/gem_dvrsry.png'
+                alt='Gem count'
+              />
+            </div>
+            <div className='currency_gold-container'>
+              <div className='currency_gold'>{userAvatar.gold}</div>
+              <img
+                className='currency_gold_img'
+                src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png'
+                alt='Gold count'
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </>

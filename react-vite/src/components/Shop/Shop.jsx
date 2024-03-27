@@ -18,7 +18,7 @@ function Shop() {
   useEffect(() => {
     if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getShopEquipmentThunk());
-  }, [dispatch]);
+  }, [user, avatar, dispatch]);
 
   if (!user) return <Navigate to='/signup' replace={true} />;
 
