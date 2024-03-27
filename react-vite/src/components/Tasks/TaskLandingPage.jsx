@@ -10,6 +10,7 @@ import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
+import EditTaskModal from '../EditTaskModal/EditTaskModal';
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
@@ -42,7 +43,7 @@ function TaskLandingPage() {
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
-  }, [dispatch]);
+  }, [dispatch,]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 
