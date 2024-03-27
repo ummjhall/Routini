@@ -1,3 +1,5 @@
+/* ********** SETTINGS ******************************************************************************** */
+
 .settings-wrapper {
   /* border: 1px solid red; */
   width: 50%;
@@ -32,12 +34,6 @@
   left: 550px;
 }
 
-/* .settings_account_edit {
-  margin-left: 300px;
-  text-align: right;
-  text-decoration: none;
-} */
-
 .settings_account_edit-button {
   cursor: pointer;
   list-style: none;
@@ -45,7 +41,24 @@
   color: blue;
 }
 
-/* .settings-separator {
-  border-top: 1px solid rgba(0, 0, 0, .2);
-  margin-top: 5px;
-} */
+/* ********** SETTINGS MODAL ******************************************************************************** */
+
+.settings-modal-wrapper,
+.fixvalues-modal-wrapper {
+  background-color: white;
+  width: 500px;
+  height: 350px;
+  padding: 15px;
+}
+
+/* ********** FIX VALUES MODAL ******************************************************************************** */
+
+.fixvalues-modal-wrapper div {
+  margin: 10px 0;
+}
+
+.fixvalues-gold {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
