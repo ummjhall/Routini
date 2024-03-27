@@ -9,17 +9,15 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: -1em;
+  overflow: hidden;
 }
 
 .banner {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 50%;
-  height: 100vh;
   justify-content: center;
-  /* margin-top: 3em; */
+  width: 50%;
 }
 
 .banner_img {
@@ -48,6 +46,7 @@
   font-family: var(--font-family-primary);
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 0;
 }
 
 .overlay {
@@ -247,6 +246,7 @@ input:-webkit-autofill:active {
   .banner,
   .signup {
     width: 100%;
+    height: fit-content;
   }
 
   .banner_img {

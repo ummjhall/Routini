@@ -71,7 +71,6 @@
 
 .avatar input.error::placeholder {
   color: var(--accent-light-red);
-
 }
 
 .avatar textarea {
