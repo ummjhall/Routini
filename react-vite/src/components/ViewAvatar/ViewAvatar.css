@@ -160,8 +160,8 @@
 /* ********** CURRENCY ******************************************************************************** */
 
 .currency-container {
-  position: fixed;
-  right: 45px;
+  position: relative;
+  right: -634px;
   cursor: default;
 }
 
