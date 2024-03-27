@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: darkslategray;
+
   /* background-color: var(--accent-color-blue); */
 }
 
@@ -20,6 +21,7 @@
 
 .icon {
   margin-top: 4px;
+  border-radius: 5px;
 }
 
 .nav_app-name {
@@ -110,8 +112,6 @@
 
 .nav-wrapper-signup {
   background-color: var(--primary-color);
-  margin-top: -15px;
-  height: 100px;
 }
 
 .nav_login {

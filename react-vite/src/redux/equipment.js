@@ -16,7 +16,7 @@ export const getUserEquipmentThunk = () => async dispatch => {
   if (res.ok)
     dispatch(loadEquipment(equipmentData));
   return equipmentData;
-}
+};
 
 const initialState = {};
 

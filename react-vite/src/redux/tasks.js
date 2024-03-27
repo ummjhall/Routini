@@ -47,6 +47,7 @@ export const postNewTask = (task) => async (dispatch) => {
 };
 
 export const editTask = (task) => async dispatch => {
+    console.log(JSON.stringify(task))
     const resTask = await csrfFetch(`/api/tasks/current/${task.id}`,
         {
             headers: {
@@ -56,6 +57,7 @@ export const editTask = (task) => async dispatch => {
             body: JSON.stringify(task)
         }
     );
+
     if(resTask.ok) {
       const updatedTask = await resTask.json();
       dispatch(updateTask(updatedTask));

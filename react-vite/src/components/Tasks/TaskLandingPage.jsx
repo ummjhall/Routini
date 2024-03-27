@@ -30,7 +30,9 @@ function TaskLandingPage() {
   }
 
   useEffect(() => {
+
     if (user && !userAvatar) {
+
       setModalContent(<CreateAvatar />);
     } else {
       closeModal();

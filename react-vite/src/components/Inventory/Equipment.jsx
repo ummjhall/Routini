@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { getUserAvatar } from "../../redux/avatars";
 import { getUserEquipmentThunk } from "../../redux/equipment";
 import ViewAvatar from "../ViewAvatar/ViewAvatar";
 import EquipmentSection from "./EquipmentSection";
 
 function Equipment() {
   const user = useSelector(state => state.session.user);
+  const avatar = useSelector(state => state?.avatar?.avatar);
   const userEquipment = useSelector(state => state.equipment);
   const dispatch = useDispatch();
 
@@ -15,6 +17,7 @@ function Equipment() {
   const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
 
   useEffect(() => {
+    if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getUserEquipmentThunk());
   }, [dispatch]);
 
@@ -24,7 +27,7 @@ function Equipment() {
     <>
       <ViewAvatar />
       <div className='equipment-wrapper'>
-        <h1>Equipment</h1>
+        <h1 className='equipment_heading'>Equipment</h1>
         <div>
           <EquipmentSection heading='Main-Hand Item' array={mainEquipment} />
         </div>

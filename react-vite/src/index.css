@@ -4,7 +4,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0
 }
 
 :root {
@@ -30,7 +30,7 @@ body {
   --accent-light-gold: #FFD700;
 
   /* Neutral Color (Dark Gray) */
-  --neutral-dark-gray: #333333;
+  --neutral-dark-gray: #444444;
 
   /* Neutral Color (Light Gray) */
   --neutral-gray-color: #c0c0c0;
@@ -62,4 +62,23 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #354940;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color); /* Color of the scrollbar handle on hover */
 }

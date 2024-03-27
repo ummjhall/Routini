@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkSignup } from '../../redux/session';
-import './SignupForm.css';
 import MouseScroll from '../MouseScroll/MouseScroll';
 import Footer from '../Footer/Footer';
+import './SignupForm.css';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
