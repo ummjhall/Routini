@@ -1,9 +1,34 @@
 import { useSelector } from 'react-redux';
 import './ViewAvatar.css';
+import EditAvatar from '../EditAvatar';
+import { useModal } from '../../context/Modal';
 
 function ViewAvatar() {
   const user = useSelector((state) => state.session.user);
-  const userAvatar = useSelector((state) => state.avatar);
+  const userAvatar = useSelector((state) => state.avatar.avatar);
+  const userEquipment = useSelector((state) => state.equipment);
+  const { setModalContent } = useModal();
+
+  const headEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'head'
+  );
+  const armorEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'armor'
+  );
+  const mainEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'main'
+  );
+
+  const handleImgClick = () => {
+    setModalContent(
+      <EditAvatar
+        // avatar={userAvatar}
+        headArr={headEquipment}
+        armorArr={armorEquipment}
+        mainArr={mainEquipment}
+      />
+    );
+  };
 
   return (
     <>
@@ -11,15 +36,16 @@ function ViewAvatar() {
         <div className="tasks-container">
           <div className="frame">
             <div className="overlay">
-              <div className="avatar">
+              <div className="avatar" onClick={handleImgClick}>
                 <img
-                  src={userAvatar?.avatar?.image_url}
+                  src={userAvatar?.image_url}
                   alt="avatar-image"
-                  style={{ display: userAvatar?.avatar ? 'block' : 'none' }}
+                  style={{ display: userAvatar ? 'block' : 'none' }}
                 />
               </div>
             </div>
           </div>
+
           <div className="stats">
             <div className="name">
               <img
@@ -28,10 +54,10 @@ function ViewAvatar() {
                 alt="name-icon"
               />
               <div className="name-content">
-                <p>{userAvatar?.avatar?.name}</p>
+                <p>{userAvatar?.name}</p>
                 <div className="name-small">
                   <small>{user?.username} • </small>
-                  <small>Level {userAvatar?.avatar?.level} Warrior</small>
+                  <small>Level {userAvatar?.level} Warrior</small>
                 </div>
               </div>
             </div>
@@ -46,11 +72,11 @@ function ViewAvatar() {
                   <div
                     className="health-bar"
                     style={{
-                      width: `${(userAvatar?.avatar?.health || 0) * 4}px`,
+                      width: `${(userAvatar?.health || 0) * 4}px`,
                     }}
                   ></div>
                 </div>
-                <small>{userAvatar?.avatar?.health} / 50</small>
+                <small>{userAvatar?.health} / 50</small>
               </div>
             </div>
             <div className="exp">
@@ -63,10 +89,12 @@ function ViewAvatar() {
                 <div className="exp-bar-border">
                   <div
                     className="exp-bar"
-                    style={{ width: `${(userAvatar?.avatar?.exp || 0) * 2.666}px` }}
+                    style={{
+                      width: `${(userAvatar?.exp || 0) * 2.666}px`,
+                    }}
                   ></div>
                 </div>
-                <small>{userAvatar?.avatar?.exp} / 75</small>
+                <small>{userAvatar?.exp} / 75</small>
               </div>
             </div>
           </div>

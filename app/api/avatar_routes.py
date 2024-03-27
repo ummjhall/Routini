@@ -98,8 +98,10 @@ def update_avatar():
         return {"message": "Avatar not found"}, 404
 
     # Update avatar data with provided values
-    current_avatar.name = avatar_data.get("name", current_avatar.name)
-    current_avatar.bio = avatar_data.get("bio", current_avatar.bio)
+    if avatar_data.get("name") and avatar_data.get("name") != "":
+        current_avatar.name = avatar_data.get("name")
+    if avatar_data.get("bio") and avatar_data.get("bio") != "":
+        current_avatar.bio = avatar_data.get("bio")
     current_avatar.level = avatar_data.get("level", current_avatar.level)
     current_avatar.health = avatar_data.get("health", current_avatar.health)
     current_avatar.exp = avatar_data.get("exp", current_avatar.exp)
@@ -126,7 +128,7 @@ def update_avatar():
         formatted_avatar["image_url"] = avatar_image
     else:
         # Otherwise, use default static avatar image URL
-        static_avatar_url = "https://res.cloudinary.com/dt2uyzpbn/image/upload/v1705078512/cld-sample-5.jpg"
+        static_avatar_url = "https://res.cloudinary.com/drv1e8rjp/image/upload/v1710734997/avatar_1_lfbzjt.png"
         formatted_avatar["image_url"] = static_avatar_url
 
     return formatted_avatar, 200
