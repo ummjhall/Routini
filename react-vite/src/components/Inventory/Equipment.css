@@ -25,3 +25,9 @@
 .eq-font {
   font-family: 'Playfair Display', serif;
 }
+
+.item-modal-wrapper {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+}

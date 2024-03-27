@@ -12,7 +12,7 @@ function EquipmentItem({item}) {
             style={{maxWidth: '120px'}}
           />
         }
-        modalComponent={<ItemModal />}
+        modalComponent={<ItemModal item={item} shopItem={!item.user_id} />}
       />
     </div>
   );
