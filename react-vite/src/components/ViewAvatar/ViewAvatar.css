@@ -162,6 +162,7 @@
 .currency-container {
   position: fixed;
   right: 45px;
+  cursor: default;
 }
 
 .currency_gems-container {
