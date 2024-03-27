@@ -13,6 +13,7 @@ function NewHabitField() {
         const newTask = { title, type: 'habit' }
         if (title) {
             return dispatch(postNewTask(newTask))
+            .then(setTitle(''))
         }
     }
     return (

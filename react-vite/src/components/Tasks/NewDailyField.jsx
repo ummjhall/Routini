@@ -13,6 +13,7 @@ function NewDailyField() {
         console.log(newTask)
         if (title) {
             return dispatch(postNewTask(newTask))
+            .then(setTitle(''))
         }
     }
     return (

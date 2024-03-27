@@ -11,6 +11,7 @@ function NewToDoField() {
         const newTask = { title, type: 'to-do' }
         if (title) {
             return dispatch(postNewTask(newTask))
+            .then(setTitle(''))
         }
     }
     return (
