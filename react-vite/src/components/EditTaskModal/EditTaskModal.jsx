@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { editTask } from '../../redux/tasks';
+import { editTask, removeTask, getTasks } from '../../redux/tasks';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import moment from 'moment'
+import { redirect } from 'react-router-dom';
 // import './EditTaskModal.css';
 
 function EditTaskModal({user, task}) {
@@ -18,6 +19,13 @@ function EditTaskModal({user, task}) {
     const [duedate, setDuedate] = useState(moment(task?.due_date).format('YYYY-MM-DD') || '2024-01-01');
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
+
+    const handleDelete = async (e) => {
+        closeModal()
+        dispatch(removeTask(task.id))
+        // .then(redirect('/'))
+        // .then(closeModal())
+    }
 
   const handleDaily = async (e) => {
     setErrors({})
@@ -189,6 +197,7 @@ function EditTaskModal({user, task}) {
             {errors.repeatsevery && <p>{errors.repeatsevery}</p>}
             <button type="submit">Save</button>
           </form>
+          <button onClick={handleDelete}>Delete This Task</button>
         </>
     );
     }
@@ -231,6 +240,7 @@ function EditTaskModal({user, task}) {
                     {errors.difficulty && <p>{errors.difficulty}</p>}
                     <button type="submit">Save</button>
                 </form>
+                <button onClick={handleDelete}>Delete This Task</button>
             </>
         );
     }
@@ -284,6 +294,7 @@ function EditTaskModal({user, task}) {
                     {errors.duedate && <p>{errors.duedate}</p>}
                     <button type="submit">Save</button>
                 </form>
+                <button onClick={handleDelete}>Delete This Task</button>
             </>
         );
     }
