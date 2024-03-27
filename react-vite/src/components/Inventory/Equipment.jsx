@@ -17,7 +17,7 @@ function Equipment() {
   const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
 
   useEffect(() => {
-    if (!avatar) dispatch(getUserAvatar());
+    if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getUserEquipmentThunk());
   }, [dispatch]);
 

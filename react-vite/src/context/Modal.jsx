@@ -6,8 +6,8 @@ import {
   useCallback,
 } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.css';
 import CreateAvatar from '../components/CreateAvatar';
+import './Modal.css';
 
 const ModalContext = createContext();
 
@@ -19,8 +19,7 @@ export function ModalProvider({ children }) {
 
   const closeModal = useCallback(() => {
     setModalContent(null); // clear the modal contents
-    // If callback function is truthy, call the callback function and reset it
-    // to null:
+    // If callback function is truthy, call the callback function and reset it to null:
     if (typeof onModalClose === 'function') {
       setOnModalClose(null);
       onModalClose();
@@ -51,7 +50,7 @@ export function Modal() {
   // If there is no div referenced by the modalRef or modalContent is not a
   // truthy value, render nothing:
   if (!modalRef || !modalRef.current || !modalContent) return null;
-  console.log('***********', modalRef.current);
+
   // Render the following component to the div referenced by the modalRef
   return ReactDOM.createPortal(
     <div id="modal">
