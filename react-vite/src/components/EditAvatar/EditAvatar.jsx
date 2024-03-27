@@ -12,7 +12,6 @@ function EditAvatar() {
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
-  const { closeModal, setModalContent } = useModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -34,7 +33,7 @@ function EditAvatar() {
     e.preventDefault();
 
     try {
-      setIsLoading(true); // Show loading spinner
+      setIsLoading(true);
       const res = await dispatch(removeAvatar());
       if (res) {
         // closeModal();
@@ -183,16 +182,6 @@ function EditAvatar() {
               </div>
             </div>
           )}
-          {/* <div className="avatar-info">
-          <h3>Name</h3>
-          <p>{avatar?.name}</p>
-          <h3>About</h3>
-          <p>
-            {avatar
-              ? avatar?.bio
-              : 'This Adventurer hasn&#39;t added a description.'}
-          </p>
-        </div> */}
         </div>
       )}
     </>
