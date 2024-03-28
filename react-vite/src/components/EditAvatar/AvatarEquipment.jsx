@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserEquipmentThunk } from "../../redux/equipment";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import './AvatarEquipment.css';
 
 function AvatarEquipment({ avatar }) {
@@ -28,26 +28,29 @@ function AvatarEquipment({ avatar }) {
         <div>
           <div className='ae_equipped-items-title'>Main-Hand Item</div>
           <div className='ae_equipped-items-name'>{main?.name}</div>
-          <OpenModalMenuItem
+          <img src={main?.image_url} style={{maxWidth: '100px'}}/>
+          {/* <OpenModalMenuItem
             itemImage={<img src={main?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
-          />
+          /> */}
         </div>
         <div>
           <div className='ae_equipped-items-title'>Headgear</div>
           <div className='ae_equipped-items-name'>{headgear?.name}</div>
-          <OpenModalMenuItem
+          <img src={headgear?.image_url} style={{maxWidth: '100px'}}/>
+          {/* <OpenModalMenuItem
             itemImage={<img src={headgear?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
-          />
+          /> */}
         </div>
         <div>
           <div className='ae_equipped-items-title'>Armor</div>
           <div className='ae_equipped-items-name'>{armor?.name}</div>
-          <OpenModalMenuItem
+          <img src={armor?.image_url} style={{maxWidth: '100px'}}/>
+          {/* <OpenModalMenuItem
             itemImage={<img src={armor?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
-          />
+          /> */}
         </div>
       </div>
     </div>

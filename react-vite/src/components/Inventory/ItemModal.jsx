@@ -39,9 +39,19 @@ function ItemModal({item, shopItem}) {
   // User sells the item from their inventory
   const handleSell = async () => {
     closeModal();
+
+    let unequip = {};
+    if (item.type == 'main' && avatar.equip_main_id == item.id)
+      unequip = {equip_main_id: null};
+    if (item.type == 'head' && avatar.equip_head_id == item.id)
+      unequip = {equip_head_id: null};
+    if (item.type == 'armor' && avatar.equip_armor_id == item.id)
+      unequip = {equip_armor_id: null};
+
     await dispatch(removeItemThunk(item.id));
     await dispatch(editUserAvatar({
-      gold: avatar.gold + (item.cost / 2)
+      gold: avatar.gold + (item.cost / 2),
+      ...unequip
     }));
     dispatch(getUserEquipmentThunk());
   };
