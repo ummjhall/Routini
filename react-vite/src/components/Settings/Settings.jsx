@@ -27,29 +27,37 @@ function Settings() {
         <h2>Account</h2>
         <div className='settings_account-wrapper'>
           <div className='settings_account_row'>
-            <div>Email{' '}</div>
-            <div className='settings_account_row-middle'>{user.email}</div>
+            <div className='settings_account_row-subcontainer'>
+              <div className='settings_account_row-start'>Email{' '}</div>
+              <div className='settings_account_row-middle'>{user.email}</div>
+            </div>
             <div className='settings_account_edit-button'>
               <OpenModalMenuItem itemText='Edit' modalComponent={<SettingsModal />} />
             </div>
           </div>
           <div className='settings_account_row'>
-            <div>Username{' '}</div>
-            <div className='settings_account_row-middle'>{user.username}</div>
+            <div className='settings_account_row-subcontainer'>
+              <div className='settings_account_row-start'>Username{' '}</div>
+              <div className='settings_account_row-middle'>{user.username}</div>
+            </div>
             <div className='settings_account_edit-button'>
               <OpenModalMenuItem itemText='Edit' modalComponent={<SettingsModal />} />
             </div>
           </div>
           <div className='settings_account_row'>
-            <div>Display name{' '}</div>
-            <div className='settings_account_row-middle'>{avatar?.name}</div>
+            <div className='settings_account_row-subcontainer'>
+              <div className='settings_account_row-start'>Display name{' '}</div>
+              <div className='settings_account_row-middle'>{avatar?.name}</div>
+            </div>
             <div className='settings_account_edit-button'>
               <OpenModalMenuItem itemText='Edit' modalComponent={<SettingsModal />} />
             </div>
           </div>
           <div className='settings_account_row'>
-            <div>Password{' '}</div>
-            <div className='settings_account_row-middle'>{' '}</div>
+            <div className='settings_account_row-subcontainer'>
+              <div className='settings_account_row-start'>Password{' '}</div>
+              <div className='settings_account_row-middle'>{' '}</div>
+            </div>
             <div className='settings_account_edit-button'>
               <OpenModalMenuItem itemText='Edit' modalComponent={<SettingsModal />} />
             </div>
@@ -57,7 +65,7 @@ function Settings() {
         </div>
         <h2>Character</h2>
         <div className='settings_account_row'>
-          <div>Stats and Gold</div>
+          <div className='settings_account_row-start'>Stats and Gold</div>
           <div className='settings_account_edit-button'>
             <OpenModalMenuItem itemText='Fix values' modalComponent={<FixValuesModal />} />
           </div>

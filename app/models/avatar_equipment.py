@@ -17,5 +17,5 @@ class AvatarEquipment(db.Model):
             'id': self.id,
             'avatar_id': self.avatar_id,
             'equipment_id': self.equipment_id,
-            'equipment_nickname': self.equipment_nickname
+            'equipment_nickname': self.equipment_nickname,
         }
