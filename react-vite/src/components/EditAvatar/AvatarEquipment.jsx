@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserEquipmentThunk } from "../../redux/equipment";
-// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import './AvatarEquipment.css';
 
 function AvatarEquipment({ avatar }) {
@@ -10,12 +10,6 @@ function AvatarEquipment({ avatar }) {
   const [ main, setMain ] = useState(null);
   const [ headgear, setHeadgear ] = useState(null);
   const [ armor, setArmor ] = useState(null);
-
-  // console.log(avatar);
-
-  // console.log(main);
-  // console.log(headgear);
-  // console.log(armor);
 
   useEffect(() => {
     dispatch(getUserEquipmentThunk());
@@ -32,16 +26,28 @@ function AvatarEquipment({ avatar }) {
       <div className='ae_heading'>Equipped Items</div>
       <div className='ae_equipped-items-container'>
         <div>
-          <div>Main-Hand Item</div>
-          <div>{main?.name}</div>
+          <div className='ae_equipped-items-title'>Main-Hand Item</div>
+          <div className='ae_equipped-items-name'>{main?.name}</div>
+          <OpenModalMenuItem
+            itemImage={<img src={main?.image_url} style={{maxWidth: '100px'}}/>}
+            modalComponent={<div>test</div>}
+          />
         </div>
         <div>
-          <div>Headgear</div>
-          <div>{headgear?.name}</div>
+          <div className='ae_equipped-items-title'>Headgear</div>
+          <div className='ae_equipped-items-name'>{headgear?.name}</div>
+          <OpenModalMenuItem
+            itemImage={<img src={headgear?.image_url} style={{maxWidth: '100px'}}/>}
+            modalComponent={<div>test</div>}
+          />
         </div>
         <div>
-          <div>Armor</div>
-          <div>{armor?.name}</div>
+          <div className='ae_equipped-items-title'>Armor</div>
+          <div className='ae_equipped-items-name'>{armor?.name}</div>
+          <OpenModalMenuItem
+            itemImage={<img src={armor?.image_url} style={{maxWidth: '100px'}}/>}
+            modalComponent={<div>test</div>}
+          />
         </div>
       </div>
     </div>

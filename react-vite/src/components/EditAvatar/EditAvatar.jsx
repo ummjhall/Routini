@@ -47,7 +47,7 @@ function EditAvatar() {
   };
 
   return (
-    <>
+    <div className='edit-avatar-modal-wrapper'>
       <div className="edit-avatar-container">
         <div className="edit-avatar">
           <ViewAvatar />
@@ -155,9 +155,9 @@ function EditAvatar() {
           ) : (
             <div className="avatar-info">
               <h3>Name</h3>
-              <p>{avatar?.name}</p>
+              <p className='secondary-font'>{avatar?.name}</p>
               <h3>About</h3>
-              <p>
+              <p className='secondary-font'>
                 {avatar
                   ? avatar?.bio
                   : 'This Adventurer hasn&#39;t added a description.'}
@@ -187,7 +187,7 @@ function EditAvatar() {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
