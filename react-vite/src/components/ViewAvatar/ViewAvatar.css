@@ -5,6 +5,18 @@
   /* width: 100%; */
 }
 
+.view-avatar-container {
+  width: 96%;
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-avatar-sub-container {
+  display: flex;
+}
+
 .tasks-container {
   width: 96%;
   margin: 0 auto;
@@ -160,8 +172,6 @@
 /* ********** CURRENCY ******************************************************************************** */
 
 .currency-container {
-  position: relative;
-  right: -634px;
   cursor: default;
 }
 

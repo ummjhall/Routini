@@ -7,7 +7,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: darkslategray;
-
   /* background-color: var(--accent-color-blue); */
 }
 
@@ -63,10 +62,10 @@
 /* ***** PROFILE BUTTON ******************************************************************************** */
 
 .profile-button {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   /* margin-right: 24px; */
-  margin-right: 50px;
+  margin-right: 52px;
   cursor: pointer;
 }
 
