@@ -29,9 +29,18 @@
   border-top: 1px solid rgba(0, 0, 0, .2);
 }
 
+.settings_account_row-subcontainer {
+  display: flex;
+}
+
+.settings_account_row-start {
+  width: 90px;
+  margin-right: 100px;
+}
+
 .settings_account_row-middle {
-  position: absolute;
-  left: 550px;
+  width: 90px;
+  margin-right: 100px;
 }
 
 .settings_account_edit-button {
@@ -46,8 +55,8 @@
 .settings-modal-wrapper,
 .fixvalues-modal-wrapper {
   background-color: white;
-  width: 500px;
-  height: 350px;
+  width: 300px;
+  height: 200px;
   padding: 15px;
 }
 
@@ -55,6 +64,10 @@
 
 .fixvalues-modal-wrapper div {
   margin: 10px 0;
+}
+
+.fixvalues-heading {
+  font-weight: bold;
 }
 
 .fixvalues-gold {
