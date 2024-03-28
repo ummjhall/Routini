@@ -62,7 +62,7 @@ def handle_equipment(equipment_id):
     """
     POST: Buy or collect a piece of Equipment for the Current User
     PUT/PATCH: Rename a piece of Equipment belonging to the Current User
-    DELETE: Remove a piece of Equipment from the Current User's inventory
+    DELETE: Sell or remove a piece of Equipment from the Current User's inventory
     """
 
     # User does not currently have an Avatar
