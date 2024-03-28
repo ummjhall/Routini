@@ -71,6 +71,9 @@ export const editUserAvatar =
       const avatar = await res.json();
       dispatch(updateAvatar(avatar));
       return avatar;
+    } else {
+      const data = await res.json();
+      return data.errors;
     }
   };
 
@@ -81,6 +84,9 @@ export const removeAvatar = () => async (dispatch) => {
 
   if (res.ok) {
     return dispatch(deleteAvatar(res));
+  } else {
+    const data = await res.json();
+    return data.errors;
   }
 };
 
@@ -107,6 +113,13 @@ const avatarReducer = (state = initialState, action) => {
         ...state,
         avatar: action.payload,
       };
+
+    case DELETE_AVATAR:
+      return {
+        ...state,
+        avatar: null,
+      };
+
     default:
       return state;
   }

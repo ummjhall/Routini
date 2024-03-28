@@ -46,7 +46,7 @@ def create_reward():
             user_id=current_user.id,
             type=reward_data.get("type", "custom"),
             title=reward_data.get("title"),
-            description=reward_data.get("description"),
+            description=reward_data.get("description", None),
             cost=reward_data.get("cost", 0),
         )
 
@@ -69,8 +69,8 @@ def create_reward():
     if "title" in form.errors and "This field is required." in form.errors["title"]:
         errors["title"] = "Title is required"
 
-    if "cost" in form.errors and "This field is required." in form.errors["cost"]:
-        errors["cost"] = "Cost is required"
+    # if "cost" in form.errors and "This field is required." in form.errors["cost"]:
+    #     errors["cost"] = "Cost is required"
 
     return {"message": "Bad request", "errors": errors}, 400
 

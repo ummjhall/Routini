@@ -10,30 +10,31 @@ import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
-import EditTaskModal from '../EditTaskModal/EditTaskModal';
+import NewRewardField from '../Rewards/NewRewardFiled';
+// import EditTaskModal from '../EditTaskModal/EditTaskModal';
+import { getRewards } from '../../redux/rewards';
+import RewardItemTile from '../Rewards/RewardItemTile'
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const userTasks = useSelector((state) => Object.values(state.tasks));
   const userAvatar = useSelector((state) => state?.avatar?.avatar);
-  const dispatch = useDispatch();
+  const userRewards = useSelector((state) => state?.rewards?.Rewards);
   const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
   const habits = [];
   const todos = [];
   for (const task of userTasks) {
-    // console.log('HELLO: ', userTasks)
     if (task.type == 'daily') dailies.push(task);
     if (task.type == 'habit') habits.push(task);
     if (task.type == 'to-do') todos.push(task);
   }
 
   useEffect(() => {
-
     if (user && !userAvatar) {
-
       setModalContent(<CreateAvatar />);
     } else {
       closeModal();
@@ -42,8 +43,9 @@ function TaskLandingPage() {
 
   useEffect(() => {
     dispatch(getTasks());
+    dispatch(getRewards());
     dispatch(getUserAvatar());
-  }, [dispatch,]);
+  }, [dispatch]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 
@@ -53,7 +55,7 @@ function TaskLandingPage() {
       <h1>Tasks</h1>
       <div className="task-container">
         <div className="daily-container">
-            <NewDailyField />
+          <NewDailyField />
           {user &&
             dailies.length &&
             dailies.map((task) => (
@@ -61,7 +63,7 @@ function TaskLandingPage() {
             ))}
         </div>
         <div className="habit-container">
-            <NewHabitField />
+          <NewHabitField />
           {user &&
             habits.length &&
             habits.map((task) => (
@@ -69,13 +71,20 @@ function TaskLandingPage() {
             ))}
         </div>
         <div className="todo-container">
-            <NewToDoField />
+          <NewToDoField />
           {user &&
             todos.length &&
             todos.map((task) => (
               <TaskItemTile key={task.id} task={task} user={user} />
             ))}
         </div>
+      </div>
+      <div className="reward-container">
+        <NewRewardField />
+        {user &&
+          userRewards.map((reward) => (
+            <RewardItemTile key={reward.id} reward={reward}/>
+          ))}
       </div>
     </div>
   );
