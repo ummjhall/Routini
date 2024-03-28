@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import './AvatarEquipment.css';
 
 function AvatarEquipment() {
+  const equipment = useSelector(state => state.equipment);
+  const equipped = Object.values(equipment).filter(item => item.equipped);
+  console.log(equipped);
 
   return (
     <div className='avatar-equipment-wrapper'>
