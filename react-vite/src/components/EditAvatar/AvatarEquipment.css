@@ -1,0 +1,13 @@
+.avatar-equipment-wrapper {
+  margin: 16px;
+  color: white;
+}
+
+/* .ae_heading {
+  text-align: center;
+} */
+
+.ae_equipped-items-container {
+  display: flex;
+  justify-content: space-around;
+}

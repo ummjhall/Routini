@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ViewAvatar from '../ViewAvatar/ViewAvatar';
+import { useNavigate } from 'react-router-dom';
 import { editUserAvatar, removeAvatar } from '../../redux/avatars';
-import './EditAvatar.css';
+import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import AvatarEquipment from './AvatarEquipment';
+import './EditAvatar.css';
 
 function EditAvatar() {
-  const dispatch = useDispatch();
   const avatar = useSelector((state) => state.avatar.avatar);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
@@ -35,6 +38,7 @@ function EditAvatar() {
       setIsLoading(true);
       const res = await dispatch(removeAvatar());
       if (res) {
+        navigate('/');
         window.location.reload();
       }
     } catch (error) {
@@ -158,6 +162,7 @@ function EditAvatar() {
                   ? avatar?.bio
                   : 'This Adventurer hasn&#39;t added a description.'}
               </p>
+              <AvatarEquipment />
               <div className="btns">
                 <div>
                   <button
