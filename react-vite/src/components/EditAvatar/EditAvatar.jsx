@@ -35,7 +35,7 @@ function EditAvatar() {
       setIsLoading(true);
       const res = await dispatch(removeAvatar());
       if (res) {
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (error) {
       console.error('Error resetting avatar:', error);

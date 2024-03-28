@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.models import Reward, db
 from flask_login import current_user, login_required
 from app.forms import RewardForm
@@ -25,6 +25,27 @@ def get_user_rewards():
     return {"Rewards": formatted_rewards}, 200
 
 
+# @reward_routes.route("/current", methods=["POST"])
+# @login_required
+# def create_reward():
+    """
+    Create a Reward for the Current User
+    """
+
+    # new_reward = Reward(
+    #     user_id=current_user.id,
+    #     type=request.get("type", "custom"),
+    #     title=request.get("title"),
+    #     description=request.get("description"),
+    #     cost=request.get("cost", 0),
+    # )
+    # print("###########",new_reward)
+    # db.session.add(new_reward)
+    # db.session.commit()
+
+    # return jsonify(new_reward.to_dict), 201
+
+
 @reward_routes.route("/current", methods=["POST"])
 @login_required
 def create_reward():
@@ -46,7 +67,7 @@ def create_reward():
             user_id=current_user.id,
             type=reward_data.get("type", "custom"),
             title=reward_data.get("title"),
-            description=reward_data.get("description", None),
+            description=reward_data.get("description"),
             cost=reward_data.get("cost", 0),
         )
 
@@ -69,8 +90,8 @@ def create_reward():
     if "title" in form.errors and "This field is required." in form.errors["title"]:
         errors["title"] = "Title is required"
 
-    # if "cost" in form.errors and "This field is required." in form.errors["cost"]:
-    #     errors["cost"] = "Cost is required"
+    if "cost" in form.errors and "This field is required." in form.errors["cost"]:
+        errors["cost"] = "Cost is required"
 
     return {"message": "Bad request", "errors": errors}, 400
 

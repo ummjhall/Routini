@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createUserReward } from '../../redux/rewards';
+import { createNewReward } from '../../redux/rewards';
 
 function NewRewardField() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function NewRewardField() {
 
     const newReward = { title };
     if (title) {
-      return dispatch(createUserReward(newReward));
+      return dispatch(createNewReward(newReward)).then(setTitle(''));
     }
   };
   return (
@@ -25,7 +25,7 @@ function NewRewardField() {
           required
         />
       </label>
-      <button>Create Reward</button>
+      <button type="submit">Create Reward</button>
     </form>
   );
 }

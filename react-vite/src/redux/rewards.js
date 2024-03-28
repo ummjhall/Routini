@@ -1,132 +1,116 @@
 import { csrfFetch } from './csrf';
 
-const LOAD_REWARDS = 'rewards/LOAD_REWARDS';
-const CREATE_REWARD = 'rewards/CREATE_REWARD';
-const UPDATE_REWARD = 'rewards/UPDATE_REWARD';
-const DELETE_REWARD = 'rewards/DELETE_REWARD';
+const LOAD_REWARDS = 'load/rewards';
+const CREATE_REWARD = 'create/reward';
+const UPDATE_REWARD = 'update/reward';
+const DELETE_REWARD = 'delete/reward';
 
-const loadRewards = (rewards) => ({
+const loadRewards = (payload) => ({
   type: LOAD_REWARDS,
-  payload: rewards,
+  payload,
 });
 
-const createReward = (reward) => ({
+export const createReward = (reward) => ({
   type: CREATE_REWARD,
-  payload: reward,
+  reward,
 });
 
-const updateReward = (reward) => ({
+export const updateReward = (reward) => ({
   type: UPDATE_REWARD,
-  payload: reward,
+  reward,
 });
 
-const deleteReward = (reward) => ({
+export const deleteReward = (rewardId) => ({
   type: DELETE_REWARD,
-  payload: reward,
+  rewardId,
 });
 
 export const getRewards = () => async (dispatch) => {
-  const res = await csrfFetch('api/rewards/current');
-
-  if (res.ok) {
-    const rewards = await res.json();
-    dispatch(loadRewards(rewards));
-    console.log('***** rewards', rewards);
-    return rewards;
+  const response = await csrfFetch('/api/rewards/current');
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadRewards(data));
+    return data;
   }
+  return response;
 };
 
-export const createUserReward =
-  ({ type, title, description, cost }) =>
-  async (dispatch) => {
-    const res = await csrfFetch('/api/rewards/current', {
-      method: 'POST',
-      body: JSON.stringify({
-        type,
-        title,
-        description,
-        cost,
-      }),
-    });
+export const createNewReward = (reward) => async (dispatch) => {
+  const resReward = await csrfFetch('/api/rewards/current', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(reward),
+  });
 
-    if (res.ok) {
-      const reward = await res.json();
-      dispatch(createReward(reward));
-      return reward;
-    } else {
-      const data = await res.json();
-      return data.errors;
-    }
-  };
+  if (resReward.ok) {
+    const newReward = await resReward.json();
+    dispatch(createReward(newReward));
+    return newReward;
+  }
+  return resReward;
+};
 
-export const editUserReward =
-  ({ type, title, description, cost }) =>
-  async (dispatch) => {
-    const res = await csrfFetch('/api/rewards/current', {
-      method: 'PUT',
-      body: JSON.stringify({
-        type,
-        title,
-        description,
-        cost,
-      }),
-    });
+export const editReward = (reward) => async (dispatch) => {
+  const resReward = await csrfFetch(`/api/rewards/current/${reward.id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'PUT',
+    body: JSON.stringify(reward),
+  });
 
-    if (res.ok) {
-      const reward = await res.json();
-      dispatch(updateReward(reward));
-      return reward;
-    } else {
-      const data = await res.json();
-      return data.errors;
-    }
-  };
+  if (resReward.ok) {
+    const updatedReward = await resReward.json();
+    dispatch(updateReward(updatedReward));
+    return updatedReward;
+  }
+  return resReward;
+};
 
-export const removeReward = () => async (dispatch) => {
-  const res = await csrfFetch('/api/rewards/current', {
+export const removeReward = (rewardId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/rewards/current/${rewardId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
     method: 'DELETE',
   });
 
+  await dispatch(deleteReward(rewardId));
   if (res.ok) {
-    return dispatch(deleteReward(res));
+    return res.json();
   } else {
-    const data = await res.json();
-    return data.errors;
+    return res;
   }
 };
 
-const initialState = {};
-
-let updatedState;
-
-const rewardsReducer = (state = initialState, action) => {
+function rewardsReducer(state = {}, action) {
+  const newState = { ...state };
   switch (action.type) {
     case LOAD_REWARDS:
-      return {
-        ...state,
-        ...action.payload,
-      };
-
+      action.payload.Rewards.forEach((reward) => {
+        newState[reward.id] = reward;
+      });
+      return newState;
     case CREATE_REWARD:
-      return {
-        ...state,
-        [action.payload.id]: action.payload,
+      newState[action.reward.id] = {
+        ...newState[action.reward.id],
+        ...action.reward,
       };
-
+      return newState;
     case UPDATE_REWARD:
-      return {
-        ...state,
-        ...action.payload,
+      newState[action.reward.id] = {
+        ...newState[action.reward.id],
+        ...action.reward,
       };
-
+      return newState;
     case DELETE_REWARD:
-      updatedState = { ...state };
-      delete updatedState[action.payload.id];
-      return updatedState;
-
+      delete newState[action.rewardId];
+      return newState;
     default:
       return state;
   }
-};
+}
 
 export default rewardsReducer;
