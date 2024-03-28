@@ -2,6 +2,10 @@
     margin-left: 2px;
     margin-right: 2px;
 }
+.taskItemTile {
+    width: 100%;
+}
 .taskModalButton {
-    
+    width: 100%;
+    padding-left: 2px;
 }
