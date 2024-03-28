@@ -56,22 +56,26 @@ export const createUserAvatar =
     }
   };
 
+<<<<<<< HEAD
 export const editUserAvatar =
   ({ name, bio, }) =>
+=======
+export const editUserAvatar = (args) =>
+>>>>>>> 6e458fe6097b9fb882038d1f1e3a0bed949f6c1f
   async (dispatch) => {
     const res = await csrfFetch('/api/avatars/current', {
       method: 'PUT',
       body: JSON.stringify({
-        name,
-        bio,
-        level,
-        health,
-        exp,
-        gold,
-        gems,
-        equip_head_id,
-        equip_main_id,
-        equip_armor_id
+        name: args.name,
+        bio: args.bio,
+        level: args.level,
+        health: args.health,
+        exp: args.exp,
+        gold: args.gold,
+        gems: args.gems,
+        equip_head_id: args.equip_head_id,
+        equip_main_id: args.equip_main_id,
+        equip_armor_id: args.equip_armor_id
       }),
     });
 
