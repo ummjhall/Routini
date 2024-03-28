@@ -48,32 +48,37 @@ function TaskLandingPage() {
   if (!user) return <Navigate to="/signup" replace={true} />;
 
   return (
-    <div>
+    <div className='homePageDiv'>
       <ViewAvatar />
-      <h1>Tasks</h1>
       <div className="task-container">
         <div className="daily-container">
+            <h1>Daily</h1>
             <NewDailyField />
           {user &&
-            dailies.length &&
             dailies.map((task) => (
-              <TaskItemTile key={task.id} task={task} user={user} />
+              <div className='task-tile'>
+                <TaskItemTile key={task.id} task={task} user={user}/>
+              </div>
             ))}
         </div>
         <div className="habit-container">
+          <h1>Habit</h1>
             <NewHabitField />
           {user &&
-            habits.length &&
             habits.map((task) => (
-              <TaskItemTile key={task.id} task={task} user={user} />
+              <div className='task-tile'>
+                <TaskItemTile key={task.id} task={task} user={user}/>
+              </div>
             ))}
         </div>
         <div className="todo-container">
+          <h1>To-do's</h1>
             <NewToDoField />
           {user &&
-            todos.length &&
             todos.map((task) => (
-              <TaskItemTile key={task.id} task={task} user={user} />
+              <div className='task-tile'>
+                <TaskItemTile key={task.id} task={task} user={user}/>
+              </div>
             ))}
         </div>
       </div>

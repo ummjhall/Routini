@@ -2,4 +2,58 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.daily-container {
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    /* font-size: 16px; */
+}
+
+.habit-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    /* font-size: 16px; */
+}
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    /* font-size: 16px; */
+
+}
+.task-tile {
+    border: 1px black solid;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-align: center;
+}
+.taskH1 {
+    text-align: center;
+}
+
+.homePageDiv {
+    font-family: 'Cinzel Decorative', serif;
+    text-align: center;
+}
+
+.taskItemTile {
+    display: flex;
 }
