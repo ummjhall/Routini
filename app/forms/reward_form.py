@@ -6,4 +6,4 @@ from wtforms.validators import DataRequired
 class RewardForm(FlaskForm):
     # type = StringField("type", validators=[DataRequired()])
     title = StringField("title", validators=[DataRequired()])
-    # cost = StringField("cost", validators=[DataRequired()])
+    cost = StringField("cost", validators=[DataRequired()])

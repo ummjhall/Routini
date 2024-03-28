@@ -9,23 +9,23 @@ function NewRewardField() {
   const handleNewReward = async (e) => {
     e.preventDefault();
 
-    const newReward = { title };
+    const newReward = { title, cost: 10 };
     if (title) {
       return dispatch(createNewReward(newReward)).then(setTitle(''));
     }
   };
   return (
     <form onSubmit={handleNewReward}>
-      <label>
-        <input
-          placeholder={'Create new Reward'}
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Create Reward</button>
+      <input
+        className="create-reward-input"
+        placeholder={'Add a Reward'}
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        required
+      />
+
+      {/* <button type="submit">Create Reward</button> */}
     </form>
   );
 }

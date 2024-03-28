@@ -1,15 +1,19 @@
-import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
-import EditTaskModal from '../EditTaskModal/EditTaskModal';
+import OpenModalRewardItem from '../Rewards/OpenModalRewardItem';
+import EditRewardModal from '../EditRewardModal/EditRewardModal';
+import './RewardItemTile.css';
 
-function TaskItemTile({ user, reward }) {
+function RewardItemTile({ user, reward }) {
   return (
     <>
-      <OpenModalMenuItem
-        itemText={reward.title}
-        modalComponent={<EditTaskModal user={user} reward={reward} />}
-      />
+      <div className="reward-tile">
+        <OpenModalRewardItem
+          reward={reward}
+          itemText={reward.title}
+          modalComponent={<EditRewardModal user={user} reward={reward} />}
+        />
+      </div>
     </>
   );
 }
 
-export default TaskItemTile;
+export default RewardItemTile;

@@ -68,7 +68,7 @@ def create_reward():
             type=reward_data.get("type", "custom"),
             title=reward_data.get("title"),
             description=reward_data.get("description"),
-            cost=reward_data.get("cost", 0),
+            cost=reward_data.get("cost", 10),
         )
 
         db.session.add(new_reward)

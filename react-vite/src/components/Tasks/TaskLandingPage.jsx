@@ -24,9 +24,6 @@ function TaskLandingPage() {
   const userRewards = useSelector((state) => Object.values(state.rewards));
   const { setModalContent, closeModal } = useModal();
 
-  console.log('tasks', userTasks);
-  console.log('rewards', userRewards);
-
   const dailies = [];
   const habits = [];
   const todos = [];
