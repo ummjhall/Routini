@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { buyItemThunk, getShopEquipmentThunk } from '../../redux/shop';
 import { useModal } from '../../context/Modal';
+import { collectItemThunk, getShopEquipmentThunk } from '../../redux/shop';
+import { getUserEquipmentThunk, removeItemThunk } from '../../redux/equipment';
 import { editUserAvatar } from '../../redux/avatars';
 
 function ItemModal({item, shopItem}) {
@@ -14,11 +15,20 @@ function ItemModal({item, shopItem}) {
       return;
 
     closeModal();
-    await dispatch(buyItemThunk(item.id));
+    await dispatch(collectItemThunk(item.id));
     await dispatch(editUserAvatar({
       gold: remainingGold
     }));
     dispatch(getShopEquipmentThunk());
+  };
+
+  const handleSell = async () => {
+    closeModal();
+    await dispatch(removeItemThunk(item.id));
+    await dispatch(editUserAvatar({
+      gold: avatar.gold + (item.cost / 2)
+    }));
+    dispatch(getUserEquipmentThunk());
   };
 
   return (
@@ -29,7 +39,12 @@ function ItemModal({item, shopItem}) {
       {shopItem &&
         <div>
           <div>Cost: {item.cost}</div>
-          <button onClick={handleBuy}>Buy</button>
+          <button onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy</button>
+        </div>
+      }
+      {!shopItem &&
+        <div>
+          <button onClick={handleSell}>Sell: {item.cost / 2} gold</button>
         </div>
       }
     </div>
