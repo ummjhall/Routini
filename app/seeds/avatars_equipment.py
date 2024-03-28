@@ -4,9 +4,9 @@ from sqlalchemy.sql import text
 
 def seed_avatars_equipment():
     seeds = [
-        AvatarEquipment(avatar_id=1, equipment_id=1, equipped=False),
-        AvatarEquipment(avatar_id=1, equipment_id=2, equipped=False, equipment_nickname='The Throngler'),
-        AvatarEquipment(avatar_id=1, equipment_id=3, equipped=False)
+        AvatarEquipment(avatar_id=1, equipment_id=1),
+        AvatarEquipment(avatar_id=1, equipment_id=2, equipment_nickname='The Throngler'),
+        AvatarEquipment(avatar_id=1, equipment_id=3)
     ]
 
     for avatar_equipment in seeds:

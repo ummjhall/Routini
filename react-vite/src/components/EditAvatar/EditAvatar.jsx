@@ -162,7 +162,7 @@ function EditAvatar() {
                   ? avatar?.bio
                   : 'This Adventurer hasn&#39;t added a description.'}
               </p>
-              <AvatarEquipment />
+              <AvatarEquipment avatar={avatar} />
               <div className="btns">
                 <div>
                   <button

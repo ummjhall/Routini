@@ -11,8 +11,6 @@ function ItemModal({item, shopItem}) {
   const { closeModal } = useModal();
   const [ equipped, setEquipped ] = useState(false);
 
-  console.log(item);
-
   // Check whether the user's avatar has the item equipped
   useEffect(() => {
     if (avatar?.equip_main_id == item.id ||

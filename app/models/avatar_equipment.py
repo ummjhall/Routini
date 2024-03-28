@@ -11,7 +11,6 @@ class AvatarEquipment(db.Model):
     avatar_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('avatars.id')), nullable=False)
     equipment_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('equipment.id')), nullable=False)
     equipment_nickname = db.Column(db.String(30))
-    equipped = db.Column(db.Boolean)
 
     def to_dict(self):
         return {
@@ -19,5 +18,4 @@ class AvatarEquipment(db.Model):
             'avatar_id': self.avatar_id,
             'equipment_id': self.equipment_id,
             'equipment_nickname': self.equipment_nickname,
-            'equipped': self.equipped
         }

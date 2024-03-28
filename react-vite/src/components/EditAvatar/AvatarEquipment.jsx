@@ -1,11 +1,31 @@
-import { useSelector } from "react-redux";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserEquipmentThunk } from "../../redux/equipment";
+// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import './AvatarEquipment.css';
 
-function AvatarEquipment() {
+function AvatarEquipment({ avatar }) {
   const equipment = useSelector(state => state.equipment);
-  const equipped = Object.values(equipment).filter(item => item.equipped);
-  console.log(equipped);
+  const dispatch = useDispatch();
+  const [ main, setMain ] = useState(null);
+  const [ headgear, setHeadgear ] = useState(null);
+  const [ armor, setArmor ] = useState(null);
+
+  // console.log(avatar);
+
+  // console.log(main);
+  // console.log(headgear);
+  // console.log(armor);
+
+  useEffect(() => {
+    dispatch(getUserEquipmentThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setMain(Object.values(equipment).find(item => item.id == avatar.equip_main_id));
+    setHeadgear(Object.values(equipment).find(item => item.id == avatar.equip_head_id));
+    setArmor(Object.values(equipment).find(item => item.id == avatar.equip_armor_id));
+  }, [equipment, avatar.equip_main_id, avatar.equip_head_id, avatar.equip_armor_id]);
 
   return (
     <div className='avatar-equipment-wrapper'>
@@ -13,12 +33,15 @@ function AvatarEquipment() {
       <div className='ae_equipped-items-container'>
         <div>
           <div>Main-Hand Item</div>
+          <div>{main?.name}</div>
         </div>
         <div>
           <div>Headgear</div>
+          <div>{headgear?.name}</div>
         </div>
         <div>
           <div>Armor</div>
+          <div>{armor?.name}</div>
         </div>
       </div>
     </div>

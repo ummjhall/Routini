@@ -48,11 +48,9 @@ def get_user_equipment():
         item = owned_item.to_dict()
         item['user_id'] = current_user.id
         item['image_url'] = owned_item.image.to_dict()['url']
-        avatar_item = AvatarEquipment.query.filter(
+        item['nickname'] = AvatarEquipment.query.filter(
                 AvatarEquipment.equipment_id == owned_item.id,
-                AvatarEquipment.avatar_id == current_user.avatar.id).one()
-        item['nickname'] = avatar_item.equipment_nickname
-        item['equipped'] = avatar_item.equipped
+                AvatarEquipment.avatar_id == current_user.avatar.id).one().equipment_nickname
         owned_equipment.append(item)
 
     return {'Equipment': owned_equipment}
