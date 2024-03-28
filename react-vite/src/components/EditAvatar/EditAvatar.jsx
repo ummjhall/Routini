@@ -19,16 +19,17 @@ function EditAvatar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await dispatch(
-      editUserAvatar({
-        name: name.trim() || avatar.name,
-        bio: bio.trim() || avatar.bio,
-      })
-    );
+    // const res = await dispatch(
+    await dispatch(editUserAvatar({
+      name: name.trim() || avatar.name,
+      bio: bio.trim() || avatar.bio,
+    }));
 
-    if (res) {
-      console.log('Avatar updated');
-    }
+    setFormDisplayed(false);
+
+    // if (res) {
+    //   console.log('Avatar updated');
+    // }
   };
 
   const handleResetAvatar = async (e) => {
@@ -80,41 +81,6 @@ function EditAvatar() {
               {avatar?.gems}
             </div>
           </div>
-          {/* <div className="edit-avatar-equipment">
-          {headArr &&
-            headArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-          {armorArr &&
-            armorArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-          {mainArr &&
-            mainArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-        </div> */}
           {formDisplayed ? (
             <>
               <form onSubmit={handleSubmit} className="edit-avatar-form">
