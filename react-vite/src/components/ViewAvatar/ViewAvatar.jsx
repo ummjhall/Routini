@@ -3,21 +3,15 @@ import { useModal } from '../../context/Modal';
 import EditAvatar from '../EditAvatar';
 import './ViewAvatar.css';
 
-function ViewAvatar() {
+function ViewAvatar({ hideCurrency }) {
   const user = useSelector((state) => state.session.user);
   const userAvatar = useSelector((state) => state.avatar.avatar);
   const userEquipment = useSelector((state) => state.equipment);
   const { setModalContent } = useModal();
 
-  const headEquipment = Object.values(userEquipment).filter(
-    (item) => item.type == 'head'
-  );
-  const armorEquipment = Object.values(userEquipment).filter(
-    (item) => item.type == 'armor'
-  );
-  const mainEquipment = Object.values(userEquipment).filter(
-    (item) => item.type == 'main'
-  );
+  const headEquipment = Object.values(userEquipment).filter(item => item.type == 'head');
+  const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
+  const mainEquipment = Object.values(userEquipment).filter(item => item.type == 'main');
 
   const handleImgClick = () => {
     setModalContent(
@@ -101,6 +95,7 @@ function ViewAvatar() {
             </div>
           </div>
 
+          {!hideCurrency &&
           <div className='currency-container'>
             <div className='currency_gems-container'>
               <div className='currency_gems'>{userAvatar?.gems}</div>
@@ -119,6 +114,7 @@ function ViewAvatar() {
               />
             </div>
           </div>
+          }
 
         </div>
       </div>

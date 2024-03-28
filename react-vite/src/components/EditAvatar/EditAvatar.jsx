@@ -51,7 +51,7 @@ function EditAvatar() {
     <div className='edit-avatar-modal-wrapper'>
       <div className="edit-avatar-container">
         <div className="edit-avatar">
-          <ViewAvatar />
+          <ViewAvatar hideCurrency={true} />
         </div>
       </div>
       {isLoading ? (

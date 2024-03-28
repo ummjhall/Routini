@@ -72,6 +72,7 @@
 .profile-dropdown {
   border: 1px solid black;
   background-color: white;
+  width: 150px;
   /* padding: 3px; */
   position: fixed;
   top: 65px;
@@ -79,15 +80,15 @@
   z-index: 1;
 }
 
+.profile-dropdown_username,
+.profile-dropdown_email {
+  cursor: default;
+}
+
 .profile-dropdown_username {
   /* border: 1px solid red; */
   /* margin: 5px 0; */
   padding: 8px 15px 0;
-}
-
-.profile-dropdown_username,
-.profile-dropdown_email {
-  cursor: default;
 }
 
 .profile-dropdown_email {
@@ -97,17 +98,18 @@
   padding: 8px 15px;
 }
 
+/* .profile-dropdown_profile {
+  list-style: none;
+} */
+
+.profile-dropdown_profile,
+.profile-dropdown_settings,
 .profile-dropdown_logout {
-  /* border: 1px solid red; */
   padding: 10px 15px;
   cursor: pointer;
 }
 
-.profile-dropdown_settings {
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
+.profile-dropdown_profile:hover,
 .profile-dropdown_settings:hover,
 .profile-dropdown_logout:hover {
   background-color: darkcyan;
