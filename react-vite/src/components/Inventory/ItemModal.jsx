@@ -38,13 +38,16 @@ function ItemModal({item, shopItem}) {
       <img src={item.image_url} style={{maxWidth: '120px'}} />
       {shopItem &&
         <div>
+          <div>Gold: {avatar.gold}</div>
           <div>Cost: {item.cost}</div>
           <button onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy</button>
         </div>
       }
       {!shopItem &&
         <div>
-          <button onClick={handleSell}>Sell: {item.cost / 2} gold</button>
+          <div>Gold: {avatar.gold}</div>
+          <div>Selling price: {item.cost / 2}</div>
+          <button onClick={handleSell}>Sell</button>
         </div>
       }
     </div>
