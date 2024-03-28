@@ -22,7 +22,7 @@ function OpenModalMenuItem({
         <p>{itemText}</p>
         <small>{reward.description}</small>
       </div>
-      <div className="reward-cost">
+      <div onClick={() => {alert('works')}} className="reward-cost">
         <img
           className="reward-coin-img"
           src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png"

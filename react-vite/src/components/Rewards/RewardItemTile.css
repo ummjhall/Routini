@@ -21,13 +21,16 @@
     #fff6e7 4em,
     var(--neutral-white-color) 4em
   );
+  border: 0.5px solid transparent;
+  transition: border 0.3s ease;
 }
 
 .reward-tile:hover {
   cursor: pointer;
-  border: 0.5px solid var(--primary-color);
+  border: 0.5px solid var(--neutral-dark-gray);
   border-radius: 3px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  transition: border 0.3s ease;
 }
 
 .reward-title p {
@@ -47,7 +50,6 @@
 .reward-cost {
   color: var(--neutral-black-color);
   font-family: var(--font-family-secondary);
-  font-weight: var(--font-weight-bold);
   text-align: end;
   display: flex;
   flex-direction: column;
@@ -57,29 +59,44 @@
   flex-shrink: 0;
 }
 
+.reward-cost:hover {
+  font-weight: var(--font-weight-bold);
+  transition: font-weight 0.3s ease;
+}
+
+.reward-cost:hover .reward-coin-img {
+  width: 35px;
+  transition: width 0.3s ease;
+}
+
 .reward-coin-img {
   width: 30px;
 }
 
 /* NewRewardFiled */
-.create-reward-input{
+.create-reward-input {
   display: block;
   margin-bottom: 10px;
-  color: var(--neutral-white-color);
+  color: var(--neutral-black-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
   width: 94%;
   padding: 10px;
   border-radius: 5px;
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
   background-color: rgba(0, 0, 0, 0.13) !important;
   border: 1px solid rgba(0, 0, 0, 0.13);
   border-color: rgba(0, 0, 0, 0.13);
 }
 
-.create-reward-input:hover{
+.create-reward-input:hover,
+.create-reward-input:focus {
   border: 1px solid #fff;
   border-color: var(--neutral-dark-gray);
   background-color: rgba(0, 0, 0, 0.16) !important;
   outline: none;
+}
+
+.create-reward-input::placeholder {
+  color: var(--neutral-dark-gray);
+  font-family: var(--font-family-secondary);
 }
