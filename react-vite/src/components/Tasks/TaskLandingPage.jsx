@@ -10,10 +10,14 @@ import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
+<<<<<<< HEAD
 import NewRewardField from '../Rewards/NewRewardFiled';
 // import EditTaskModal from '../EditTaskModal/EditTaskModal';
 import { getRewards } from '../../redux/rewards';
 import RewardItemTile from '../Rewards/RewardItemTile'
+=======
+// import EditTaskModal from '../EditTaskModal/EditTaskModal';
+>>>>>>> 3e97bba709304c96a3b3af20f44bacb458bcacc0
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {

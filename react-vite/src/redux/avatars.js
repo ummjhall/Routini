@@ -64,6 +64,14 @@ export const editUserAvatar =
       body: JSON.stringify({
         name,
         bio,
+        level,
+        health,
+        exp,
+        gold,
+        gems,
+        equip_head_id,
+        equip_main_id,
+        equip_armor_id
       }),
     });
 
