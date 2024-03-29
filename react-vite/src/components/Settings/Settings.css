@@ -1,5 +1,16 @@
 /* ********** SETTINGS ******************************************************************************** */
 
+.settings-wrapper h1,
+.settings-wrapper h2 {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.settings_account_row-start,
+.settings_account_row-middle,
+.settings_account_edit-button {
+  font-family: 'Playfair Display', serif;
+}
+
 .settings-wrapper {
   /* border: 1px solid red; */
   width: 50%;
@@ -9,7 +20,12 @@
 }
 
 .settings-wrapper h1 {
-  margin: 0;
+  margin: 16px auto;
+  font-size: 28px;
+}
+
+.settings-wrapper h2 {
+  font-size: 22px;
 }
 
 .settings_account-wrapper {
@@ -34,7 +50,7 @@
 }
 
 .settings_account_row-start {
-  width: 90px;
+  width: 110px;
   margin-right: 100px;
 }
 
