@@ -8,6 +8,7 @@ function EquipmentItem({item}) {
       <OpenModalMenuItem
         itemImage={
           <img
+            className='equipment_item-image'
             src={item.image_url}
             style={{maxWidth: '120px'}}
           />

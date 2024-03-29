@@ -66,28 +66,45 @@
   color: blue;
 }
 
-/* ********** SETTINGS MODAL ******************************************************************************** */
+/* ********** SETTINGS MODALS ******************************************************************************** */
 
 .settings-modal-wrapper,
 .fixvalues-modal-wrapper {
-  background-color: white;
+  /* background-color: white; */
   width: 300px;
-  height: 200px;
+  /* height: 200px; */
   padding: 15px;
 }
 
-/* ********** FIX VALUES MODAL ******************************************************************************** */
+.settings-modal-font {
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
 
-.fixvalues-modal-wrapper div {
-  margin: 10px 0;
+.settings-center-text {
+  text-align: center;
+}
+
+.fixvalues-modal-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .fixvalues-heading {
+  margin-bottom: 10px;
+  font-size: 22px;
   font-weight: bold;
+  color: var(--accent-light-gold)
 }
 
 .fixvalues-gold {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: var(--accent-color-blue);
+  width: 120px;
+  margin-top: 50px;
+  padding: 5px 10px;
+  color: var(--accent-light-gold);
+  text-align: center;
   cursor: pointer;
-  color: blue;
-  text-decoration: underline;
 }

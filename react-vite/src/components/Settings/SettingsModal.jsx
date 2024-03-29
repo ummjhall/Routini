@@ -2,7 +2,7 @@ function SettingsModal() {
 
   return (
     <div className='settings-modal-wrapper'>
-      <div>Feature coming soon</div>
+      <div className='settings-modal-font settings-center-text'>Feature coming soon</div>
     </div>
   );
 }

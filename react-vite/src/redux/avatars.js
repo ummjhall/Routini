@@ -97,7 +97,7 @@ export const removeAvatar = () => async (dispatch) => {
 };
 
 const initialState = {
-  avatar: null,
+  avatar: null, isLoaded: false
 };
 
 const avatarReducer = (state = initialState, action) => {
@@ -106,6 +106,7 @@ const avatarReducer = (state = initialState, action) => {
       return {
         ...state,
         avatar: action.payload,
+        isLoaded: true
       };
 
     case CREATE_AVATAR:

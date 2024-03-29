@@ -1,6 +1,7 @@
 /* TODO: Add sitewide styles */
 * {
-  font-family: '';
+  /* font-family: ''; */
+  user-select: none;
 }
 
 body {

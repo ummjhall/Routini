@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer">
         <div className="overlay">
           <div className="container">
-            <h1>Routini</h1>
+            <h1>QuestLog</h1>
             <Link
               className="link"
               to="https://github.com/ummjhall/Routini"
@@ -19,7 +19,7 @@ function Footer() {
             <Link className="link" to="#">
               Contact
             </Link>
-            <p>© Routini 2024</p>
+            <p>© QuestLog 2024</p>
           </div>
         </div>
       </div>

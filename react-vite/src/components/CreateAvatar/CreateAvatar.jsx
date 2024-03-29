@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import './CreateAvatar.css';
 import { useEffect, useState } from 'react';
 import { useModal } from '../../context/Modal';
 import { createUserAvatar } from '../../redux/avatars';
+import './CreateAvatar.css';
 
 function CreateAvatar() {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function CreateAvatar() {
         <div className="container">
           <div className="avatar">
             <h3>Welcome to</h3>
-            <h1>Routini</h1>
+            <h1>QuestLog</h1>
             <div className="desktop-text">
               <p>
                 Greetings, traveler! It appears that you&#39;re new to these
