@@ -1,17 +1,17 @@
-import OpenModalMenuItem from '../Navigation/OpenModalMenuItem.jsx'
+import OpenModalRewardItem from './OpenModalRewardItem'
 import EditRewardModal from '../EditRewardModal/EditRewardModal';
-import UseRewardItem from './UseRewardItem.jsx'
 import './RewardItemTile.css';
 function RewardItemTile({ user, reward, avatar }) {
   return (
     <>
       <div className="reward-tile">
-        <OpenModalMenuItem
+        <OpenModalRewardItem
+          avatar={avatar}
+          reward={reward}
           itemText={reward.title}
           modalComponent={<EditRewardModal user={user} reward={reward} avatar={avatar} />}
           customClass={'reward-button-for-modal'}
         />
-        <UseRewardItem user={user} reward={reward} avatar={avatar} />
       </div>
     </>
   );

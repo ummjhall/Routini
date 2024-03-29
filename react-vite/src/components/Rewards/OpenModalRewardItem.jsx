@@ -1,4 +1,6 @@
 import { useModal } from '../../context/Modal';
+import { useDispatch } from "react-redux";
+import { editUserAvatar } from "../../redux/avatars";
 import './RewardItemTile.css';
 
 function OpenModalRewardItem({
@@ -10,25 +12,26 @@ function OpenModalRewardItem({
   avatar,
 }) {
   const { setModalContent, setOnModalClose } = useModal();
-
+  const dispatch = useDispatch()
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
     if (typeof onItemClick === 'function') onItemClick();
   };
   const useReward = async (e) => {
+    console.log(avatar.gold)
     e.preventDefault();
     const updatedAvatar = {
         gold: avatar.gold - reward.cost,
     };
-
+    console.log(updatedAvatar)
     return dispatch(editUserAvatar(updatedAvatar))
     .then(alert(`${reward.cost} gold was taken from your avatar to use your ${reward.title} reward`))
   }
 
   return (
-    <div className="reward-tile-content" onClick={onClick}>
-      <div className="reward-title">
+    <div className="reward-tile-content">
+      <div className="reward-title" onClick={onClick}>
         <p>{itemText}</p>
         <small>{reward.description}</small>
       </div>
