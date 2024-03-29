@@ -42,40 +42,42 @@ function EditRewardModal({ user, reward }) {
 
   return (
     <>
-      <form onSubmit={handleReward}>
-        <label>
-          Title
-          <input
-            placeholder={title || 'title'}
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        {errors.title && <p>{errors.title}</p>}
-        <label>
-          Description
-          <input
-            placeholder={description || 'description'}
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        {errors.description && <p>{errors.description}</p>}
-        <label>
-          Cost
-          <input
-            placeholder={cost || 'cost'}
-            type="number"
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
-          />
-        </label>
-        {errors.cost && <p>{errors.cost}</p>}
-        <button type="submit">Save</button>
-      </form>
-      <button onClick={handleDelete}>Delete This Reward</button>
+      <div className="edit-reward-container">
+        <form onSubmit={handleReward}>
+          <label>
+            Title
+            <input
+              placeholder={title || 'title'}
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </label>
+          {errors.title && <p>{errors.title}</p>}
+          <label>
+            Description
+            <input
+              placeholder={description || 'description'}
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          {errors.description && <p>{errors.description}</p>}
+          <label>
+            Cost
+            <input
+              placeholder={cost || 'cost'}
+              type="number"
+              value={cost}
+              onChange={(e) => setCost(e.target.value)}
+            />
+          </label>
+          {errors.cost && <p>{errors.cost}</p>}
+          <button type="submit">Save</button>
+        </form>
+        <button onClick={handleDelete}>Delete This Reward</button>
+      </div>
     </>
   );
 }

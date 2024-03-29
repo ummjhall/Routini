@@ -50,45 +50,50 @@ function TaskLandingPage() {
   if (!user) return <Navigate to="/signup" replace={true} />;
 
   return (
-    <div className='homePageDiv'>
+    <div className="homePageDiv">
       <ViewAvatar />
       <div className="task-container">
-        <div className="daily-container">
-
-            <h1>Daily</h1>
-            <NewDailyField />
+        <div className="habit-container">
+          <h1>Habit</h1>
+          <NewHabitField />
           {user &&
-            dailies.map((task) => (
-              <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
+            habits.map((task) => (
+              <div className="task-tile" key={task.id}>
+                <TaskItemTile task={task} user={user} avatar={userAvatar} />
               </div>
             ))}
         </div>
-        <div className="habit-container">
-          <h1>Habit</h1>
-            <NewHabitField />
+        <div className="daily-container">
+          <h1>Dailies</h1>
+          <NewDailyField />
           {user &&
-            habits.map((task) => (
-              <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
+            dailies.map((task) => (
+              <div className="task-tile" key={task.id}>
+                <TaskItemTile task={task} user={user} avatar={userAvatar} />
               </div>
             ))}
         </div>
         <div className="todo-container">
-          <h1>To-do's</h1>
-            <NewToDoField />
+          <h1>To-Do&#39;s</h1>
+          <NewToDoField />
           {user &&
             todos.map((task) => (
-              <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
+              <div className="task-tile" key={task.id}>
+                <TaskItemTile task={task} user={user} avatar={userAvatar} />
               </div>
             ))}
         </div>
         <div className="reward-container">
+        <h1>Rewards</h1>
           <NewRewardField />
           {userRewards &&
             userRewards.map((reward) => (
-              <RewardItemTile key={reward.id} reward={reward} user={user} avatar={userAvatar}/>
+              <RewardItemTile
+                key={reward.id}
+                reward={reward}
+                user={user}
+                avatar={userAvatar}
+              />
             ))}
         </div>
       </div>
