@@ -10,30 +10,31 @@ import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import NewDailyField from './NewDailyField';
 import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
+import NewRewardField from '../Rewards/NewRewardFiled';
+import { getRewards } from '../../redux/rewards';
+import RewardItemTile from '../Rewards/RewardItemTile';
 // import EditTaskModal from '../EditTaskModal/EditTaskModal';
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const userTasks = useSelector((state) => Object.values(state.tasks));
   const userAvatar = useSelector((state) => state?.avatar?.avatar);
-  const dispatch = useDispatch();
+  const userRewards = useSelector((state) => Object.values(state.rewards));
   const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
   const habits = [];
   const todos = [];
   for (const task of userTasks) {
-    // console.log('HELLO: ', userTasks)
     if (task.type == 'daily') dailies.push(task);
     if (task.type == 'habit') habits.push(task);
     if (task.type == 'to-do') todos.push(task);
   }
 
   useEffect(() => {
-
     if (user && !userAvatar) {
-
       setModalContent(<CreateAvatar />);
     } else {
       closeModal();
@@ -43,7 +44,8 @@ function TaskLandingPage() {
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUserAvatar());
-  }, [dispatch,]);
+    dispatch(getRewards());
+  }, [dispatch]);
 
   if (!user) return <Navigate to="/signup" replace={true} />;
 
@@ -52,6 +54,7 @@ function TaskLandingPage() {
       <ViewAvatar />
       <div className="task-container">
         <div className="daily-container">
+
             <h1>Daily</h1>
             <NewDailyField />
           {user &&
@@ -79,6 +82,13 @@ function TaskLandingPage() {
               <div className='task-tile' key={task.id}>
                 <TaskItemTile  task={task} user={user}/>
               </div>
+            ))}
+        </div>
+        <div className="reward-container">
+          <NewRewardField />
+          {userRewards &&
+            userRewards.map((reward) => (
+              <RewardItemTile key={reward.id} reward={reward} user={user} />
             ))}
         </div>
       </div>

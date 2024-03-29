@@ -9,10 +9,10 @@ class Reward(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    type = db.Column(db.String(9), nullable=False)
+    type = db.Column(db.String(9))
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(255))
-    cost = db.Column(db.Integer, nullable=False)
+    cost = db.Column(db.Integer)
 
     user = db.relationship('User', back_populates='rewards')
 

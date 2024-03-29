@@ -1,3 +1,7 @@
+.edit-avatar-modal-wrapper {
+  height: 90vh;
+}
+
 .edit-avatar-container {
   width: 90%;
   margin: 0 auto;
@@ -27,7 +31,7 @@
   border-radius: 0 0 10px 10px;
   bottom: 0;
   overflow-y: auto;
-  max-height: 500px;
+  max-height: 300px;
 }
 
 .edit-avatar-content h1 {
@@ -305,6 +309,11 @@
 
 .spinner-content h3 {
   font-family: var(--font-family-primary);
+}
+
+.secondary-font {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--accent-light-gold) !important;
 }
 
 @media only screen and (max-width: 768px) {

@@ -10,6 +10,7 @@ import equipmentReducer from './equipment';
 import shopReducer from './shop';
 import avatarReducer from './avatars';
 import taskReducer from './tasks';
+import rewardsReducer from './rewards';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   equipment: equipmentReducer,
   shop: shopReducer,
   avatar: avatarReducer,
+  rewards: rewardsReducer,
 });
 
 let enhancer;

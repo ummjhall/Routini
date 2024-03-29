@@ -61,5 +61,13 @@
 }
 
 .taskItemTile {
-    display: flex;
+
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.reward-container {
+  background-color: #EDECEE;
+  border-radius: 5px;
+  padding: 0.5em;
 }

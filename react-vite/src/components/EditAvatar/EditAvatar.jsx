@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ViewAvatar from '../ViewAvatar/ViewAvatar';
+import { useNavigate } from 'react-router-dom';
 import { editUserAvatar, removeAvatar } from '../../redux/avatars';
-import './EditAvatar.css';
+import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import AvatarEquipment from './AvatarEquipment';
+import './EditAvatar.css';
 
 function EditAvatar() {
-  const dispatch = useDispatch();
   const avatar = useSelector((state) => state.avatar.avatar);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
@@ -16,16 +19,17 @@ function EditAvatar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await dispatch(
-      editUserAvatar({
-        name: name.trim() || avatar.name,
-        bio: bio.trim() || avatar.bio,
-      })
-    );
+    // const res = await dispatch(
+    await dispatch(editUserAvatar({
+      name: name.trim() || avatar.name,
+      bio: bio.trim() || avatar.bio,
+    }));
 
-    if (res) {
-      console.log('Avatar updated');
-    }
+    setFormDisplayed(false);
+
+    // if (res) {
+    //   console.log('Avatar updated');
+    // }
   };
 
   const handleResetAvatar = async (e) => {
@@ -33,20 +37,25 @@ function EditAvatar() {
 
     try {
       setIsLoading(true);
+<<<<<<< HEAD
+      await dispatch(removeAvatar());
+=======
       const res = await dispatch(removeAvatar());
       if (res) {
+        navigate('/');
         window.location.reload();
       }
+>>>>>>> 2d8a073ed3b42e344f0bad44b85b5c8e261f2367
     } catch (error) {
       console.error('Error resetting avatar:', error);
     }
   };
 
   return (
-    <>
+    <div className='edit-avatar-modal-wrapper'>
       <div className="edit-avatar-container">
         <div className="edit-avatar">
-          <ViewAvatar />
+          <ViewAvatar hideCurrency={true} />
         </div>
       </div>
       {isLoading ? (
@@ -76,41 +85,6 @@ function EditAvatar() {
               {avatar?.gems}
             </div>
           </div>
-          {/* <div className="edit-avatar-equipment">
-          {headArr &&
-            headArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-          {armorArr &&
-            armorArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-          {mainArr &&
-            mainArr.map((item) => (
-              <div key={item.id}>
-                <img
-                  className="head-img"
-                  src={item.image_url}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-              </div>
-            ))}
-        </div> */}
           {formDisplayed ? (
             <>
               <form onSubmit={handleSubmit} className="edit-avatar-form">
@@ -151,13 +125,14 @@ function EditAvatar() {
           ) : (
             <div className="avatar-info">
               <h3>Name</h3>
-              <p>{avatar?.name}</p>
+              <p className='secondary-font'>{avatar?.name}</p>
               <h3>About</h3>
-              <p>
+              <p className='secondary-font'>
                 {avatar
                   ? avatar?.bio
                   : 'This Adventurer hasn&#39;t added a description.'}
               </p>
+              <AvatarEquipment avatar={avatar} />
               <div className="btns">
                 <div>
                   <button
@@ -182,7 +157,7 @@ function EditAvatar() {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
