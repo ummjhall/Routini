@@ -25,6 +25,7 @@
   background-color: #edecee;
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 1em;
 }
 
 .daily-container {
@@ -37,6 +38,7 @@
   background-color: #edecee;
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 1em;
 }
 
 .todo-container {
@@ -49,12 +51,14 @@
   background-color: #edecee;
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 1em;
 }
 
 .reward-container {
   background-color: #edecee;
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 1em;
 }
 
 .taskH1 {
@@ -153,6 +157,29 @@
 .create-todo-input::placeholder {
   color: var(--neutral-dark-gray);
   font-family: var(--font-family-secondary);
+}
+
+.waves_banner_three {
+  position: relative;
+  z-index: 1;
+}
+
+.waves_three {
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.waves_three svg {
+  height: 100%;
+  width: 100%;
+}
+
+.waves_three path {
+  stroke: none;
+  fill: #F9F9F9;
 }
 
 @media only screen and (max-width: 768px) {
