@@ -25,28 +25,28 @@ function AvatarEquipment({ avatar }) {
     <div className='avatar-equipment-wrapper'>
       <div className='ae_heading'>Equipped Items</div>
       <div className='ae_equipped-items-container'>
-        <div>
+        <div className="main-card">
           <div className='ae_equipped-items-title'>Main-Hand Item</div>
-          <div className='ae_equipped-items-name'>{main?.name}</div>
           <img src={main?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{main?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={main?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
           /> */}
         </div>
-        <div>
+        <div className="head-card">
           <div className='ae_equipped-items-title'>Headgear</div>
-          <div className='ae_equipped-items-name'>{headgear?.name}</div>
           <img src={headgear?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{headgear?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={headgear?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
           /> */}
         </div>
-        <div>
+        <div className="armor-card">
           <div className='ae_equipped-items-title'>Armor</div>
-          <div className='ae_equipped-items-name'>{armor?.name}</div>
           <img src={armor?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{armor?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={armor?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
