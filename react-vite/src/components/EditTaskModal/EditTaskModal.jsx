@@ -5,7 +5,8 @@ import { useModal } from '../../context/Modal';
 import moment from 'moment'
 import { redirect } from 'react-router-dom';
 import './EditTaskModal.css';
-
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
+import DeleteTaskModal from './DeleteTaskModal';
 function EditTaskModal({user, task}) {
     const dispatch = useDispatch();
 
@@ -21,8 +22,14 @@ function EditTaskModal({user, task}) {
     const { closeModal } = useModal();
 
     const handleDelete = async (e) => {
-        closeModal()
-        dispatch(removeTask(task.id))
+
+        <OpenModalMenuItem
+        task={task}
+        itemText={`Delete ${task.title}`}
+        modalComponent={<DeleteTaskModal user={user} task={task}/>}
+        // customClass={'reward-button-for-modal'}
+        />
+        // dispatch(removeTask(task.id))
         // .then(redirect('/'))
         // .then(closeModal())
     }
@@ -198,7 +205,12 @@ function EditTaskModal({user, task}) {
             {errors.repeatsevery && <p>{errors.repeatsevery}</p>}
             <button type="submit">Save</button>
           </form>
-          <button onClick={handleDelete}>Delete This Task</button>
+          <OpenModalMenuItem
+                task={task}
+                itemText={`Delete ${task.title}`}
+                modalComponent={<DeleteTaskModal user={user} task={task}/>}
+                // customClass={'reward-button-for-modal'}
+            />
         </>
     );
     }
@@ -241,8 +253,13 @@ function EditTaskModal({user, task}) {
                     {errors.difficulty && <p>{errors.difficulty}</p>}
                     <button type="submit">Save</button>
                 </form>
-                <button onClick={handleDelete}>Delete This Task</button>
-            </>
+                <OpenModalMenuItem
+                    task={task}
+                    itemText={`Delete ${task.title}`}
+                    modalComponent={<DeleteTaskModal user={user} task={task}/>}
+                    // customClass={'reward-button-for-modal'}
+                />
+        </>
         );
     }
     if (task.type === 'to-do') {
@@ -295,7 +312,12 @@ function EditTaskModal({user, task}) {
                     {errors.duedate && <p>{errors.duedate}</p>}
                     <button type="submit">Save</button>
                 </form>
-                <button onClick={handleDelete}>Delete This Task</button>
+                <OpenModalMenuItem
+                    task={task}
+                    itemText={`Delete ${task.title}`}
+                    modalComponent={<DeleteTaskModal user={user} task={task}/>}
+                    // customClass={'reward-button-for-modal'}
+                />
             </>
         );
     }
