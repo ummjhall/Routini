@@ -56,8 +56,8 @@ function TaskLandingPage() {
             <NewDailyField />
           {user &&
             dailies.map((task) => (
-              <div className='task-tile'>
-                <TaskItemTile key={task.id} task={task} user={user}/>
+              <div className='task-tile' key={task.id}>
+                <TaskItemTile  task={task} user={user}/>
               </div>
             ))}
         </div>
@@ -66,8 +66,8 @@ function TaskLandingPage() {
             <NewHabitField />
           {user &&
             habits.map((task) => (
-              <div className='task-tile'>
-                <TaskItemTile key={task.id} task={task} user={user}/>
+              <div className='task-tile' key={task.id}>
+                <TaskItemTile  task={task} user={user}/>
               </div>
             ))}
         </div>
@@ -76,8 +76,8 @@ function TaskLandingPage() {
             <NewToDoField />
           {user &&
             todos.map((task) => (
-              <div className='task-tile'>
-                <TaskItemTile key={task.id} task={task} user={user}/>
+              <div className='task-tile' key={task.id}>
+                <TaskItemTile  task={task} user={user}/>
               </div>
             ))}
         </div>

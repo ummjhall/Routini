@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import moment from 'moment'
 import { redirect } from 'react-router-dom';
-// import './EditTaskModal.css';
+import './EditTaskModal.css';
 
 function EditTaskModal({user, task}) {
     const dispatch = useDispatch();
@@ -14,9 +14,9 @@ function EditTaskModal({user, task}) {
     const [title, setTitle] = useState(task?.title);
     const [description, setDescription] = useState(task?.description);
     const [difficulty, setDifficulty] = useState(task?.difficulty);
-    const [startdate, setStartdate] = useState(task?.start_date || '20 Mar 2024 00:00:00 GMT');
+    const [startdate, setStartdate] = useState(task?.start_date || new Date());
     const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every || 1);
-    const [duedate, setDuedate] = useState(task?.due_date || '20 Mar 2024 00:00:00 GMT');
+    const [duedate, setDuedate] = useState(task?.due_date || new Date());
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
 
@@ -145,7 +145,7 @@ function EditTaskModal({user, task}) {
 
     return (
         <>
-          <form onSubmit={handleDaily}>
+          <form onSubmit={handleDaily} className='taskForm'>
             <label>
               Title
               <input
