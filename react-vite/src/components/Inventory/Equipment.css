@@ -39,6 +39,11 @@
   align-items: center;
 }
 
+.item-modal-name,
+.item-modal-description {
+  cursor: default;
+}
+
 .item-modal-name {
   margin-bottom: 10px;
   font-family: 'Cinzel Decorative', serif;

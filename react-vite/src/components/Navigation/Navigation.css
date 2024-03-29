@@ -80,6 +80,10 @@
   z-index: 1;
 }
 
+.pd-font {
+  font-family: 'Playfair Display', serif;
+}
+
 .profile-dropdown_username,
 .profile-dropdown_email {
   cursor: default;
@@ -123,7 +127,7 @@
 
 .nav_login {
   background-color: darkcyan;
-  border-radius: 8px;
+  border-radius: 5px;
   width: 80px;
   margin-right: 20px;
   padding: 10px;
