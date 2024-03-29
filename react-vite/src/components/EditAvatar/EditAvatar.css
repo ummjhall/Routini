@@ -49,6 +49,7 @@
   font-family: var(--font-family-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-left: 1em;
+  margin-bottom: -5px;
 }
 
 .edit-avatar-content p {

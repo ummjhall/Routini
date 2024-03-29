@@ -55,7 +55,7 @@ function TaskLandingPage() {
       <ViewAvatar />
       <div className="task-container">
         <div className="habit-container">
-          <h1>Habit</h1>
+          <h1>Habits</h1>
           <NewHabitField />
           {user &&
             habits.map((task) => (
