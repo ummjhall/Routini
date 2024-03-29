@@ -1,35 +1,34 @@
 import { useState } from 'react';
 import { postNewTask } from '../../redux/tasks';
 import { useDispatch } from 'react-redux';
-// import { useModal } from '../../context/Modal';
 
 function NewDailyField() {
-    const dispatch = useDispatch()
-    const [title, setTitle] = useState('');
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
 
-    const handleNewTask = async (e) => {
-        e.preventDefault();
-        const newTask = { title, type: 'daily' }
-        console.log(newTask)
-        if (title) {
-            return dispatch(postNewTask(newTask))
-            .then(setTitle(''))
-        }
+  const handleNewTask = async (e) => {
+    e.preventDefault();
+    const newTask = { title, type: 'daily' };
+    console.log(newTask);
+    if (title) {
+      return dispatch(postNewTask(newTask)).then(setTitle(''));
     }
-    return (
-        <form onSubmit={handleNewTask}>
-            <label>
-            <input
-            placeholder={"Create new Daily Task"}
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            />
-            </label>
-            <button > Create Task</button>
-        </form>
-    )
+  };
+  return (
+    <form onSubmit={handleNewTask}>
+      <label>
+        <input
+          className="create-daily-input"
+          placeholder={'Add a Daily'}
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </label>
+      {/* <button> Create Task</button> */}
+    </form>
+  );
 }
 
-export default NewDailyField
+export default NewDailyField;

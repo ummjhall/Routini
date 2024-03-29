@@ -80,6 +80,7 @@ function EditAvatar() {
               {avatar?.gems}
             </div>
           </div>
+          <hr />
           {formDisplayed ? (
             <>
               <form onSubmit={handleSubmit} className="edit-avatar-form">
@@ -127,6 +128,7 @@ function EditAvatar() {
                   ? avatar?.bio
                   : 'This Adventurer hasn&#39;t added a description.'}
               </p>
+              <hr />
               <AvatarEquipment avatar={avatar} />
               <div className="btns">
                 <div>
