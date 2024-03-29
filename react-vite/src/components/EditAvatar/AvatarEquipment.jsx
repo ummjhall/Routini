@@ -26,9 +26,9 @@ function AvatarEquipment({ avatar }) {
       <div className='ae_heading'>Equipped Items</div>
       <div className='ae_equipped-items-container'>
         <div className='ae_equipped-items-section'>
-          <div className='ae_equipped-items-title'>Main-Hand Item</div>
-          <img src={main?.image_url} style={{maxWidth: '100px'}}/>
-          <div className='ae_equipped-items-name'>{main?.name}</div>
+          <div className='ae_equipped-items-title'>Main Item</div>
+          <img className='ae_equipped-items-img' src={main?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{main?.nickname || main?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={main?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
@@ -36,8 +36,8 @@ function AvatarEquipment({ avatar }) {
         </div>
         <div className='ae_equipped-items-section'>
           <div className='ae_equipped-items-title'>Headgear</div>
-          <img src={headgear?.image_url} style={{maxWidth: '100px'}}/>
-          <div className='ae_equipped-items-name'>{headgear?.name}</div>
+          <img className='ae_equipped-items-img' src={headgear?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{headgear?.nickname || headgear?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={headgear?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
@@ -45,8 +45,8 @@ function AvatarEquipment({ avatar }) {
         </div>
         <div className='ae_equipped-items-section'>
           <div className='ae_equipped-items-title'>Armor</div>
-          <img src={armor?.image_url} style={{maxWidth: '100px'}}/>
-          <div className='ae_equipped-items-name'>{armor?.name}</div>
+          <img className='ae_equipped-items-img' src={armor?.image_url} style={{maxWidth: '100px'}}/>
+          <div className='ae_equipped-items-name'>{armor?.nickname || armor?.name}</div>
           {/* <OpenModalMenuItem
             itemImage={<img src={armor?.image_url} style={{maxWidth: '100px'}}/>}
             modalComponent={<div>test</div>}
