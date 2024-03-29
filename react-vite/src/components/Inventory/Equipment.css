@@ -55,6 +55,14 @@
   font-size: 22px;
   font-weight: bold;
   color: var(--accent-light-gold);
+  text-align: center;
+}
+
+.item-modal-rename-field {
+  width: 250px;
+  height: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
 }
 
 .item-modal-description,
@@ -90,17 +98,26 @@
   cursor: pointer;
 }
 
-.imb-equip {
-  background-color: var(--accent-color-blue);
+.imb-buy {
+  background-color: var(--accent-color-gold);
+  width: 100px;
 }
 
 .imb-sell {
   background-color: var(--accent-color-red);
 }
 
-.imb-buy {
-  background-color: var(--accent-color-gold);
-  width: 100px;
+
+.imb-equip {
+  background-color: var(--accent-color-blue);
+}
+
+.imb-rename {
+  background-color: var(--primary-color);
+  margin: 10px 0 15px;
+  width: 70px;
+  height: 25px;
+  font-size: 14px;
 }
 
 .disabled {

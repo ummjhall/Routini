@@ -1,12 +1,20 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_EQUIPMENT = 'equipment/loadEquipment';
+const RENAME_ITEM = 'equipment/renameItem';
 const REMOVE_ITEM = 'equipment/removeItem';
 
 const loadEquipment = (equipmentData) => {
   return {
     type: LOAD_EQUIPMENT,
     equipmentData
+  };
+};
+
+const renameItem = (itemData) => {
+  return {
+    type: RENAME_ITEM,
+    itemData
   };
 };
 
@@ -24,6 +32,18 @@ export const getUserEquipmentThunk = () => async dispatch => {
   if (res.ok)
     dispatch(loadEquipment(equipmentData));
   return equipmentData;
+};
+
+export const renameItemThunk = (itemId, itemFormData) => async dispatch => {
+  const res = await csrfFetch(`/api/equipment/current/${itemId}`, {
+    method: 'PATCH',
+    body: JSON.stringify(itemFormData)
+  });
+
+  const itemData = await res.json();
+  if (res.ok)
+    dispatch(renameItem(itemData));
+  return itemData;
 };
 
 export const removeItemThunk = (itemId) => async dispatch => {
@@ -47,6 +67,9 @@ function equipmentReducer(state = initialState, action) {
         equipment[item.id] = item;
       });
       return {...equipment};
+    }
+    case RENAME_ITEM: {
+      return {...state, [action.itemData.id]: action.itemData};
     }
     case REMOVE_ITEM: {
       const newState = {...state};
