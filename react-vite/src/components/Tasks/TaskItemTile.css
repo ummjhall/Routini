@@ -1,11 +1,30 @@
-.check-off {
-    margin-left: 2px;
-    margin-right: 2px;
-}
 .taskItemTile {
-    width: 100%;
+  padding-left: 0.5em;
+  margin: 0.3em;
+  background-color: var(--neutral-white-color);
+  border-radius: 3px;
+  min-height: 4em;
+  display: flex;
+  align-items: center;
+  border: 0.5px solid transparent;
+  transition: border 0.3s ease;
 }
+.taskItemTile:hover {
+    cursor: pointer;
+    border: 0.5px solid var(--neutral-dark-gray);
+    border-radius: 3px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    transition: border 0.3s ease;
+  }
+
+.check-off {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 .taskModalButton {
-    width: 100%;
-    padding-left: 2px;
+  /* width: 100%; */
+  /* padding-left: 2px; */
+  height: 100%;
+
 }

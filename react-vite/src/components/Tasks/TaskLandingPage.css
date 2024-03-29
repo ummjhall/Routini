@@ -41,15 +41,15 @@
 }
 
 .todo-container {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    justify-self: center;
-    text-align: center;
-    list-style: none;
-    background-color: #edecee;
-    border-radius: 5px;
-    padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-self: center;
+  text-align: center;
+  list-style: none;
+  background-color: #edecee;
+  border-radius: 5px;
+  padding: 0.5em;
 }
 
 .reward-container {
@@ -58,17 +58,6 @@
   padding: 0.5em;
 }
 
-.task-tile {
-  border: 1px black solid;
-  border-radius: 3px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  text-align: center;
-  background-color: #132512;
-  color: #ffd700;
-}
 .taskH1 {
   text-align: center;
 }

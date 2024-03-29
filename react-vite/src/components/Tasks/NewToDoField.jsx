@@ -18,7 +18,7 @@ function NewToDoField() {
       <label>
         <input
           className="create-todo-input"
-          placeholder={'Create new To-Do'}
+          placeholder={'Add a To Do'}
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
