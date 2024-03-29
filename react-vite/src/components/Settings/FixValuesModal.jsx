@@ -4,7 +4,7 @@ import { csrfFetch } from "../../redux/csrf";
 import { getUserAvatar } from "../../redux/avatars";
 
 function FixValuesModal() {
-  // const avatar = useSelector(state => state.avatar.avatar);
+  const avatar = useSelector(state => state.avatar.avatar);
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ function FixValuesModal() {
     await csrfFetch('/api/avatars/current', {
       method: 'PATCH',
       body: JSON.stringify({
-        gold: 5000
+        gold: avatar?.gold + 300
       }),
     });
     dispatch(getUserAvatar());
@@ -24,7 +24,7 @@ function FixValuesModal() {
     <div className='fixvalues-modal-wrapper'>
       <div className='settings-modal-font fixvalues-heading'>Fix values</div>
       <div className='settings-modal-font'>Here you can get free gold for testing purposes.</div>
-      <div className='settings-modal-font fixvalues-gold' onClick={handleGoldClick}>Set gold to 5000</div>
+      <div className='settings-modal-font fixvalues-gold' onClick={handleGoldClick}>Add 300 Gold</div>
     </div>
   );
 }

@@ -56,7 +56,7 @@ function ItemModal({item, shopItem}) {
     dispatch(getUserEquipmentThunk());
   };
 
-  // Equips or unequips the item
+  // Equip or unequip the item
   const handleEquip = async () => {
     let data = {};
     if (item.type == 'main') {
@@ -83,7 +83,11 @@ function ItemModal({item, shopItem}) {
       <div className='item-modal-description'>{item.description}</div>
       <img className='item-modal-img' src={item.image_url} style={{maxWidth: '120px'}} />
       {shopItem &&
-        <div className='item-modal-buttons imb-buy' onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy: {item.cost} Gold</div>
+        <div
+          className={`item-modal-buttons imb-buy ${avatar.gold - item.cost < 0 ? 'disabled' : ''}`}
+          onClick={handleBuy}>
+          Buy: {item.cost} Gold
+        </div>
       }
       {!shopItem &&
         <div className='item-modal-buttons-container'>
