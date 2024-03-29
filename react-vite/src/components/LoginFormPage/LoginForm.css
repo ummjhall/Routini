@@ -131,6 +131,7 @@ input:-webkit-autofill:active {
 }
 
 .login_demo_signin {
+  border-radius: 5px;
   background-color: darkcyan;
   margin: 0 auto;
   width: 60%;

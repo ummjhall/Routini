@@ -53,11 +53,11 @@ function ProfileButton() {
       {showMenu && (
         <div className={'profile-dropdown'} ref={ulRef}>
           <div>
-            <div className='profile-dropdown_username'>{user.username}</div>
-            <div className='profile-dropdown_email'>{user.email}</div>
-            <div className='profile-dropdown_profile' onClick={openProfile}>Profile</div>
-            <div className='profile-dropdown_settings' onClick={goToSettings}>Settings</div>
-            <div className='profile-dropdown_logout' onClick={logout}>Log Out</div>
+            <div className='pd-font profile-dropdown_username'>{user.username}</div>
+            <div className='pd-font profile-dropdown_email'>{user.email}</div>
+            <div className='pd-font profile-dropdown_profile' onClick={openProfile}>Profile</div>
+            <div className='pd-font profile-dropdown_settings' onClick={goToSettings}>Settings</div>
+            <div className='pd-font profile-dropdown_logout' onClick={logout}>Log Out</div>
           </div>
         </div>
       )}

@@ -82,7 +82,7 @@ function LoginFormPage() {
                     className='login_demo_signin'
                     onClick={handleDemoLogin}
                   >
-                    Sign in as Demo User
+                    Sign in as a Demo User
                   </p>
                 </div>
               </form>

@@ -109,6 +109,10 @@
   margin-left: 1em;
 }
 
+.name-main {
+  text-align: left;
+}
+
 .health {
   display: flex;
   flex-direction: row;

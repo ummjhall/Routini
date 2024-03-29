@@ -25,7 +25,7 @@ function AvatarEquipment({ avatar }) {
     <div className='avatar-equipment-wrapper'>
       <div className='ae_heading'>Equipped Items</div>
       <div className='ae_equipped-items-container'>
-        <div>
+        <div className='ae_equipped-items-section'>
           <div className='ae_equipped-items-title'>Main-Hand Item</div>
           <div className='ae_equipped-items-name'>{main?.name}</div>
           <img src={main?.image_url} style={{maxWidth: '100px'}}/>
@@ -34,7 +34,7 @@ function AvatarEquipment({ avatar }) {
             modalComponent={<div>test</div>}
           /> */}
         </div>
-        <div>
+        <div className='ae_equipped-items-section'>
           <div className='ae_equipped-items-title'>Headgear</div>
           <div className='ae_equipped-items-name'>{headgear?.name}</div>
           <img src={headgear?.image_url} style={{maxWidth: '100px'}}/>
@@ -43,7 +43,7 @@ function AvatarEquipment({ avatar }) {
             modalComponent={<div>test</div>}
           /> */}
         </div>
-        <div>
+        <div className='ae_equipped-items-section'>
           <div className='ae_equipped-items-title'>Armor</div>
           <div className='ae_equipped-items-name'>{armor?.name}</div>
           <img src={armor?.image_url} style={{maxWidth: '100px'}}/>
