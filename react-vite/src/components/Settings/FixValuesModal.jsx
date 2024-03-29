@@ -14,7 +14,7 @@ function FixValuesModal() {
     await csrfFetch('/api/avatars/current', {
       method: 'PATCH',
       body: JSON.stringify({
-        gold: 500
+        gold: 5000
       }),
     });
     dispatch(getUserAvatar());
@@ -22,9 +22,9 @@ function FixValuesModal() {
 
   return (
     <div className='fixvalues-modal-wrapper'>
-      <div className='fixvalues-heading'>Fix values</div>
-      <div>Here you can get free gold for testing purposes.</div>
-      <span className='fixvalues-gold' onClick={handleGoldClick}>Set gold to 500</span>
+      <div className='settings-modal-font fixvalues-heading'>Fix values</div>
+      <div className='settings-modal-font'>Here you can get free gold for testing purposes.</div>
+      <div className='settings-modal-font fixvalues-gold' onClick={handleGoldClick}>Set gold to 5000</div>
     </div>
   );
 }

@@ -31,7 +31,7 @@
   border-radius: 0 0 10px 10px;
   bottom: 0;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 60%;
 }
 
 .edit-avatar-content h1 {
