@@ -5,12 +5,12 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .reward-tile {
   padding-left: 0.5em;
-  margin: 0.3em;
+  margin: 0.5em;
   background-color: var(--neutral-white-color);
   border-radius: 3px;
   min-height: 4em;
@@ -39,6 +39,7 @@
   font-family: var(--font-family-primary);
   text-align: flex-start;
 }
+
 .reward-title small {
   margin: 0;
   color: var(--neutral-dark-gray);

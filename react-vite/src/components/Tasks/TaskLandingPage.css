@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 0 1em;
   background-color: #f9f9f9;
   border-radius: 5px;
   padding: 0.5em;
@@ -154,4 +153,19 @@
 .create-todo-input::placeholder {
   color: var(--neutral-dark-gray);
   font-family: var(--font-family-secondary);
+}
+
+@media only screen and (max-width: 768px) {
+  .task-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .habit-container,
+  .daily-container,
+  .todo-container,
+  .reward-container {
+    width: 100%;
+    margin-bottom: 1em;
+  }
 }

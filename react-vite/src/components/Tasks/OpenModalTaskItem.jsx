@@ -1,4 +1,5 @@
 import { useModal } from '../../context/Modal';
+import '../Tasks/TaskItemTile.css';
 
 function OpenModalTaskItem({
   modalComponent, // component to render inside the modal
@@ -7,24 +8,24 @@ function OpenModalTaskItem({
   onItemClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
   customClass,
-  task
+  task,
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
-    if (typeof onItemClick === "function") onItemClick();
+    if (typeof onItemClick === 'function') onItemClick();
   };
 
   return (
     <div className="task-tile-content">
       <div className={customClass} onClick={onClick}>
-      <p>{itemText}</p>
-      <small>{task.description}</small>
+        <p>{itemText}</p>
+        <small>{task.description}</small>
       </div>
     </div>
-  )
+  );
 
   // return itemImage ? (
   //   <div onClick={onClick}>{itemImage}</div>
