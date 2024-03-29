@@ -79,22 +79,16 @@ function ItemModal({item, shopItem}) {
 
   return (
     <div className='item-modal-wrapper'>
-      <div>{item.name}</div>
-      <div>{item.description}</div>
-      <img src={item.image_url} style={{maxWidth: '120px'}} />
+      <div className='item-modal-name'>{item.name}</div>
+      <div className='item-modal-description'>{item.description}</div>
+      <img className='item-modal-img' src={item.image_url} style={{maxWidth: '120px'}} />
       {shopItem &&
-        <div>
-          <div>Gold: {avatar.gold}</div>
-          <div>Cost: {item.cost}</div>
-          <button onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy</button>
-        </div>
+        <div className='item-modal-buttons imb-buy' onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy: {item.cost} Gold</div>
       }
       {!shopItem &&
-        <div>
-          <button onClick={handleEquip}>{equipped ? 'Unequip' : 'Equip'}</button>
-          <div>Gold: {avatar.gold}</div>
-          <div>Selling price: {item.cost / 2}</div>
-          <button onClick={handleSell}>Sell</button>
+        <div className='item-modal-buttons-container'>
+          <div className='item-modal-buttons imb-equip' onClick={handleEquip}>{equipped ? 'Unequip' : 'Equip'}</div>
+          <div className='item-modal-buttons imb-sell' onClick={handleSell}>Sell: {item.cost / 2} Gold</div>
         </div>
       }
     </div>

@@ -49,7 +49,7 @@ function ViewAvatar({ hideCurrency }) {
                   alt="name-icon"
                 />
                 <div className="name-content">
-                  <p>{userAvatar?.name}</p>
+                  <p className="name-main">{userAvatar?.name}</p>
                   <div className="name-small">
                     <small>{user?.username} • </small>
                     <small>Level {userAvatar?.level} Warrior</small>
