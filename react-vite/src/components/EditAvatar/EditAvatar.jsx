@@ -37,15 +37,10 @@ function EditAvatar() {
 
     try {
       setIsLoading(true);
-<<<<<<< HEAD
-      await dispatch(removeAvatar());
-=======
       const res = await dispatch(removeAvatar());
       if (res) {
         navigate('/');
-        window.location.reload();
       }
->>>>>>> 2d8a073ed3b42e344f0bad44b85b5c8e261f2367
     } catch (error) {
       console.error('Error resetting avatar:', error);
     }
