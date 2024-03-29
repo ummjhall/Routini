@@ -1,6 +1,7 @@
 import OpenModalRewardItem from './OpenModalRewardItem'
 import EditRewardModal from '../EditRewardModal/EditRewardModal';
 import './RewardItemTile.css';
+
 function RewardItemTile({ user, reward, avatar }) {
   return (
     <>

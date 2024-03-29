@@ -44,7 +44,7 @@ function LoginFormPage() {
         <div className="overlay">
           <div className="container">
             <div className="login">
-              <h1>Routini</h1>
+              <h1>QuestLog</h1>
               {errors.length > 0 &&
                 errors.map((message) => <p key={message}>{message}</p>)}
               <form onSubmit={handleSubmit}>
@@ -74,7 +74,7 @@ function LoginFormPage() {
                   Log In
                 </button>
                 <Link className="link" to="/signup">
-                  Don&#39;t have a Routini account?<strong></strong> Sign up.
+                  Don&#39;t have a QuestLog account?<strong></strong> Sign up.
                 </Link>
                 <div className='login_demo'>
                   <p>or</p>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { collectItemThunk, getShopEquipmentThunk } from '../../redux/shop';
-import { getUserEquipmentThunk, removeItemThunk } from '../../redux/equipment';
+import { getUserEquipmentThunk, removeItemThunk, renameItemThunk } from '../../redux/equipment';
 import { editUserAvatar } from '../../redux/avatars';
 
 function ItemModal({item, shopItem}) {
@@ -10,6 +10,9 @@ function ItemModal({item, shopItem}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [ equipped, setEquipped ] = useState(false);
+  const [ renaming, setRenaming ] = useState(false);
+  const [ newName, setNewName ] = useState(item.nickname);
+  const [ preservedNewName, setPreservedNewName ] = useState('');
 
   // Check whether the user's avatar has the item equipped
   useEffect(() => {
@@ -56,7 +59,7 @@ function ItemModal({item, shopItem}) {
     dispatch(getUserEquipmentThunk());
   };
 
-  // Equips or unequips the item
+  // Equip or unequip the item
   const handleEquip = async () => {
     let data = {};
     if (item.type == 'main') {
@@ -77,14 +80,59 @@ function ItemModal({item, shopItem}) {
     }));
   };
 
+  // Change name to a form field
+  const handleRenameClick = () => {
+    setNewName('');
+    setRenaming(prev => !prev);
+  };
+
+  const preserveName = (e) => {
+    setNewName(e.target.value);
+    setPreservedNewName(e.target.value);
+  };
+
+  // Rename item
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(renameItemThunk(
+      item.id,
+      {nickname: newName}
+    ));
+    await dispatch(getUserEquipmentThunk());
+    setRenaming(false);
+  };
+
   return (
     <div className='item-modal-wrapper'>
-      <div className='item-modal-name'>{item.name}</div>
+      <div className='item-modal-name'>
+        {renaming ?
+        (<form onSubmit={handleSubmit}>
+          <input
+            className='item-modal-rename-field'
+            type='text'
+            placeholder={item.name}
+            maxLength={40}
+            value={newName}
+            onChange={preserveName}
+          />
+        </form>) :
+        newName || preservedNewName || item.nickname || item.name}
+      </div>
       <div className='item-modal-description'>{item.description}</div>
       <img className='item-modal-img' src={item.image_url} style={{maxWidth: '120px'}} />
       {shopItem &&
-        <div className='item-modal-buttons imb-buy' onClick={handleBuy} disabled={avatar.gold - item.cost < 0}>Buy: {item.cost} Gold</div>
+        <div
+          className={`item-modal-buttons imb-buy ${avatar.gold - item.cost < 0 ? 'disabled' : ''}`}
+          onClick={handleBuy}>
+          Buy: {item.cost} Gold
+        </div>
       }
+      {!shopItem &&
+        <div
+          className='item-modal-buttons imb-rename'
+          onClick={handleRenameClick}>
+          {renaming ? 'Cancel' : 'Rename'}
+        </div>}
       {!shopItem &&
         <div className='item-modal-buttons-container'>
           <div className='item-modal-buttons imb-equip' onClick={handleEquip}>{equipped ? 'Unequip' : 'Equip'}</div>

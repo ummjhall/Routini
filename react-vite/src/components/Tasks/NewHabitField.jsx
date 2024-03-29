@@ -1,35 +1,34 @@
 import { useState } from 'react';
 import { postNewTask } from '../../redux/tasks';
 import { useDispatch } from 'react-redux';
-// import { useModal } from '../../context/Modal';
 
 function NewHabitField() {
-    const dispatch = useDispatch()
-    const [title, setTitle] = useState('');
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
 
-    const handleNewTask = async (e) => {
-        e.preventDefault();
+  const handleNewTask = async (e) => {
+    e.preventDefault();
 
-        const newTask = { title, type: 'habit' }
-        if (title) {
-            return dispatch(postNewTask(newTask))
-            .then(setTitle(''))
-        }
+    const newTask = { title, type: 'habit' };
+    if (title) {
+      return dispatch(postNewTask(newTask)).then(setTitle(''));
     }
-    return (
-        <form onSubmit={handleNewTask}>
-            <label>
-            <input
-            placeholder={"Create new Habit"}
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            />
-            </label>
-            <button> Create Task</button>
-        </form>
-    )
+  };
+  return (
+    <form onSubmit={handleNewTask}>
+      <label>
+        <input
+            className="create-habit-input"
+          placeholder={'Add a Habit'}
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </label>
+      {/* <button> Create Task</button> */}
+    </form>
+  );
 }
 
-export default NewHabitField
+export default NewHabitField;

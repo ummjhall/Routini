@@ -1,5 +1,6 @@
 .edit-avatar-modal-wrapper {
-  height: 90vh;
+  height: 80vh;
+  min-width: 250px;
 }
 
 .edit-avatar-container {
@@ -7,6 +8,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .border {
@@ -30,8 +32,8 @@
   min-width: 100px;
   border-radius: 0 0 10px 10px;
   bottom: 0;
-  overflow-y: auto;
-  max-height: 300px;
+  overflow-y: scroll;
+  max-height: calc(80vh - 200px);
 }
 
 .edit-avatar-content h1 {
@@ -47,6 +49,7 @@
   font-family: var(--font-family-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-left: 1em;
+  margin-bottom: -5px;
 }
 
 .edit-avatar-content p {
@@ -121,6 +124,14 @@
 .edit-avatar-content textarea::placeholder {
   color: var(--neutral-white-color);
   font-family: var(--font-family-secondary);
+}
+
+.edit-avatar-content hr {
+  width: 95%;
+  /* font-size: 1px; */
+  font-weight: normal;
+  color: transparent;
+  border-color: var(--neutral-dark-gray);
 }
 
 .btn-start {
