@@ -60,7 +60,7 @@ function TaskLandingPage() {
           {user &&
             dailies.map((task) => (
               <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user}/>
+                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
               </div>
             ))}
         </div>
@@ -70,7 +70,7 @@ function TaskLandingPage() {
           {user &&
             habits.map((task) => (
               <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user}/>
+                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
               </div>
             ))}
         </div>
@@ -80,7 +80,7 @@ function TaskLandingPage() {
           {user &&
             todos.map((task) => (
               <div className='task-tile' key={task.id}>
-                <TaskItemTile  task={task} user={user}/>
+                <TaskItemTile  task={task} user={user} avatar={userAvatar}/>
               </div>
             ))}
         </div>
@@ -88,7 +88,7 @@ function TaskLandingPage() {
           <NewRewardField />
           {userRewards &&
             userRewards.map((reward) => (
-              <RewardItemTile key={reward.id} reward={reward} user={user} />
+              <RewardItemTile key={reward.id} reward={reward} user={user} avatar={userAvatar}/>
             ))}
         </div>
       </div>

@@ -60,7 +60,7 @@ function EditTaskModal({user, task}) {
     setErrors(errHits);
     console.log(errors)
     if (!Object.values(errors).length) {
-        console.log(dispatch(editTask(editedDaily)))
+        dispatch(editTask(editedDaily))
         // .then(closeModal())
     }
     else {
