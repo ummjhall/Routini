@@ -26,8 +26,69 @@
   font-family: 'Playfair Display', serif;
 }
 
+/* ********** ITEM MODAL ******************************************************************************** */
+
 .item-modal-wrapper {
+  max-width: 300px;
   padding: 20px;
   border-radius: 8px;
-  background-color: white;
+  /* background-color: white; */
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-modal-name {
+  margin-bottom: 10px;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent-light-gold);
+}
+
+.item-modal-description,
+.item-modal-buttons {
+  font-family: 'Playfair Display', serif;
+}
+
+.item-modal-description {
+  /* margin-bottom: 10px; */
+  color: white;
+}
+
+.item-modal-img {
+  margin: 40px auto;
+}
+
+.item-modal-buttons-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-modal-buttons {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 90px;
+  height: 35px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.imb-equip {
+  background-color: var(--accent-color-blue);
+}
+
+.imb-sell {
+  background-color: var(--accent-color-red);
+}
+
+.imb-buy {
+  background-color: var(--accent-color-gold);
+  width: 100px;
 }
