@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { getUserAvatar } from "../../redux/avatars";
-import { getUserEquipmentThunk } from "../../redux/equipment";
-import ViewAvatar from "../ViewAvatar/ViewAvatar";
-import EquipmentSection from "./EquipmentSection";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { getUserAvatar } from '../../redux/avatars';
+import { getUserEquipmentThunk } from '../../redux/equipment';
+import ViewAvatar from '../ViewAvatar/ViewAvatar';
+import EquipmentSection from './EquipmentSection';
 
 function Equipment() {
   const user = useSelector(state => state.session.user);
-  const avatar = useSelector(state => state?.avatar?.avatar);
+  const avatar = useSelector(state => state.avatar.avatar);
   const userEquipment = useSelector(state => state.equipment);
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ function Equipment() {
   useEffect(() => {
     if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getUserEquipmentThunk());
-  }, [dispatch]);
+  }, [user, avatar, dispatch]);
 
   if (!user) return <Navigate to='/signup' replace={true} />;
 

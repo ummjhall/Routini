@@ -1,0 +1,28 @@
+.avatar-equipment-wrapper {
+  margin: 16px;
+  color: white;
+}
+
+.ae_heading {
+  margin-bottom: 15px;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ae_equipped-items-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ae_equipped-items-title {
+  margin-bottom: 10px;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.ae_equipped-items-name {
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-light-gold);
+}

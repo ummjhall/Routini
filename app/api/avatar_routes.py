@@ -67,7 +67,7 @@ def create_avatar():
             level=avatar_data.get("level", 0),
             health=avatar_data.get("health", 50),
             exp=avatar_data.get("exp", 0),
-            gold=avatar_data.get("gold", 0),
+            gold=avatar_data.get("gold", 100),
             gems=avatar_data.get("gems", 0),
             equip_head_id=avatar_data.get("equip_head_id", None),
             equip_main_id=avatar_data.get("equip_main_id", None),

@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 const LOAD_TASKS = 'load/tasks';
 const CREATE_TASK = 'create/task'
 const UPDATE_TASK = 'update/task';
+const DELETE_TASK = 'delete/task';
 
 const loadTasks = (payload) => ({
   type: LOAD_TASKS,
@@ -16,6 +17,11 @@ export const postTask = (task) => ({
 export const updateTask = (task) => ({
     type: UPDATE_TASK,
     task
+});
+
+export const deleteTask = (taskId) => ({
+    type: DELETE_TASK,
+    taskId
 });
 
 export const getTasks = () => async dispatch => {
@@ -47,7 +53,7 @@ export const postNewTask = (task) => async (dispatch) => {
 };
 
 export const editTask = (task) => async dispatch => {
-    console.log(JSON.stringify(task))
+    console.log(task)
     const resTask = await csrfFetch(`/api/tasks/current/${task.id}`,
         {
             headers: {
@@ -57,7 +63,6 @@ export const editTask = (task) => async dispatch => {
             body: JSON.stringify(task)
         }
     );
-
     if(resTask.ok) {
       const updatedTask = await resTask.json();
       dispatch(updateTask(updatedTask));
@@ -66,6 +71,24 @@ export const editTask = (task) => async dispatch => {
     }
     return resTask
   };
+
+export const removeTask = (taskId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/tasks/${taskId}`,
+        {
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            method: "DELETE",
+        }
+    );
+    await dispatch(deleteTask(taskId));
+    if (res.ok) {
+        return res.json();
+    }
+    else {
+        return res
+    }
+}
 
 
 function taskReducer(state = {}, action) {
@@ -80,7 +103,10 @@ function taskReducer(state = {}, action) {
             newState[action.task.id] = {...newState[action.task.id], ...action.task}
             return newState
         case UPDATE_TASK:
-            newState[action.task.id] = {...action.task}
+            newState[action.task.id] = {...newState[action.task.id], ...action.task}
+            return newState;
+        case DELETE_TASK:
+            delete newState[action.taskId];
             return newState;
         default:
         return state;

@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_EQUIPMENT = 'shop/loadEquipment';
-const BUY_ITEM = 'shop/buyItem';
+const COLLECT_ITEM = 'shop/collectItem';
 
 const loadEquipment = (equipmentData) => {
   return {
@@ -10,9 +10,9 @@ const loadEquipment = (equipmentData) => {
   };
 };
 
-const buyItem = (itemId) => {
+const collectItem = (itemId) => {
   return {
-    type: BUY_ITEM,
+    type: COLLECT_ITEM,
     itemId
   };
 };
@@ -26,14 +26,14 @@ export const getShopEquipmentThunk = () => async dispatch => {
   return equipmentData;
 };
 
-export const buyItemThunk = (itemId) => async dispatch => {
+export const collectItemThunk = (itemId) => async dispatch => {
   const res = await csrfFetch(`/api/equipment/current/${itemId}`, {
     method: 'POST'
   });
 
   const itemData = await res.json();
   if (res.ok)
-    dispatch(buyItem(itemId));
+    dispatch(collectItem(itemId));
   return itemData;
 };
 
@@ -48,7 +48,7 @@ function shopReducer(state = initialState, action) {
       });
       return {...state, equipment: {...equipment}};
     }
-    case BUY_ITEM: {
+    case COLLECT_ITEM: {
       const newState = {...state};
       delete newState.equipment[action.itemId];
       return newState;

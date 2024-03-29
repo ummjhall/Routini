@@ -2,4 +2,72 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.daily-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    width: 28vw;
+
+    /* font-size: 16px; */
+}
+
+.habit-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    width: 28vw;
+    /* font-size: 16px; */
+}
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-self: center;
+    text-align: center;
+    list-style: none;
+    width: 28vw;
+
+    /* font-size: 16px; */
+
+}
+.task-tile {
+    border: 1px black solid;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-align: center;
+    background-color: #132512;
+    color: #FFD700;
+}
+.taskH1 {
+    text-align: center;
+}
+
+.homePageDiv {
+    font-family: 'Cinzel Decorative', serif;
+    text-align: center;
+}
+
+.taskItemTile {
+
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.reward-container {
+  background-color: #EDECEE;
+  border-radius: 5px;
+  padding: 0.5em;
 }

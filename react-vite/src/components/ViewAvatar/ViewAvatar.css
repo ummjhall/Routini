@@ -5,6 +5,18 @@
   /* width: 100%; */
 }
 
+.view-avatar-container {
+  width: 96%;
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-avatar-sub-container {
+  display: flex;
+}
+
 .tasks-container {
   width: 96%;
   margin: 0 auto;
@@ -155,4 +167,37 @@
 .exp-bar {
   height: 15px;
   background-color: var(--accent-color-gold);
+}
+
+/* ********** CURRENCY ******************************************************************************** */
+
+.currency-container {
+  cursor: default;
+}
+
+.currency_gems-container {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.currency_gold-container {
+  display: flex;
+  align-items: center;
+  color: var(--accent-light-gold);
+}
+
+.currency_gems,
+.currency_gold {
+  margin-right: 10px;
+  width: 100px;
+  text-align: right;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+}
+
+.currency_gems_img,
+.currency_gold_img {
+  width: 50px;
 }

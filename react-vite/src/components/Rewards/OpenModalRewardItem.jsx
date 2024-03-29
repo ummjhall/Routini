@@ -1,25 +1,36 @@
 import { useModal } from '../../context/Modal';
+import './RewardItemTile.css';
 
 function OpenModalMenuItem({
   modalComponent, // component to render inside the modal
   itemText, // text of the button that opens the modal
-  itemImage,
   onItemClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
-  customClass
+  reward,
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
-    if (typeof onItemClick === "function") onItemClick();
+    if (typeof onItemClick === 'function') onItemClick();
   };
 
-  return itemImage ? (
-    <div onClick={onClick}>{itemImage}</div>
-    ) : (
-    <li className={customClass} onClick={onClick}>{itemText}</li>
+  return (
+    <div className="reward-tile-content" onClick={onClick}>
+      <div className="reward-title">
+        <p>{itemText}</p>
+        <small>{reward.description}</small>
+      </div>
+      <div onClick={() => {alert('works')}} className="reward-cost">
+        <img
+          className="reward-coin-img"
+          src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png"
+          alt="coin image"
+        />
+        {reward.cost}
+      </div>
+    </div>
   );
 }
 

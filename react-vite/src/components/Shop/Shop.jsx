@@ -9,7 +9,7 @@ import './Shop.css';
 
 function Shop() {
   const user = useSelector(state => state.session.user);
-  const avatar = useSelector(state => state?.avatar?.avatar);
+  const avatar = useSelector(state => state.avatar.avatar);
   const shopEquipment = useSelector(state => state.shop.equipment);
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ function Shop() {
   useEffect(() => {
     if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getShopEquipmentThunk());
-  }, [dispatch]);
+  }, [user, avatar, dispatch]);
 
   if (!user) return <Navigate to='/signup' replace={true} />;
 

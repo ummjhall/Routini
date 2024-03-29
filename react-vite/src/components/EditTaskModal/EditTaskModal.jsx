@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { editTask } from '../../redux/tasks';
+import { editTask, removeTask, getTasks } from '../../redux/tasks';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import moment from 'moment'
-// import './EditTaskModal.css';
+import { redirect } from 'react-router-dom';
+import './EditTaskModal.css';
 
 function EditTaskModal({user, task}) {
     const dispatch = useDispatch();
@@ -13,14 +14,22 @@ function EditTaskModal({user, task}) {
     const [title, setTitle] = useState(task?.title);
     const [description, setDescription] = useState(task?.description);
     const [difficulty, setDifficulty] = useState(task?.difficulty);
-    const [startdate, setStartdate] = useState(moment(task?.start_date).format('YYYY-MM-DD') || '2024-01-01');
+    const [startdate, setStartdate] = useState(task?.start_date || new Date());
     const [repeatsevery, setRepeatsevery] = useState(task?.repeats_every || 1);
-    const [duedate, setDuedate] = useState(moment(task?.due_date).format('YYYY-MM-DD') || '2024-01-01');
+    const [duedate, setDuedate] = useState(task?.due_date || new Date());
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
 
+    const handleDelete = async (e) => {
+        closeModal()
+        dispatch(removeTask(task.id))
+        // .then(redirect('/'))
+        // .then(closeModal())
+    }
+
   const handleDaily = async (e) => {
     setErrors({})
+    console.log(task.start_date)
     e.preventDefault();
     const editedDaily = {
         id: task.id,
@@ -29,7 +38,7 @@ function EditTaskModal({user, task}) {
         title,
         description,
         difficulty,
-        start_date: startdate,
+        start_date: new Date(startdate).getTime()/1000,
         repeats_every: repeatsevery
     };
     let errHits = {}
@@ -51,8 +60,8 @@ function EditTaskModal({user, task}) {
     setErrors(errHits);
     console.log(errors)
     if (!Object.values(errors).length) {
-        dispatch(editTask(editedDaily))
-        .then(closeModal())
+        console.log(dispatch(editTask(editedDaily)))
+        // .then(closeModal())
     }
     else {
         return (setErrors(errHits))
@@ -103,7 +112,7 @@ function EditTaskModal({user, task}) {
         title,
         description,
         difficulty,
-        due_date: duedate
+        due_date: new Date(duedate).getTime()/1000
     };
     let errHits = {}
     if (!title) {
@@ -136,7 +145,7 @@ function EditTaskModal({user, task}) {
 
     return (
         <>
-          <form onSubmit={handleDaily}>
+          <form onSubmit={handleDaily} className='taskForm'>
             <label>
               Title
               <input
@@ -170,7 +179,7 @@ function EditTaskModal({user, task}) {
             <label>
               Start Date
               <input
-                placeholder={startdate || 'YYYY-MM-DD'}
+                placeholder={'20 Mar 2024 00:00:00 GMT'}
                 type="text"
                 value={startdate}
                 onChange={(e) => setStartdate(e.target.value)}
@@ -189,6 +198,7 @@ function EditTaskModal({user, task}) {
             {errors.repeatsevery && <p>{errors.repeatsevery}</p>}
             <button type="submit">Save</button>
           </form>
+          <button onClick={handleDelete}>Delete This Task</button>
         </>
     );
     }
@@ -231,6 +241,7 @@ function EditTaskModal({user, task}) {
                     {errors.difficulty && <p>{errors.difficulty}</p>}
                     <button type="submit">Save</button>
                 </form>
+                <button onClick={handleDelete}>Delete This Task</button>
             </>
         );
     }
@@ -274,7 +285,7 @@ function EditTaskModal({user, task}) {
                     <label>
                         Due Date
                         <input
-                        placeholder={duedate || 'YYYY-MM-DD'}
+                        placeholder={'20 Mar 2024 00:00:00 GMT'}
                         type="text"
                         value={duedate}
                         onChange={(e) => setDuedate(e.target.value)}
@@ -284,6 +295,7 @@ function EditTaskModal({user, task}) {
                     {errors.duedate && <p>{errors.duedate}</p>}
                     <button type="submit">Save</button>
                 </form>
+                <button onClick={handleDelete}>Delete This Task</button>
             </>
         );
     }
