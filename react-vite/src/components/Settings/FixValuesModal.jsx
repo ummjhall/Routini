@@ -9,7 +9,7 @@ function FixValuesModal() {
   const dispatch = useDispatch();
 
   const handleGoldClick = async () => {
-    closeModal();
+    // closeModal();
 
     await csrfFetch('/api/avatars/current', {
       method: 'PATCH',
