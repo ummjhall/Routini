@@ -82,6 +82,11 @@
   margin: 2em;
 }
 
+#YDeleteRvwBtn,
+#NDeleteTaskBtn {
+  width: 100px;
+}
+
 @media only screen and (max-width: 600px) {
   .edit-task-container {
     width: 90%;

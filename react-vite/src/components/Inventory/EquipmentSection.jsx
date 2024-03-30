@@ -9,7 +9,7 @@ function EquipmentSection({heading, array}) {
         <div className='eq-font'>{heading}</div>
         <div className='eq-font'>{array.length}</div>
       </div>
-      <div>
+      <div className='equipment-section_equipment'>
         {array && array.map(item => (
           <div key={item.id}>
             <EquipmentItem item={item} />
