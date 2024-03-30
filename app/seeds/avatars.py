@@ -4,9 +4,9 @@ from sqlalchemy.sql import text
 
 def seed_avatars():
     seeds = [
-        Avatar(user_id=1, name='demo_av_name', bio='char bio', level=0, health=50, exp=0, gold=0, gems=0),
-        Avatar(user_id=3, name='nikola_av_name', bio='char bio', level=0, health=50, exp=0, gold=0, gems=0),
-        Avatar(user_id=4, name='justin_av_name', bio='char bio', level=0, health=50, exp=0, gold=0, gems=0)
+        Avatar(user_id=1, name='Demo Guy', bio="I'm just a demo kind of guy, doing demo kinds of stuff, man.", level=0, health=50, exp=0, gold=300, gems=0),
+        Avatar(user_id=3, name='Character Name', bio='This is a character bio.', level=0, health=50, exp=0, gold=300, gems=0),
+        Avatar(user_id=4, name='Character Name', bio='This is a character bio.', level=0, health=50, exp=0, gold=300, gems=0)
     ]
 
     for avatar in seeds:

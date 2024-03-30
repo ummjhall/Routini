@@ -9,20 +9,22 @@
 }
 
 .reward-tile {
-  padding-left: 0.5em;
   /* margin: 0.5em; */
+  /* padding-left: 0.5em; */
   margin: 1em 0.5em 0;
-  background-color: var(--neutral-white-color);
+  padding: 2px 0 2px .5em;
+  border: 0.5px solid transparent;
   border-radius: 3px;
-  min-height: 4em;
-  display: flex;
-  align-items: center;
+  background-color: var(--neutral-white-color);
   background: linear-gradient(
     to left,
     #fff6e7 4em,
     var(--neutral-white-color) 4em
   );
-  border: 0.5px solid transparent;
+  min-height: 4em;
+  display: flex;
+  align-items: center;
+  text-align: left;
   transition: border 0.3s ease;
 }
 
