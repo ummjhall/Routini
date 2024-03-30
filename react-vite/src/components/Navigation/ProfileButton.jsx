@@ -15,6 +15,7 @@ function ProfileButton() {
   const { setModalContent } = useModal();
   const [showMenu, setShowMenu] = useState(false);
 
+  // Handle the menu visibility
   useEffect(() => {
     if (!showMenu) return;
     const closeMenu = (e) => {
@@ -37,6 +38,7 @@ function ProfileButton() {
     closeMenu();
   };
 
+  // Open the Avatar modal from the profile menu
   const openProfile = () => {
     closeMenu();
     setModalContent(<EditAvatar />);

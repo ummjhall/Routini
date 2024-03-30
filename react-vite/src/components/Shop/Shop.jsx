@@ -10,9 +10,8 @@ import './Shop.css';
 function Shop() {
   const user = useSelector(state => state.session.user);
   const avatar = useSelector(state => state.avatar.avatar);
-  const shopEquipment = useSelector(state => state.shop.equipment);
   const dispatch = useDispatch();
-
+  const shopEquipment = useSelector(state => state.shop.equipment);
   const equipment = Object.values(shopEquipment);
 
   useEffect(() => {

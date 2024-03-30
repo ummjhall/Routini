@@ -129,10 +129,10 @@ function SignupFormPage() {
         <div className="container">
           <h1>Enter the Adventure of Your Life!</h1>
           <p>
-            Routini offers a free journey-building and productivity app that
+            QuestLog offers a free journey-building and productivity app that
             turns your everyday life into an exhilarating quest. With
             captivating rewards and daring consequences to drive your path, and
-            a fellowship of kindred spirits to encourage you, Routini is your
+            a fellowship of kindred spirits to encourage you, QuestLog is your
             ticket to overcoming obstacles and unlocking your true potential for
             health, productivity, and joy.
           </p>
@@ -144,7 +144,7 @@ function SignupFormPage() {
               />
               <h3>Embark on Your Quest to Mastery</h3>
               <p>
-                Harness the power of Routini to track and conquer your daily
+                Harness the power of QuestLog to track and conquer your daily
                 Habits, Quests, and To-Do lists. Whether you wield the mobile
                 app or the web interface, your journey to greatness awaits!
               </p>
@@ -186,7 +186,7 @@ function SignupFormPage() {
 
       <div className="section_improvements">
         <div className="container">
-          <h1>Adventurers Harness Routini&#39;s Power!</h1>
+          <h1>Adventurers Harness QuestLog&#39;s Power!</h1>
           <div className="cards">
             <div className="card">
               <img
@@ -197,7 +197,7 @@ function SignupFormPage() {
               <h3>Vitality and Vigor</h3>
               <p>
                 Struggling to maintain healthy habits like flossing or hitting
-                the gym? With Routini, your journey to wellness becomes an
+                the gym? With QuestLog, your journey to wellness becomes an
                 exciting adventure!
               </p>
             </div>
@@ -222,7 +222,7 @@ function SignupFormPage() {
               />
               <h3>Endless Adventures Await!</h3>
               <p>
-                With Routini&#39;s versatile quest log, the possibilities are as
+                With QuestLog&#39;s versatile record book, the possibilities are as
                 vast as the realms of the imagination! Craft epic sagas,
                 prioritize self-care quests, or embark on any other quest you
                 desire — the choice is yours!

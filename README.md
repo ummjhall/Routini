@@ -1,4 +1,4 @@
-# Routini
+# QuestLog
 <!-- [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ummjhall) -->
 > Our team is developing a web application focused on fostering positive routines and healthy habits. Users can create personalized avatars, manage their tasks (habits, dailies, todos) through creation, editing, and deletion. Additionally, a reward system allows users to earn and manage rewards, further enhancing their motivational journey. The application also features an inventory system for earned items, with the ability to equip and manage them. Bonus features include drag-and-drop functionality and a leveling system with a shop, encouraging user engagement and progress visualization.
 > Live demo [_here_](https://routini.onrender.com/).
@@ -18,7 +18,7 @@
 
 
 ## General Information
-- Routini is aimed at helping users build and maintain positive habits by gamifying their routine activities. It offers a fun and interactive platform where users can track their progress, earn rewards, and level up their avatars.
+- QuestLog is aimed at helping users build and maintain positive habits by gamifying their routine activities. It offers a fun and interactive platform where users can track their progress, earn rewards, and level up their avatars.
 
 
 ## Technologies Used
@@ -77,7 +77,7 @@
 
 
 ## Usage
-Routini can be used for various purposes such as:
+QuestLog can be used for various purposes such as:
 
 - Creating and managing daily habits
 - Setting and tracking tasks
@@ -92,7 +92,7 @@ Example code snippet:
 
 ## Project Status
 Project is: _in progress_
-> Currently, we are actively developing and refining Routini to ensure a seamless user experience and robust functionality.
+> Currently, we are actively developing and refining QuestLog to ensure a seamless user experience and robust functionality.
 
 
 ## Room for Improvement

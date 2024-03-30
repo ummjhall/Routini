@@ -16,6 +16,7 @@ function Equipment() {
   const headEquipment = Object.values(userEquipment).filter(item => item.type == 'head');
   const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
 
+  // Load the user's equipment
   useEffect(() => {
     if (user && !avatar) dispatch(getUserAvatar());
     dispatch(getUserEquipmentThunk());
