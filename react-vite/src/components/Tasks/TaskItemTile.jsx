@@ -37,7 +37,7 @@ function TaskItemTile({ user, task, avatar }) {
       <div className="taskModalButton">
         <OpenModalTaskItem
           itemText={task.title}
-          modalComponent={<EditTaskModal user={user} task={task} />}
+          modalComponent={<EditTaskModal user={user} task={task} className='taskModalClick'/>}
           customClass={'taskModalButton'}
           task={task}
         />

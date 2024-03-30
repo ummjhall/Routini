@@ -19,8 +19,8 @@ function OpenModalTaskItem({
   };
 
   return (
-    <div className="task-tile-content">
-      <div className={customClass} onClick={onClick}>
+    <div className="task-tile-content" onClick={onClick}>
+      <div className={customClass} >
         <p>{itemText}</p>
         <small>{task.description}</small>
       </div>
