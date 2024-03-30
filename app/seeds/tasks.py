@@ -8,7 +8,7 @@ def seed_tasks():
         Task(user_id=1, type='habit', title='Clean up clutter', description='Clean up around the house', difficulty=2),
         Task(user_id=1, type='habit', title='Practice guitar', description='Shred that thing', difficulty=3),
         Task(user_id=1, type='habit', title='Get to sleep on time', description=None, difficulty=4),
-        Task(user_id=1, type='daily', title='Do the dishes', description=None, difficulty=1),
+        Task(user_id=1, type='daily', title='Do the dishes', description=None, difficulty=1, repeats_every=1),
         Task(user_id=1, type='daily', title='Program something', description="Don't get rusty", difficulty=2, repeats_every=1),
         Task(user_id=1, type='daily', title='Do laundry', description="It's just piling up", difficulty=3, repeats_every=2),
         Task(user_id=1, type='daily', title='Run a 5k', description='I hate running tho', difficulty=4, repeats_every=7),
