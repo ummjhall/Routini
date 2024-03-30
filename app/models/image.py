@@ -7,7 +7,7 @@ class Image(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    url = db.Column(db.String(200), nullable=False)
+    url = db.Column(db.String(255), nullable=False)
     imageable_type = db.Column(db.String(9), nullable=False)
     imageable_id = db.Column(db.Integer, nullable=False)
 
