@@ -57,6 +57,7 @@ export const createUserAvatar =
   };
 
 export const editUserAvatar = (args) => async (dispatch) => {
+  console.log(args)
   const res = await csrfFetch('/api/avatars/current', {
     method: 'PUT',
     body: JSON.stringify({
@@ -79,6 +80,7 @@ export const editUserAvatar = (args) => async (dispatch) => {
     return avatar;
   } else {
     const data = await res.json();
+
     return data.errors;
   }
 };

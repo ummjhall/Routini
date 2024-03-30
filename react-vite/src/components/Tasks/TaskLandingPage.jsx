@@ -83,7 +83,7 @@ function TaskLandingPage() {
                   key={task.id}
                   task={task}
                   user={user}
-                  avatar={userAvatar}
+                  avatar={userAvatar.avatar}
                 />
               ))}
           </div>
