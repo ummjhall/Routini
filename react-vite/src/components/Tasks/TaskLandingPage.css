@@ -15,6 +15,13 @@
   margin-top: 0;
 }
 
+.habit-container,
+.daily-container,
+.todo-container,
+.reward-container {
+  width: 23%;
+}
+
 .habit-container {
   display: flex;
   flex-direction: column;
@@ -75,6 +82,12 @@
   justify-content: space-around;
 }
 
+.create-habit-input,
+.create-daily-input,
+.create-todo-input {
+ width: 92%
+}
+
 /* NewHabitField */
 .create-habit-input {
   display: block;
@@ -82,7 +95,7 @@
   color: var(--neutral-black-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
-  width: 94%;
+  /* width: 94%; */
   padding: 10px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.13) !important;
@@ -110,7 +123,7 @@
   color: var(--neutral-black-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
-  width: 94%;
+  /* width: 94%; */
   padding: 10px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.13) !important;
@@ -138,7 +151,7 @@
   color: var(--neutral-black-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
-  width: 94%;
+  /* width: 94%; */
   padding: 10px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.13) !important;
