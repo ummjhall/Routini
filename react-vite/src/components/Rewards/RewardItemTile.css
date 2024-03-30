@@ -10,7 +10,8 @@
 
 .reward-tile {
   padding-left: 0.5em;
-  margin: 0.5em;
+  /* margin: 0.5em; */
+  margin: 1em 0.5em 0;
   background-color: var(--neutral-white-color);
   border-radius: 3px;
   min-height: 4em;
@@ -81,7 +82,7 @@
   color: var(--neutral-black-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
-  width: 94%;
+  width: 92%;
   padding: 10px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.13) !important;

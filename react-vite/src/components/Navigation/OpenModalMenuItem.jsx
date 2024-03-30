@@ -19,7 +19,7 @@ function OpenModalMenuItem({
   return itemImage ? (
     <div onClick={onClick}>{itemImage}</div>
     ) : (
-    <li className={customClass} onClick={onClick}>{itemText}</li>
+    <button className={customClass} onClick={onClick}>{itemText}</button>
   );
 }
 

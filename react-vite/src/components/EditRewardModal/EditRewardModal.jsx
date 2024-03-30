@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editReward, removeReward } from '../../redux/rewards';
+import './EditRewardModal.css';
 
 function EditRewardModal({ user, reward }) {
   const dispatch = useDispatch();
@@ -42,44 +43,76 @@ function EditRewardModal({ user, reward }) {
 
   return (
     <>
-      <div className="edit-reward-container">
-        <form onSubmit={handleReward}>
-          <label>
-            Title
-            <input
-              placeholder={title || 'title'}
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </label>
-          {errors.title && <p>{errors.title}</p>}
-          <label>
-            Description
-            <input
-              placeholder={description || 'description'}
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </label>
-          {errors.description && <p>{errors.description}</p>}
-          <label>
-            Cost
-            <input
-              placeholder={cost || 'cost'}
-              type="number"
-              value={cost}
-              onChange={(e) => setCost(e.target.value)}
-            />
-          </label>
-          {errors.cost && <p>{errors.cost}</p>}
-          <button type="submit">Save</button>
-        </form>
-        <button onClick={handleDelete}>Delete This Reward</button>
+      <div className="reward-border">
+        <div className="edit-reward-container">
+          <form onSubmit={handleReward}>
+            <label>
+              Title
+              <input
+                placeholder={title || 'Write Thy Reward Here'}
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </label>
+            <label>
+              Description
+              <input
+                placeholder={
+                  description || 'Explain Thy Reward in Detail, Sire'
+                }
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </label>
+            <label>
+              Cost
+              <input
+                placeholder={cost || 'Cost in Gold Coins'}
+                type="number"
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+              />
+            </label>
+            {errors.cost && <p>{errors.cost}</p>}
+            <div className="btns">
+              <div>
+                <button className="btn-save" type="submit">
+                  Save
+                </button>
+              </div>
+              <div>
+                <button className="btn-delete" onClick={handleDelete}>
+                  Delete Reward
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
+}
+
+{
+  /* <div className="btns">
+  <div>
+    <button
+      className="btn-edit-avatar"
+      onClick={() => {
+        setFormDisplayed(true);
+      }}
+    >
+      Edit Avatar
+    </button>
+  </div>
+  <div>
+    <button onClick={handleResetAvatar} className="btn-reset-avatar">
+      Reset Avatar
+    </button>
+  </div>
+</div>; */
 }
 
 export default EditRewardModal;
