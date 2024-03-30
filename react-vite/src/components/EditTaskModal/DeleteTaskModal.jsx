@@ -28,8 +28,8 @@ function DeleteTaskModal({ task }) {
     <>
       <div className="delete-task-border">
         <div className="delete-task-container">
-          <h1 id="delTaskH1">Confirm Delete?</h1>
-          <p id="delTask?">Are you sure you want to remove this review?</p>
+          <h1 id="delTaskH1">Confirm Delete</h1>
+          <p id="delTask?">Are you sure you want to delete this Task?</p>
           <div className="btns">
             <div id="YDeleteTaskDiv">
               <button
