@@ -26,7 +26,7 @@ function EditTaskModal({ user, task }) {
 
   //     <OpenModalMenuItem
   //     task={task}
-  //     itemText={`Delete ${task.title}`}
+  //     itemText={`Delete Task`}
   //     modalComponent={<DeleteTaskModal user={user} task={task}/>}
   //     // customClass={'reward-button-for-modal'}
   //     />
@@ -53,9 +53,9 @@ function EditTaskModal({ user, task }) {
     if (!title) {
       errHits.title = 'Title is required.';
     }
-    if (!description) {
-      errHits.description = 'Description is required.';
-    }
+    // if (!description) {
+    //   errHits.description = 'Description is required.';
+    // }
     if (!difficulty || !Number.isInteger(difficulty)) {
       errHits.difficulty = 'Difficulty must be an integer';
     }
@@ -73,6 +73,8 @@ function EditTaskModal({ user, task }) {
     } else {
       return setErrors(errHits);
     }
+
+    closeModal();
   };
 
   const handleHabit = async (e) => {
@@ -208,7 +210,7 @@ function EditTaskModal({ user, task }) {
                 <div>
                   <OpenModalMenuItem
                     task={task}
-                    itemText={`Delete ${task.title}`}
+                    itemText={`Delete Task`}
                     modalComponent={<DeleteTaskModal user={user} task={task} />}
                     customClass={'btn-delete'}
                   />
@@ -268,7 +270,7 @@ function EditTaskModal({ user, task }) {
                 <div>
                   <OpenModalMenuItem
                     task={task}
-                    itemText={`Delete ${task.title}`}
+                    itemText={`Delete Task`}
                     modalComponent={<DeleteTaskModal user={user} task={task} />}
                     customClass={'btn-delete'}
                   />
@@ -338,7 +340,7 @@ function EditTaskModal({ user, task }) {
                 <div>
                   <OpenModalMenuItem
                     task={task}
-                    itemText={`Delete ${task.title}`}
+                    itemText={`Delete Task`}
                     modalComponent={<DeleteTaskModal user={user} task={task} />}
                     customClass={'btn-delete'}
                   />
