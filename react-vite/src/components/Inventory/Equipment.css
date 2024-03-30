@@ -8,13 +8,21 @@
 }
 
 .equipment-section_heading {
+  background-color: var(--neutral-gray-color);
+  border-radius: 5px;
   width: 200px;
   margin: 5px 0px 15px;
+  padding: 5px 10px 5px 5px;
   display: flex;
   justify-content: space-between;
   /* font-family: 'Cinzel Decorative', serif; */
   font-size: 20px;
   font-weight: bold;
+}
+
+.equipment-section_equipment {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .equipment_item {
@@ -34,10 +42,10 @@
 /* ********** ITEM MODAL ******************************************************************************** */
 
 .item-modal-wrapper {
-  max-width: 300px;
+  /* background-color: white; */
+  width: 300px;
   padding: 20px;
   border-radius: 8px;
-  /* background-color: white; */
   background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
@@ -76,6 +84,7 @@
 }
 
 .item-modal-img {
+  border-radius: 5px;
   margin: 40px auto;
 }
 
@@ -88,7 +97,6 @@
 .item-modal-buttons {
   border: 1px solid black;
   border-radius: 5px;
-  width: 90px;
   height: 35px;
   padding: 0 10px;
   display: flex;
@@ -100,16 +108,17 @@
 
 .imb-buy {
   background-color: var(--accent-color-gold);
-  width: 100px;
+  min-width: 100px;
 }
 
 .imb-sell {
   background-color: var(--accent-color-red);
+  min-width: 90px;
 }
-
 
 .imb-equip {
   background-color: var(--accent-color-blue);
+  min-width: 90px;
 }
 
 .imb-rename {
