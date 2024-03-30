@@ -4,18 +4,19 @@ from sqlalchemy.sql import text
 
 def seed_tasks():
     seeds = [
-        Task(user_id=1, type='habit', title='habit 1 name', description='habit 1 description', difficulty=1),
-        Task(user_id=1, type='habit', title='habit 2 name', description='habit 2 description', difficulty=2),
-        Task(user_id=1, type='habit', title='habit 3 name', description='habit 3 description', difficulty=3),
-        Task(user_id=1, type='habit', title='habit 4 name', description='habit 4 description', difficulty=4),
-        Task(user_id=1, type='daily', title='daily 1 name', description='daily 1 description', difficulty=1),
-        Task(user_id=1, type='daily', title='daily 2 name', description='daily 2 description', difficulty=2, repeats_every=1),
-        Task(user_id=1, type='daily', title='daily 3 name', description='daily 3 description', difficulty=3, repeats_every=2),
-        Task(user_id=1, type='daily', title='daily 4 name', description='daily 4 description', difficulty=4, repeats_every=7),
-        Task(user_id=1, type='to-do', title='to-do 1 name', description='to-do 1 description', difficulty=1),
-        Task(user_id=1, type='to-do', title='to-do 2 name', description='to-do 2 description', difficulty=2),
-        Task(user_id=1, type='to-do', title='to-do 3 name', description='to-do 3 description', difficulty=3),
-        Task(user_id=1, type='to-do', title='to-do 4 name', description='to-do 4 description', difficulty=4)
+        Task(user_id=1, type='habit', title='Floss', description=None, difficulty=1),
+        Task(user_id=1, type='habit', title='Clean up clutter', description='Clean up around the house', difficulty=2),
+        Task(user_id=1, type='habit', title='Practice guitar', description='Shred that thing', difficulty=3),
+        Task(user_id=1, type='habit', title='Get to sleep on time', description=None, difficulty=4),
+        Task(user_id=1, type='daily', title='Do the dishes', description=None, difficulty=1),
+        Task(user_id=1, type='daily', title='Program something', description="Don't get rusty", difficulty=2, repeats_every=1),
+        Task(user_id=1, type='daily', title='Do laundry', description="It's just piling up", difficulty=3, repeats_every=2),
+        Task(user_id=1, type='daily', title='Run a 5k', description='I hate running tho', difficulty=4, repeats_every=7),
+        Task(user_id=1, type='to-do', title='Pay bills', description='Ugh', difficulty=1),
+        Task(user_id=1, type='to-do', title='Get a haircut', description='You look like a chump', difficulty=2),
+        Task(user_id=1, type='to-do', title='Renew drivers license', description='Gonna take forever', difficulty=3),
+        # Task(user_id=1, type='to-do', title='Spring cleaning', description='Not looking forward to this', difficulty=4),
+        Task(user_id=1, type='to-do', title='Find my kids', description='Where did I put them last?', difficulty=4)
     ]
 
     for task in seeds:
