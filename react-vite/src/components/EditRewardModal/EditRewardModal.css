@@ -1,19 +1,34 @@
+.reward-border {
+  margin: 1em;
+  border: 5px groove var(--accent-color-gold);
+}
+
+.edit-reward-container {
+  width: 400px;
+  padding: 1em;
+}
+
+.edit-reward-container label {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+}
+
 .edit-reward-container form {
-  max-width: 400px;
-  border-radius: 8px;
-  font-family: var(--font-family-secondary);
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--neutral-white-color);
+  text-align: start;
 }
 
 .edit-reward-container input {
-  display: block;
-  margin-bottom: 10px;
+  margin: 1em 0;
   color: var(--neutral-white-color);
   font-family: var(--font-family-form);
   font-weight: var(--font-weight-bold);
   width: 95%;
   padding: 10px;
-  border: 1px solid #fff;
+  border: 1px solid var(--accent-color-gold);
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.3) !important;
@@ -21,7 +36,7 @@
 
 .edit-reward-container input:hover,
 .edit-reward-container input:focus {
-  border-color: var(--neutral-gray-color);
+  border-color: #7c5a03;
   background-color: rgba(0, 0, 0, 0.5) !important;
   outline: none;
 }
@@ -29,4 +44,49 @@
 .edit-reward-container input::placeholder {
   color: var(--neutral-white-color);
   font-family: var(--font-family-secondary);
+}
+
+.edit-reward-container .btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2em;
+}
+
+.btn-delete {
+  color: var(--neutral-white-color);
+  background-color: var(--accent-color-red);
+  font-family: var(--font-family-primary);
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease, font-size 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: rgba(96, 17, 17, 0.9);
+}
+
+.btn-save {
+  color: var(--neutral-black-color);
+  background-color: var(--neutral-gray-color);
+  font-family: var(--font-family-primary);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: var(--neutral-dark-gray);
+  color: var(--neutral-white-color);
 }

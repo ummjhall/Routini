@@ -57,60 +57,62 @@ function TaskLandingPage() {
   if (!user) return <Navigate to="/signup" replace={true} />;
 
   return (
-    <div className="homePageDiv">
-      <ViewAvatar />
-      <div className="task-container">
-        <div className="habit-container">
-          <h1>Habits</h1>
-          <NewHabitField />
-          {user &&
-            habits.map((task) => (
-              <TaskItemTile
-                key={task.id}
-                task={task}
-                user={user}
-                avatar={userAvatar.avatar}
-              />
-            ))}
-        </div>
-        <div className="daily-container">
-          <h1>Dailies</h1>
-          <NewDailyField />
-          {user &&
-            dailies.map((task) => (
-              <TaskItemTile
-                key={task.id}
-                task={task}
-                user={user}
-                avatar={userAvatar}
-              />
-            ))}
-        </div>
-        <div className="todo-container">
-          <h1>To Do&#39;s</h1>
-          <NewToDoField />
-          {user &&
-            todos.map((task) => (
-              <TaskItemTile
-                key={task.id}
-                task={task}
-                user={user}
-                avatar={userAvatar.avatar}
-              />
-            ))}
-        </div>
-        <div className="reward-container">
-          <h1>Rewards</h1>
-          <NewRewardField />
-          {userRewards &&
-            userRewards.map((reward) => (
-              <RewardItemTile
-                key={reward.id}
-                reward={reward}
-                user={user}
-                avatar={userAvatar.avatar}
-              />
-            ))}
+    <>
+      <div className="homePageDiv">
+        <ViewAvatar />
+        <div className="task-container">
+          <div className="habit-container">
+            <h1>Habits</h1>
+            <NewHabitField />
+            {user &&
+              habits.map((task) => (
+                <TaskItemTile
+                  key={task.id}
+                  task={task}
+                  user={user}
+                  avatar={userAvatar.avatar}
+                />
+              ))}
+          </div>
+          <div className="daily-container">
+            <h1>Dailies</h1>
+            <NewDailyField />
+            {user &&
+              dailies.map((task) => (
+                <TaskItemTile
+                  key={task.id}
+                  task={task}
+                  user={user}
+                  avatar={userAvatar}
+                />
+              ))}
+          </div>
+          <div className="todo-container">
+            <h1>To Do&#39;s</h1>
+            <NewToDoField />
+            {user &&
+              todos.map((task) => (
+                <TaskItemTile
+                  key={task.id}
+                  task={task}
+                  user={user}
+                  avatar={userAvatar.avatar}
+                />
+              ))}
+          </div>
+          <div className="reward-container">
+            <h1>Rewards</h1>
+            <NewRewardField />
+            {userRewards &&
+              userRewards.map((reward) => (
+                <RewardItemTile
+                  key={reward.id}
+                  reward={reward}
+                  user={user}
+                  avatar={userAvatar.avatar}
+                />
+              ))}
+          </div>
         </div>
       </div>
       <div className="waves_banner_three">
@@ -121,7 +123,7 @@ function TaskLandingPage() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
