@@ -52,3 +52,61 @@
   justify-content: space-around;
   margin: 2em;
 }
+
+/* DeleteTaskModal */
+.delete-task-border {
+  margin: 1em;
+  border: 5px groove var(--accent-color-gold);
+}
+
+.delete-task-container {
+  width: 400px;
+  padding: 1em;
+  text-align: center;
+}
+
+.delete-task-border h1 {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-primary);
+}
+
+.delete-task-border p {
+  color: var(--neutral-white-color);
+  font-family: var(--font-family-secondary);
+}
+
+.delete-task-border .btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .edit-task-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .edit-task-container label {
+    font-size: 16px;
+  }
+
+  .edit-task-container input {
+    width: 100%;
+  }
+
+  .edit-task-container .btns {
+    flex-direction: column;
+    margin: 1em auto;
+  }
+
+  .delete-task-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .delete-task-border h1 {
+    font-size: 20px;
+  }
+}

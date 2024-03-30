@@ -26,17 +26,31 @@ function DeleteTaskModal({ task }) {
 
   return (
     <>
-      <h1 id="delTaskH1">Confirm Delete?</h1>
-      <p id="delTask?">Are you sure you want to remove this review?</p>
-      <div id="YDeleteTaskDiv">
-        <button id="YDeleteRvwBtn" onClick={handleDelete}>
-          Yes (Delete Review)
-        </button>
-      </div>
-      <div id="NDeleteTaskDiv">
-        <button id="NDeleteTaskBtn" onClick={closeModal}>
-          No (Keep Review)
-        </button>
+      <div className="delete-task-border">
+        <div className="delete-task-container">
+          <h1 id="delTaskH1">Confirm Delete?</h1>
+          <p id="delTask?">Are you sure you want to remove this review?</p>
+          <div className="btns">
+            <div id="YDeleteTaskDiv">
+              <button
+                id="YDeleteRvwBtn"
+                className="btn-delete"
+                onClick={handleDelete}
+              >
+                Yes
+              </button>
+            </div>
+            <div id="NDeleteTaskDiv">
+              <button
+                id="NDeleteTaskBtn"
+                className="btn-save"
+                onClick={closeModal}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
