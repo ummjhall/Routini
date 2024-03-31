@@ -22,22 +22,9 @@ function EditTaskModal({ user, task }) {
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
-  // const handleDelete = async (e) => {
-
-  //     <OpenModalMenuItem
-  //     task={task}
-  //     itemText={`Delete Task`}
-  //     modalComponent={<DeleteTaskModal user={user} task={task}/>}
-  //     // customClass={'reward-button-for-modal'}
-  //     />
-  //     // dispatch(removeTask(task.id))
-  //     // .then(redirect('/'))
-  //     // .then(closeModal())
-  // }
-
   const handleDaily = async (e) => {
     setErrors({});
-    console.log(task.start_date);
+
     e.preventDefault();
     const editedDaily = {
       id: task.id,
@@ -49,13 +36,12 @@ function EditTaskModal({ user, task }) {
       start_date: new Date(startdate).getTime() / 1000,
       repeats_every: repeatsevery,
     };
+
     let errHits = {};
+
     if (!title) {
       errHits.title = 'Title is required.';
     }
-    // if (!description) {
-    //   errHits.description = 'Description is required.';
-    // }
     if (!difficulty || !Number.isInteger(difficulty)) {
       errHits.difficulty = 'Difficulty must be an integer';
     }
@@ -65,11 +51,11 @@ function EditTaskModal({ user, task }) {
     if (!repeatsevery || !Number.isInteger(parseInt(repeatsevery))) {
       errHits.repeatsevery = 'Repeats must be an integer';
     }
+
     setErrors(errHits);
 
     if (!Object.values(errors).length) {
       dispatch(editTask(editedDaily));
-      // .then(closeModal())
     } else {
       return setErrors(errHits);
     }
@@ -79,7 +65,9 @@ function EditTaskModal({ user, task }) {
 
   const handleHabit = async (e) => {
     setErrors({});
+
     e.preventDefault();
+
     const editedDaily = {
       id: task.id,
       user_id: userId,
@@ -88,7 +76,9 @@ function EditTaskModal({ user, task }) {
       description,
       difficulty,
     };
+
     let errHits = {};
+
     if (!title) {
       errHits.title = 'Title is required.';
     }
@@ -98,8 +88,9 @@ function EditTaskModal({ user, task }) {
     if (!difficulty || !Number.isInteger(difficulty)) {
       errHits.difficulty = 'Difficulty must be an integer';
     }
+
     setErrors(errHits);
-    console.log(errors);
+
     if (!Object.values(errors).length) {
       dispatch(editTask(editedDaily)).then(closeModal());
     } else {
@@ -176,8 +167,17 @@ function EditTaskModal({ user, task }) {
                   }
                   type="number"
                   value={difficulty}
+                  min={0}
                   max={4}
-                  onChange={(e) => setDifficulty(e.target.value)}
+                  onChange={(e) => {
+                    let value = parseInt(e.target.value);
+                    if (value < 1) {
+                      value = 1;
+                    } else if (value > 4) {
+                      value = 4;
+                    }
+                    setDifficulty(value);
+                  }}
                 />
               </label>
               {errors.difficulty && <p>{errors.difficulty}</p>}
@@ -198,6 +198,7 @@ function EditTaskModal({ user, task }) {
                   type="number"
                   value={repeatsevery}
                   onChange={(e) => setRepeatsevery(e.target.value)}
+                  max={4}
                 />
               </label>
               {errors.repeatsevery && <p>{errors.repeatsevery}</p>}
@@ -257,7 +258,15 @@ function EditTaskModal({ user, task }) {
                   }
                   type="number"
                   value={difficulty}
-                  onChange={(e) => setDifficulty(e.target.value)}
+                  onChange={(e) => {
+                    let value = parseInt(e.target.value);
+                    if (value < 1) {
+                      value = 1;
+                    } else if (value > 4) {
+                      value = 4;
+                    }
+                    setDifficulty(value);
+                  }}
                 />
               </label>
               {errors.difficulty && <p>{errors.difficulty}</p>}
@@ -317,7 +326,15 @@ function EditTaskModal({ user, task }) {
                   }
                   type="number"
                   value={difficulty}
-                  onChange={(e) => setDifficulty(e.target.value)}
+                  onChange={(e) => {
+                    let value = parseInt(e.target.value);
+                    if (value < 1) {
+                      value = 1;
+                    } else if (value > 4) {
+                      value = 4;
+                    }
+                    setDifficulty(value);
+                  }}
                 />
               </label>
               {errors.difficulty && <p>{errors.difficulty}</p>}
