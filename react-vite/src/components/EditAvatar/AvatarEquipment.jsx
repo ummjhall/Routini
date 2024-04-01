@@ -16,10 +16,10 @@ function AvatarEquipment({ avatar }) {
   }, [dispatch]);
 
   useEffect(() => {
-    setMain(Object.values(equipment).find(item => item.id == avatar.equip_main_id));
-    setHeadgear(Object.values(equipment).find(item => item.id == avatar.equip_head_id));
-    setArmor(Object.values(equipment).find(item => item.id == avatar.equip_armor_id));
-  }, [equipment, avatar.equip_main_id, avatar.equip_head_id, avatar.equip_armor_id]);
+    setMain(Object.values(equipment).find(item => item.id == avatar?.equip_main_id));
+    setHeadgear(Object.values(equipment).find(item => item.id == avatar?.equip_head_id));
+    setArmor(Object.values(equipment).find(item => item.id == avatar?.equip_armor_id));
+  }, [equipment, avatar?.equip_main_id, avatar?.equip_head_id, avatar?.equip_armor_id]);
 
   return (
     <div className='avatar-equipment-wrapper'>

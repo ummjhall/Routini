@@ -126,7 +126,7 @@ function EditAvatar() {
               <p className='secondary-font'>
                 {avatar
                   ? avatar?.bio
-                  : 'This Adventurer hasn&#39;t added a description.'}
+                  : "This Adventurer hasn't added a description."}
               </p>
               <hr />
               <AvatarEquipment avatar={avatar} />
