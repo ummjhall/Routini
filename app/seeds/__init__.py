@@ -19,7 +19,7 @@ seed_commands = AppGroup('seed')
 def seed():
     if environment == 'production':
         # Before seeding in production, you want to run the seed undo
-        # command, which will  truncate all tables prefixed with
+        # command, which will truncate all tables prefixed with
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other models' undo functions below
         undo_images()
@@ -42,5 +42,10 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
+    undo_images()
+    undo_avatars_equipment()
+    undo_equipment()
+    undo_rewards()
+    undo_tasks()
+    undo_avatars()
     undo_users()
-    # Add other undo functions here
