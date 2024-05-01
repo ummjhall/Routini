@@ -49,6 +49,11 @@ function ProfileButton() {
     closeMenu();
   };
 
+  const gotToAbout = () => {
+    navigate('/about');
+    closeMenu();
+  };
+
   return (
     <div>
       <FaUserCircle className='profile-button' onClick={toggleMenu}/>
@@ -59,6 +64,7 @@ function ProfileButton() {
             <div className='pd-font profile-dropdown_email'>{user.email}</div>
             <div className='pd-font profile-dropdown_profile' onClick={openProfile}>Profile</div>
             <div className='pd-font profile-dropdown_settings' onClick={goToSettings}>Settings</div>
+            <div className='pd-font profile-dropdown_about' onClick={gotToAbout}>About</div>
             <div className='pd-font profile-dropdown_logout' onClick={logout}>Log Out</div>
           </div>
         </div>

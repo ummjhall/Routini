@@ -1,0 +1,42 @@
+.about-wrapper {
+  margin: 0 auto;
+  width: 35%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-wrapper h1,
+.about-wrapper h2 {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.about-wrapper div,
+.about-wrapper a {
+  font-family: 'Playfair Display', serif;
+}
+
+.about-wrapper h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.about-heading {
+  margin: 16px auto;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.about-contributors {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-contributors_name {
+  width: 145px;
+}
+
+.about-github,
+.about-stack {
+  margin-top: 32px;
+}
