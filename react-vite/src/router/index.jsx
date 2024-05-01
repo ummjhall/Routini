@@ -6,6 +6,7 @@ import TaskLandingPage from '../components/Tasks'
 import Equipment from '../components/Inventory';
 import Shop from '../components/Shop';
 import Settings from '../components/Settings/Settings';
+import About from '../components/About/About';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: 'settings',
         element: <Settings />
+      },
+      {
+        path: 'about',
+        element: <About />
       }
     ]
   },

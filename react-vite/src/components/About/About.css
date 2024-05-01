@@ -1,0 +1,33 @@
+.about-wrapper {
+  margin: 0 auto;
+  width: 50%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-wrapper h1,
+.about-wrapper h2 {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.about-wrapper div,
+.about-wrapper a {
+  font-family: 'Playfair Display', serif;
+}
+
+.about-wrapper h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.about-heading {
+  margin: 16px auto;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.about-github,
+.about-stack {
+  margin-top: 32px;
+}
