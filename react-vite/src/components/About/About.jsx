@@ -10,31 +10,55 @@ function About() {
         <h1 className='about-heading'>About</h1>
         <h2>Contributors</h2>
         <div>
-          <div>
+          <div className='about-contributors'>
+            <div className='about-contributors_name'>Ramon Barros</div>
+            <a
+              href='https://github.com/ramonpbarros'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              GitHub
+            </a>
             <a
               href='https://www.linkedin.com/in/ramon-barros-095b0b72'
               target='_blank'
               rel='noopener noreferrer'
             >
-              Ramon Barros
+              LinkedIn
             </a>
           </div>
-          <div>
+          <div className='about-contributors'>
+            <div className='about-contributors_name'>Justin Hall</div>
+            <a
+              href='https://github.com/ummjhall'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              GitHub
+            </a>
             <a
               href='https://www.linkedin.com/in/justin-hall-55175160'
               target='_blank'
               rel='noopener noreferrer'
             >
-              Justin Hall
+              LinkedIn
             </a>
           </div>
-          <div>
+          <div className='about-contributors'>
+            <div className='about-contributors_name'>Nikola Milinovich</div>
+            <a
+              href='https://github.com/nmilinovich'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              GitHub
+            </a>
             <a
               href='https://www.linkedin.com'
               target='_blank'
               rel='noopener noreferrer'
             >
-              Nikola Milinovich
+              LinkedIn
             </a>
           </div>
         </div>

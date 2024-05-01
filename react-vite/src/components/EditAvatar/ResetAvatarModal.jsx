@@ -32,7 +32,7 @@ function ResetAvatarModal() {
             style={{ marginRight: "20px" }}
             onClick={handleResetAvatar}
           >
-            Yes (Reser Avatar)
+            Yes (Reset Avatar)
           </button>
           <button
             className="btn-edit-avatar"
