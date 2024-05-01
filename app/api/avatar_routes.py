@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.models import Avatar, db
 from flask_login import current_user, login_required
 
@@ -20,7 +20,7 @@ def get_users_avatar():
 
     # If user has no avatar, return error message
     if not current_avatar:
-        return {"message": "Avatar couldn't be found"}, 404
+        return jsonify(None)
 
     # If avatar image exists, add image URL to formatted avatar
     if current_avatar.image:
@@ -67,7 +67,7 @@ def create_avatar():
             level=avatar_data.get("level", 0),
             health=avatar_data.get("health", 50),
             exp=avatar_data.get("exp", 0),
-            gold=avatar_data.get("gold", 100),
+            gold=avatar_data.get("gold", 500),
             gems=avatar_data.get("gems", 0),
             equip_head_id=avatar_data.get("equip_head_id", None),
             equip_main_id=avatar_data.get("equip_main_id", None),
