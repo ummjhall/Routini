@@ -28,7 +28,7 @@ function Equipment() {
     <>
       <ViewAvatar />
       <div className='equipment-wrapper'>
-        <h1 className='equipment_heading'>Equipment</h1>
+        <div className='equipment_heading'>Equipment</div>
         <div>
           <EquipmentSection heading='Main-Hand Item' array={mainEquipment} />
         </div>
