@@ -25,7 +25,7 @@ function Shop() {
     <>
       <ViewAvatar />
       <div className='shop-wrapper'>
-        <h1 className='equipment_heading'>Shop - Equipment</h1>
+        <div className='equipment_heading'>Shop - Equipment</div>
         <div>
           <ShopSection equipment={equipment} />
         </div>
