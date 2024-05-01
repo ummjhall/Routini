@@ -327,6 +327,26 @@
   color: var(--accent-light-gold) !important;
 }
 
+/* Reset Avatar Modal */
+.modal {
+  text-align: center;
+  background-color: var(--secondary-color);
+  border: 5px double var(  --accent-color-gold);
+  border-radius: 10px;
+  padding: 1em;
+  color: #dbd8e3;
+}
+
+.modal h2 {
+  margin: 0;
+}
+
+.modal-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: 768px) {
   .desktop-text {
     display: none;
