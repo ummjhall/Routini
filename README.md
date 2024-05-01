@@ -41,6 +41,7 @@
 
 ## Screenshots
 ![Signup page screenshot](https://res.cloudinary.com/drv1e8rjp/image/upload/v1714537906/Screenshot_2024-04-30_at_9.30.27_PM_vsucng.png)
+
 ![Tasks page screenshot](https://res.cloudinary.com/drv1e8rjp/image/upload/v1714537842/Screenshot_2024-04-30_at_9.30.11_PM_vdav7s.png)
 
 
