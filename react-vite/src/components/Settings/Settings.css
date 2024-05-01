@@ -12,7 +12,6 @@
 }
 
 .settings-wrapper {
-  /* border: 1px solid red; */
   width: 50%;
   margin: 0 auto;
   background-color: #f9f9f9;
@@ -71,7 +70,6 @@
 
 .settings-modal-wrapper,
 .fixvalues-modal-wrapper {
-  /* background-color: white; */
   width: 300px;
   /* height: 200px; */
   padding: 15px;

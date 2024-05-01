@@ -12,7 +12,7 @@ function Navigation() {
     <div className='nav-wrapper'>
       <div className='nav-wrapper_left'>
         <NavLink to='/'><img className='icon' src={icon} alt='icon' style={{width: '50px'}} /></NavLink>
-        <div className='nav_app-name'>QuestLog</div>
+        <div className='nav_app-name' onClick={() => navigate('/')}>QuestLog</div>
         <div className='nav_link' onClick={() => navigate('/')}>
           <div className='nav_link_text'>Tasks</div>
         </div>
