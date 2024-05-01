@@ -84,12 +84,6 @@ QuestLog can be used for various purposes such as:
 - Setting and tracking tasks
 - Earning rewards and managing inventory
 
-Example code snippet:
-
-```python
-# Your code here
-```
-
 
 ## Project Status
 Project is: _in progress_
