@@ -5,6 +5,8 @@ import { getUserAvatar } from "../../redux/avatars";
 import { getShopEquipmentThunk } from '../../redux/shop';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import ShopSection from './ShopSection';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
 import './Shop.css';
 
 function Shop() {
@@ -30,6 +32,8 @@ function Shop() {
           <ShopSection equipment={equipment} />
         </div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }

@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation/Navigation";
-import Wave from "../components/Footer/Wave";
-import Footer from "../components/Footer";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -20,8 +18,6 @@ export default function Layout() {
       <ModalProvider>
         <Navigation />
         {isLoaded && <Outlet />}
-        {isLoaded && window.location.pathname !='/signup' && <Wave />}
-        {isLoaded && window.location.pathname !='/signup' && <Footer />}
         <Modal />
       </ModalProvider>
     </>
