@@ -13,15 +13,19 @@ import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
 import NewRewardField from '../Rewards/NewRewardFiled';
 import RewardItemTile from '../Rewards/RewardItemTile';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
 // import EditTaskModal from '../EditTaskModal/EditTaskModal';
 // import EquipmentItem from "./EquipmentItem";
 
 function TaskLandingPage() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-  const userTasks = useSelector((state) => Object.values(state.tasks));
-  const userAvatar = useSelector((state) => state.avatar);
-  const userRewards = useSelector((state) => Object.values(state.rewards));
+  const user = useSelector(state => state.session.user);
+  const userAvatar = useSelector(state => state.avatar);
+  const tasks = useSelector(state => state.tasks);
+  const rewards = useSelector(state => state.rewards);
+  const userTasks = Object.values(tasks);
+  const userRewards = Object.values(rewards);
   const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
@@ -114,6 +118,8 @@ function TaskLandingPage() {
           </div>
         </div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }

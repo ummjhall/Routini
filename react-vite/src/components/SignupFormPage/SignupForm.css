@@ -239,6 +239,10 @@ input:-webkit-autofill:active {
   text-align: center;
 }
 
+.signup-errors {
+  color: red !important;
+}
+
 @media only screen and (max-width: 1024px) {
   .landpage .container {
     flex-direction: row;
@@ -261,8 +265,13 @@ input:-webkit-autofill:active {
   .banner {
     display: none;
   }
+
   .signup {
     width: 100%;
+  }
+
+  .signup h1 {
+    margin-top: 1em;
   }
 
   .banner_img {
@@ -310,7 +319,7 @@ input:-webkit-autofill:active {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 450px) {
   .landpage .container {
     flex-direction: column;
   }
@@ -318,6 +327,10 @@ input:-webkit-autofill:active {
   .banner,
   .signup {
     width: 100%;
+  }
+
+  .signup h1 {
+    margin-top: 2em;
   }
 
   .banner_img {

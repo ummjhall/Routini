@@ -1,7 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { getUserAvatar } from '../../redux/avatars';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
 import './About.css';
 
 function About() {
+  const user = useSelector(state => state.session.user);
+  const avatar = useSelector(state => state.avatar.avatar);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user && !avatar) dispatch(getUserAvatar());
+  }, [user, avatar, dispatch]);
+
+  if (!user) return <Navigate to='/signup' replace={true} />;
 
   return (
     <>
@@ -54,7 +69,7 @@ function About() {
               GitHub
             </a>
             <a
-              href='https://www.linkedin.com'
+              href='https://www.linkedin.com/in/nikola-milinovich-4b0b261b8'
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -75,6 +90,8 @@ function About() {
         <div>Backend: Python-Flask</div>
         <div>Frontend: JavaScript-React</div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }

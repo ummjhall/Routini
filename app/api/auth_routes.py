@@ -69,7 +69,7 @@ def sign_up():
     if 'email' in form.errors and 'Email address is already in use.' in form.errors['email']:
         errors['email'] = 'Email address is already in use'
     if errors:
-        return {'message': 'User already exists', 'errors': errors}, 500
+        return {'message': 'User already exists', 'errors': errors}, 400
 
     return {'message': 'Unexpected error'}
 

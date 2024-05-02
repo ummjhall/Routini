@@ -5,6 +5,9 @@ import { getUserAvatar } from '../../redux/avatars';
 import { getUserEquipmentThunk } from '../../redux/equipment';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
 import EquipmentSection from './EquipmentSection';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
+import './Equipment.css';
 
 function Equipment() {
   const user = useSelector(state => state.session.user);
@@ -39,6 +42,8 @@ function Equipment() {
           <EquipmentSection heading='Armor' array={armorEquipment} />
         </div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }
