@@ -176,27 +176,33 @@
 /* ********** CURRENCY ******************************************************************************** */
 
 .currency-container {
-  cursor: default;
+  /* cursor: default; */
+  display: flex;
+  background-color: var(--secondary-color);
+  margin-left: 0;
 }
 
 .currency_gems-container {
-  margin: 16px 0;
+  margin-left: 0;
   display: flex;
   align-items: center;
   color: white;
+  margin-bottom: 1em;
 }
 
 .currency_gold-container {
   display: flex;
   align-items: center;
   color: var(--accent-light-gold);
+  margin-bottom: 1em;
 }
 
 .currency_gems,
 .currency_gold {
-  margin-right: 10px;
-  width: 100px;
-  text-align: right;
+  margin-left: 1em;
+  padding: 0;
+  width: 70%;
+  text-align: left;
   font-family: 'Cinzel Decorative', serif;
   font-size: 24px;
 }
@@ -204,4 +210,89 @@
 .currency_gems_img,
 .currency_gold_img {
   width: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* .view-avatar-container,
+  .tasks-container {
+    width: 90%;
+  }
+
+  .frame {
+    height: 120px;
+    width: 120px;
+  }
+
+  .health-bar-border,
+  .exp-bar-border {
+    width: 150px;
+  }
+
+  .currency_gems,
+  .currency_gold {
+    font-size: 20px;
+  }
+
+  .currency_gems_img,
+  .currency_gold_img {
+    width: 40px;
+  } */
+}
+
+@media only screen and (max-width: 480px) {
+  .view-avatar-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+  }
+
+  .view-avatar-container {
+    width: 100%;
+  }
+
+  .frame {
+    height: 100px;
+    width: 100px;
+  }
+
+  .health-bar-border,
+  .exp-bar-border {
+    /* width: 100%; */
+  }
+
+  .currency_gems-container {
+    margin-bottom: 0.5em;
+  }
+
+  .currency_gold-container {
+    margin-bottom: 0.5em;
+  }
+
+  .exp-img,
+  .name-img,
+  .health-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .currency-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .currency_gems,
+  .currency_gold {
+    font-size: 14px;
+  }
+
+  .currency_gems_img,
+  .currency_gold_img {
+    width: 50px;
+  }
+
+  .health-bar-border, .exp-bar-border {
+    width: 150px;
+  }
 }

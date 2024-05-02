@@ -9,9 +9,15 @@ function ViewAvatar({ hideCurrency }) {
   const userEquipment = useSelector((state) => state.equipment);
   const { setModalContent } = useModal();
 
-  const headEquipment = Object.values(userEquipment).filter(item => item.type == 'head');
-  const armorEquipment = Object.values(userEquipment).filter(item => item.type == 'armor');
-  const mainEquipment = Object.values(userEquipment).filter(item => item.type == 'main');
+  const headEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'head'
+  );
+  const armorEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'armor'
+  );
+  const mainEquipment = Object.values(userEquipment).filter(
+    (item) => item.type == 'main'
+  );
 
   const handleImgClick = () => {
     setModalContent(
@@ -28,7 +34,7 @@ function ViewAvatar({ hideCurrency }) {
     <>
       <div className="view-avatar-banner">
         <div className="view-avatar-container">
-          <div className='view-avatar-sub-container'>
+          <div className="view-avatar-sub-container">
             <div className="frame">
               <div className="overlay">
                 <div className="avatar" onClick={handleImgClick}>
@@ -56,6 +62,7 @@ function ViewAvatar({ hideCurrency }) {
                   </div>
                 </div>
               </div>
+
               <div className="health">
                 <img
                   className="health-img"
@@ -74,6 +81,7 @@ function ViewAvatar({ hideCurrency }) {
                   <small>{userAvatar?.health} / 50</small>
                 </div>
               </div>
+
               <div className="exp">
                 <img
                   className="exp-img"
@@ -94,30 +102,29 @@ function ViewAvatar({ hideCurrency }) {
               </div>
             </div>
           </div>
+        </div>
 
-          {!hideCurrency &&
-          <div className='currency-container'>
-            <div className='currency_gems-container'>
-              <div className='currency_gems'>{userAvatar?.gems}</div>
+      </div>
+        {!hideCurrency && (
+          <div className="currency-container">
+            <div className="currency_gems-container">
+              <div className="currency_gems">{userAvatar?.gems}</div>
               <img
-                className='currency_gems_img'
-                src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/gem_dvrsry.png'
-                alt='Gem count'
+                className="currency_gems_img"
+                src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/gem_dvrsry.png"
+                alt="Gem count"
               />
             </div>
-            <div className='currency_gold-container'>
-              <div className='currency_gold'>{userAvatar?.gold}</div>
+            <div className="currency_gold-container">
+              <div className="currency_gold">{userAvatar?.gold}</div>
               <img
-                className='currency_gold_img'
-                src='https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png'
-                alt='Gold count'
+                className="currency_gold_img"
+                src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711434244/coin_l2gdi1.png"
+                alt="Gold count"
               />
             </div>
           </div>
-          }
-
-        </div>
-      </div>
+        )}
     </>
   );
 }

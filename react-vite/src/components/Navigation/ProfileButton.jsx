@@ -5,7 +5,6 @@ import { useModal } from '../../context/Modal';
 import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from '../../redux/session';
 import EditAvatar from '../EditAvatar';
-// import OpenModalMenuItem from './OpenModalMenuItem';
 
 function ProfileButton() {
   const user = useSelector((store) => store.session.user);
@@ -31,7 +30,7 @@ function ProfileButton() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -124,25 +123,6 @@ function ProfileButton() {
                 >
                   Shop
                 </NavLink>
-                {/*
-                <div
-                  className="pd-font profile-dropdown_profile"
-                  onClick={goToTasks}
-                >
-                  Tasks
-                </div> */}
-                {/* <div
-                  className="pd-font profile-dropdown_profile"
-                  onClick={goToInventory}
-                >
-                  Inventory
-                </div> */}
-                {/* <div
-                  className="pd-font profile-dropdown_profile"
-                  onClick={goToShop}
-                >
-                  Shop
-                </div> */}
               </div>
             )}
             <div
