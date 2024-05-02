@@ -13,6 +13,8 @@ import NewHabitField from './NewHabitField';
 import NewToDoField from './NewToDoField';
 import NewRewardField from '../Rewards/NewRewardFiled';
 import RewardItemTile from '../Rewards/RewardItemTile';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
 // import EditTaskModal from '../EditTaskModal/EditTaskModal';
 // import EquipmentItem from "./EquipmentItem";
 
@@ -114,6 +116,8 @@ function TaskLandingPage() {
           </div>
         </div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }

@@ -6,6 +6,8 @@ import { useModal } from '../../context/Modal';
 import SettingsModal from './SettingsModal';
 import FixValuesModal from './FixValuesModal';
 import ViewAvatar from '../ViewAvatar/ViewAvatar';
+import Wave from '../Footer/Wave';
+import Footer from '../Footer';
 import './Settings.css';
 
 function Settings() {
@@ -80,6 +82,8 @@ function Settings() {
           </div>
         </div>
       </div>
+      <Wave />
+      <Footer />
     </>
   );
 }
