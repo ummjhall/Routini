@@ -4,7 +4,7 @@ from sqlalchemy.sql import text
 
 def seed_tasks():
     seeds = [
-        Task(user_id=1, type='habit', title='Floss', description=None, difficulty=1),
+        Task(user_id=1, type='habit', title='Floss', description=None, difficulty=1, ),
         Task(user_id=1, type='habit', title='Clean up clutter', description='Clean up around the house', difficulty=2),
         Task(user_id=1, type='habit', title='Practice guitar', description='Shred that thing', difficulty=3),
         Task(user_id=1, type='habit', title='Get to sleep on time', description=None, difficulty=4),
