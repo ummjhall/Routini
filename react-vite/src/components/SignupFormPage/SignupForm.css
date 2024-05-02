@@ -239,6 +239,10 @@ input:-webkit-autofill:active {
   text-align: center;
 }
 
+.signup-errors {
+  color: red !important;
+}
+
 @media only screen and (max-width: 1024px) {
   .landpage .container {
     flex-direction: row;

@@ -144,3 +144,9 @@ input:-webkit-autofill:active {
 .login_demo_signin:hover {
   background-color: rgb(5, 80, 80);
 }
+
+.login-error {
+  font-weight: bold;
+  font-size: 18px;
+  color: red !important;
+}
