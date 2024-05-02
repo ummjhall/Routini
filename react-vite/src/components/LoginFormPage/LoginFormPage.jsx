@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { thunkLogin } from '../../redux/session';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { thunkLogin } from '../../redux/session';
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -14,27 +14,20 @@ function LoginFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serverResponse = await dispatch(
-      thunkLogin({
-        credential: email,
-        password,
-      })
+    const res = await dispatch(
+      thunkLogin({credential: email, password})
     );
 
-    if (serverResponse) {
-      setErrors(serverResponse);
-    } else {
+    if (res.message)
+      setErrors(res);
+    else
       navigate('/');
-    }
   };
 
   const handleDemoLogin = async () => {
     await dispatch(
-      thunkLogin({
-        credential: 'Demo',
-        password: 'password'
-      })
-    )
+      thunkLogin({credential: 'Demo', password: 'password'})
+    );
     navigate('/');
   };
 
@@ -45,8 +38,7 @@ function LoginFormPage() {
           <div className="container">
             <div className="login">
               <h1>QuestLog</h1>
-              {errors.length > 0 &&
-                errors.map((message) => <p key={message}>{message}</p>)}
+              {errors.message && <p className='login-error'>{errors.message}</p>}
               <form onSubmit={handleSubmit}>
                 <label>
                   Email or Username (case-sensitive)
@@ -58,7 +50,7 @@ function LoginFormPage() {
                     required
                   />
                 </label>
-                {errors.email && <p>{errors.email}</p>}
+                {errors.errors?.credential && <p className='login-error'>{errors.errors?.credential}</p>}
                 <label>
                   Password
                   <input
@@ -69,7 +61,7 @@ function LoginFormPage() {
                     required
                   />
                 </label>
-                {errors.password && <p>{errors.password}</p>}
+                {errors.errors?.password && <p className='login-error'>{errors.errors?.password}</p>}
                 <button className="btn-login" type="submit">
                   Log In
                 </button>
