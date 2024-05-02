@@ -20,10 +20,12 @@ import Footer from '../Footer';
 
 function TaskLandingPage() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-  const userTasks = useSelector((state) => Object.values(state.tasks));
-  const userAvatar = useSelector((state) => state.avatar);
-  const userRewards = useSelector((state) => Object.values(state.rewards));
+  const user = useSelector(state => state.session.user);
+  const userAvatar = useSelector(state => state.avatar);
+  const tasks = useSelector(state => state.tasks);
+  const rewards = useSelector(state => state.rewards);
+  const userTasks = Object.values(tasks);
+  const userRewards = Object.values(rewards);
   const { setModalContent, closeModal } = useModal();
 
   const dailies = [];
