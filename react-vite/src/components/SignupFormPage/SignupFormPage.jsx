@@ -34,17 +34,10 @@ function SignupFormPage() {
       });
     }
 
-    const res = await dispatch(
-      thunkSignup({email, username, password})
-    );
+    const res = await dispatch(thunkSignup({ email, username, password }));
 
-    console.log('******************');
-    console.log(res);
-
-    if (res)
-      setErrors(res);
-    else
-      navigate('/');
+    if (res) setErrors(res);
+    else navigate('/');
   };
 
   return (
@@ -69,9 +62,12 @@ function SignupFormPage() {
               <h1>Begin your Adventure!</h1>
               <h3>Prepare for your adventure by creating your character: </h3>
               <p>
-                Choose your adventurer username carefully! Keep it clean to avoid the dragon&#39;s wrath!
+                Choose your adventurer username carefully! Keep it clean to
+                avoid the dragon&#39;s wrath!
               </p>{' '}
-              {errors.message && errors.message != 'Bad request' && <p className='signup-errors'>{errors.message}</p>}
+              {errors.message && errors.message != 'Bad request' && (
+                <p className="signup-errors">{errors.message}</p>
+              )}
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -80,7 +76,9 @@ function SignupFormPage() {
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
-                {errors.errors?.username && <p className='signup-errors'>{errors.errors?.username}</p>}
+                {errors.errors?.username && (
+                  <p className="signup-errors">{errors.errors?.username}</p>
+                )}
                 <input
                   type="text"
                   value={email}
@@ -88,7 +86,9 @@ function SignupFormPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                {errors.errors?.email && <p className='signup-errors'>{errors.errors?.email}</p>}
+                {errors.errors?.email && (
+                  <p className="signup-errors">{errors.errors?.email}</p>
+                )}
                 <input
                   type="password"
                   className="input_bg"
@@ -97,7 +97,9 @@ function SignupFormPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                {errors.errors?.password && <p className='signup-errors'>{errors.errors?.password}</p>}
+                {errors.errors?.password && (
+                  <p className="signup-errors">{errors.errors?.password}</p>
+                )}
                 <input
                   type="password"
                   value={confirmPassword}
@@ -105,7 +107,9 @@ function SignupFormPage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
-                {errors.confirmPassword && <p className='signup-errors'>{errors.confirmPassword}</p>}
+                {errors.confirmPassword && (
+                  <p className="signup-errors">{errors.confirmPassword}</p>
+                )}
                 <p>
                   Brace yourself! By clicking below, you vow to honor the Terms
                   of Service and Privacy Policy scrolls. Adventure awaits!
@@ -149,6 +153,7 @@ function SignupFormPage() {
                 src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711074668/landpage_rewards_card_enp3fm.png"
                 alt="card_one"
               />
+              <p style={{ color: 'red' }}>Feature Coming Soon!</p>
               <h3>Claim Rewards for Your Quests</h3>
               <p>
                 Vanquish tasks to ascend your Avatar and unveil in-game
@@ -161,6 +166,7 @@ function SignupFormPage() {
                 src="https://res.cloudinary.com/drv1e8rjp/image/upload/v1711075525/landpage_equip_card_q5f6ts.png"
                 alt="card_one"
               />
+              <p style={{ color: 'red' }}>Feature Coming Soon!</p>
               <h3>Discover Enchanted Gear!</h3>
               <p>
                 Exchange your hard-earned Gold for enchanted equipment to level
@@ -217,8 +223,8 @@ function SignupFormPage() {
               />
               <h3>Endless Adventures Await!</h3>
               <p>
-                With QuestLog&#39;s versatile record book, the possibilities are as
-                vast as the realms of the imagination! Craft epic sagas,
+                With QuestLog&#39;s versatile record book, the possibilities are
+                as vast as the realms of the imagination! Craft epic sagas,
                 prioritize self-care quests, or embark on any other quest you
                 desire — the choice is yours!
               </p>

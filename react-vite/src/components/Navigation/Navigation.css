@@ -56,11 +56,15 @@
 /* ***** PROFILE BUTTON ******************************************************************************** */
 
 .profile-button {
-  /* margin-right: 24px; */
   width: 45px;
   height: 45px;
   margin-right: 52px;
   cursor: pointer;
+  color: white;
+}
+
+.profile-button:hover {
+  color: var(--accent-light-gold);
 }
 
 .profile-dropdown {
