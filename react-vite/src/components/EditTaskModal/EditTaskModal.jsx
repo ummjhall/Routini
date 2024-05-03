@@ -124,7 +124,7 @@ function EditTaskModal({ user, task }) {
       errHits.duedate = 'Due date is required.';
     }
     setErrors(errHits);
-    console.log(errors);
+
     if (!Object.values(errors).length) {
       dispatch(editTask(editedDaily)).then(setErrors({})).then(closeModal());
     } else {

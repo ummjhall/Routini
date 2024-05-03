@@ -53,7 +53,6 @@ export const postNewTask = (task) => async (dispatch) => {
 };
 
 export const editTask = (task) => async dispatch => {
-    console.log(task)
     const resTask = await csrfFetch(`/api/tasks/current/${task.id}`,
         {
             headers: {
@@ -66,7 +65,7 @@ export const editTask = (task) => async dispatch => {
     if(resTask.ok) {
       const updatedTask = await resTask.json();
       dispatch(updateTask(updatedTask));
-      console.log(updatedTask)
+
       return updatedTask
     }
     return resTask
