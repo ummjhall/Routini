@@ -5,15 +5,22 @@ import { useDispatch } from 'react-redux';
 function NewDailyField() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
+  const [errors, setErrors] = useState({})
 
   const handleNewTask = async (e) => {
     e.preventDefault();
-    const newTask = { title, type: 'daily' };
-    console.log(newTask);
-    if (title) {
+    setErrors({})
+    const newTask = { title, type: 'to-do' };
+    if (title.trim().length === 0) {
+      errors.title = 'Title must have text';
+      setErrors(errors)
+      setTitle('')
+    }
+    else {
       return dispatch(postNewTask(newTask)).then(setTitle(''));
     }
   };
+
   return (
     <form onSubmit={handleNewTask}>
       <label>
@@ -26,6 +33,7 @@ function NewDailyField() {
           required
         />
       </label>
+      {errors.title && <p className='error'>{errors.title}</p>}
       {/* <button> Create Task</button> */}
     </form>
   );
