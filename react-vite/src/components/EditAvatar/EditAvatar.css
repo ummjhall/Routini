@@ -321,7 +321,7 @@
 .modal {
   text-align: center;
   background-color: var(--secondary-color);
-  border: 5px double var(  --accent-color-gold);
+  border: 5px double var(--accent-color-gold);
   border-radius: 10px;
   padding: 1em;
   color: #dbd8e3;
@@ -346,7 +346,7 @@
     display: block;
   }
 
-  .edit-avatar-modal-wrapper{
+  .edit-avatar-modal-wrapper {
     width: calc(100vw - 1em);
   }
 }

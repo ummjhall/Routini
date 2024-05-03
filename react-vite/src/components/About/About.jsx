@@ -89,6 +89,7 @@ function About() {
         <div>Database: PostgreSQL</div>
         <div>Backend: Python-Flask</div>
         <div>Frontend: JavaScript-React</div>
+        <br />
       </div>
       <Wave />
       <Footer />

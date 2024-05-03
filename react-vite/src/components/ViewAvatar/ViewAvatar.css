@@ -212,17 +212,16 @@
 
 @media only screen and (max-width: 768px) {
   .view-avatar-banner {
-    /* background-color: blue; */
     overflow: hidden;
     margin: 0;
     padding: 0;
   }
+
   .view-avatar-container {
     width: max-content;
     box-sizing: border-box;
     margin: 0;
     position: relative;
-    /* background-color: red; */
     display: block;
     justify-content: space-between;
   }
