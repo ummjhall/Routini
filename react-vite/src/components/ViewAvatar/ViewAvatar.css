@@ -1,8 +1,6 @@
 .view-avatar-banner {
   background-color: var(--secondary-color);
   height: 200px;
-  /* margin: 0 -8px; */
-  /* width: 100%; */
 }
 
 .view-avatar-container {
@@ -213,30 +211,21 @@
 }
 
 @media only screen and (max-width: 768px) {
-  /* .view-avatar-container,
-  .tasks-container {
-    width: 90%;
+  .view-avatar-banner {
+    /* background-color: blue; */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
-
-  .frame {
-    height: 120px;
-    width: 120px;
+  .view-avatar-container {
+    width: max-content;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    /* background-color: red; */
+    display: block;
+    justify-content: space-between;
   }
-
-  .health-bar-border,
-  .exp-bar-border {
-    width: 150px;
-  }
-
-  .currency_gems,
-  .currency_gold {
-    font-size: 20px;
-  }
-
-  .currency_gems_img,
-  .currency_gold_img {
-    width: 40px;
-  } */
 }
 
 @media only screen and (max-width: 480px) {
@@ -292,7 +281,8 @@
     width: 50px;
   }
 
-  .health-bar-border, .exp-bar-border {
+  .health-bar-border,
+  .exp-bar-border {
     width: 150px;
   }
 }
