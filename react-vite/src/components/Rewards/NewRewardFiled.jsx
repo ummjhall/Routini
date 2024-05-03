@@ -5,15 +5,24 @@ import { createNewReward } from '../../redux/rewards';
 function NewRewardField() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleNewReward = async (e) => {
     e.preventDefault();
 
     const newReward = { title, cost: 10 };
     if (title) {
+    }
+    if (title.trim().length === 0) {
+      errors.title = 'Title must have text';
+      setErrors(errors)
+      setTitle('')
+    }
+    else {
       return dispatch(createNewReward(newReward)).then(setTitle(''));
     }
   };
+
   return (
     <form onSubmit={handleNewReward}>
       <input
@@ -24,7 +33,7 @@ function NewRewardField() {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
-
+      {errors.title && <p className='error'>{errors.title}</p>}
       {/* <button type="submit">Create Reward</button> */}
     </form>
   );
