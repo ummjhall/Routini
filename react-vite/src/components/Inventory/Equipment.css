@@ -125,6 +125,11 @@
   min-width: 90px;
 }
 
+.imb-rename-container {
+  display: flex;
+  column-gap: 10px;
+}
+
 .imb-rename {
   background-color: var(--primary-color);
   margin: 10px 0 15px;

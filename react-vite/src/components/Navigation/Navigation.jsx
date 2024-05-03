@@ -5,7 +5,7 @@ import icon from '../../../images/questlog-icon3.jpg';
 import './Navigation.css';
 
 function Navigation() {
-  const user = useSelector((state) => state.session.user);
+  const user = useSelector(state => state.session.user);
   const navigate = useNavigate();
 
   return user ? (
