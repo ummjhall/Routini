@@ -86,14 +86,10 @@ function ItemModal({item, shopItem}) {
     setRenaming(prev => !prev);
   };
 
-  const preserveName = (e) => {
-    setNewName(e.target.value);
-    setPreservedNewName(e.target.value);
-  };
-
-  // Rename item
+  // Rename the item
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPreservedNewName(newName)
     await dispatch(renameItemThunk(
       item.id,
       {nickname: newName}
@@ -102,37 +98,65 @@ function ItemModal({item, shopItem}) {
     setRenaming(false);
   };
 
+  // Cancel renaming the item
+  const handleCancel = async () => {
+    setNewName(item.nickname);
+    setRenaming(prev => !prev);
+  };
+
   return (
     <div className='item-modal-wrapper'>
       <div className='item-modal-name'>
         {renaming ?
-        (<form onSubmit={handleSubmit}>
-          <input
-            className='item-modal-rename-field'
-            type='text'
-            placeholder={item.name}
-            maxLength={40}
-            value={newName}
-            onChange={preserveName}
-          />
-        </form>) :
-        newName || preservedNewName || item.nickname || item.name}
+          (<form onSubmit={handleSubmit}>
+            <input
+              className='item-modal-rename-field'
+              type='text'
+              placeholder={item.name}
+              maxLength={40}
+              value={newName}
+              onChange={e => setNewName(e.target.value)}
+            />
+          </form>) :
+          preservedNewName || newName || item.nickname || item.name
+        }
       </div>
       <div className='item-modal-description'>{item.description}</div>
       <img className='item-modal-img' src={item.image_url} style={{maxWidth: '120px'}} />
       {shopItem &&
         <div
           className={`item-modal-buttons imb-buy ${avatar.gold - item.cost < 0 ? 'disabled' : ''}`}
-          onClick={handleBuy}>
+          onClick={handleBuy}
+        >
           Buy: {item.cost} Gold
         </div>
       }
-      {!shopItem &&
-        <div
-          className='item-modal-buttons imb-rename'
-          onClick={handleRenameClick}>
-          {renaming ? 'Cancel' : 'Rename'}
-        </div>}
+      <div className='imb-rename-container'>
+        {!shopItem && !renaming &&
+          <div
+            className='item-modal-buttons imb-rename'
+            onClick={handleRenameClick}
+          >
+            Rename
+          </div>
+        }
+        {!shopItem && renaming &&
+          <div
+            className='item-modal-buttons imb-rename'
+            onClick={handleCancel}
+          >
+            Cancel
+          </div>
+        }
+        {!shopItem && renaming &&
+          <div
+            className='item-modal-buttons imb-rename'
+            onClick={handleSubmit}
+          >
+            Confirm
+          </div>
+        }
+      </div>
       {!shopItem &&
         <div className='item-modal-buttons-container'>
           <div className='item-modal-buttons imb-equip' onClick={handleEquip}>{equipped ? 'Unequip' : 'Equip'}</div>
