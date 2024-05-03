@@ -57,7 +57,6 @@ export const createUserAvatar =
   };
 
 export const editUserAvatar = (args) => async (dispatch) => {
-  console.log(args)
   const res = await csrfFetch('/api/avatars/current', {
     method: 'PUT',
     body: JSON.stringify({

@@ -9,7 +9,7 @@ function NewDailyField() {
   const handleNewTask = async (e) => {
     e.preventDefault();
     const newTask = { title, type: 'daily' };
-    console.log(newTask);
+
     if (title) {
       return dispatch(postNewTask(newTask)).then(setTitle(''));
     }

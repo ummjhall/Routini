@@ -40,3 +40,9 @@
 .about-stack {
   margin-top: 32px;
 }
+
+@media screen and (max-width: 768px) {
+  .about-wrapper{
+    width: calc(100vw - 20px);
+  }
+}
