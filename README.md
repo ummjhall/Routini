@@ -30,11 +30,9 @@
 
 
 ## Features
-- Personalized avatars creation
 - Task management (habits, dailies, todos)
 - Reward system
 - Inventory management
-- Drag-and-drop functionality
 - Leveling system with a shop
 
 
@@ -101,6 +99,8 @@ To do:
 
 - Implement social sharing features
 - Introduce a community forum for user interaction
+- Drag-and-drop functionality
+- Personalized avatars creation
 
 
 
