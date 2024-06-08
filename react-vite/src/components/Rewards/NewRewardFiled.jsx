@@ -11,8 +11,6 @@ function NewRewardField() {
     e.preventDefault();
 
     const newReward = { title, cost: 10 };
-    if (title) {
-    }
     if (title.trim().length === 0) {
       errors.title = 'Title must have text';
       setErrors(errors)

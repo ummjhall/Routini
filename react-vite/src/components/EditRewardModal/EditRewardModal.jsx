@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import { editReward, removeReward } from '../../redux/rewards';
@@ -28,18 +28,16 @@ function EditRewardModal({ user, reward }) {
       description,
       cost,
     };
-    let errHits = {};
 
-    if (!cost || !Number.isInteger(cost)) {
-      errHits.cost = 'Cost must be an integer';
-    }
-    setErrors(errHits);
-    if (!Object.values(errors).length) {
-      dispatch(editReward(editedReward)).then(closeModal());
+    if (!cost || !Number.isInteger(cost) || cost < 1) {
+      errors.cost = 'Cost must be a positve integer';
+      setErrors(errors);
+      setTitle(title);
     } else {
-      return setErrors(errHits);
+      return dispatch(editReward(editedReward)).then(closeModal());
     }
   };
+
 
   return (
     <>
