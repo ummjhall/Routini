@@ -86,6 +86,7 @@ def upgrade():
     sa.Column('start_date', sa.Date(), nullable=True),
     sa.Column('repeats_every', sa.Integer(), nullable=True),
     sa.Column('due_date', sa.Date(), nullable=True),
+    sa.Column('complete', sa.Boolean(), default=True, nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

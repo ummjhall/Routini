@@ -16,7 +16,7 @@ class Task(db.Model):
     start_date = db.Column(db.Date)
     repeats_every = db.Column(db.Integer)
     due_date = db.Column(db.Date)
-
+    complete = db.Column(db.Boolean, default=False, nullable=False)
     user = db.relationship('User', back_populates='tasks')
 
     def to_dict(self):
@@ -29,5 +29,6 @@ class Task(db.Model):
             'difficulty': self.difficulty,
             'start_date': self.start_date,
             'repeats_every': self.repeats_every,
-            'due_date': self.due_date
+            'due_date': self.due_date,
+            'complete': self.complete
         }
